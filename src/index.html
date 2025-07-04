@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uk">
+@@include('html/_head.htm',{
+"title":"SVK | HOME"
+})
+
+<body>
+	<div class="wrapper page-home">
+		@@include('html/_header.htm',{
+			"index": "_active",
+			"privat": "",
+			"industrial": "",
+			"household": "",
+			"cosmetics": "",
+			"about": "",
+			"catalog": "",
+			"contacts": "",
+			"blog": ""
+		})
+		<main class="page">
+			<section class="products">
+				<ul class="products__img img-products">
+					<li class="img-products__item active">
+						<picture>
+							<source srcset="@img/home/product-1-mb.jpg" media="(max-width: 30.061em)" type="image/webp">
+							<source srcset="@img/home/product-1-pc.jpg" media="(min-width: 30.061em)" type="image/webp">
+							<img class="ibg" src="@img/home/product-1-pc.jpg" width="1440" height="800" alt="image">
+						</picture>
+					</li>
+					<li class="img-products__item">
+						<picture>
+							<source srcset="@img/home/product-2-mb.jpg" media="(max-width: 30.061em)" type="image/webp">
+							<source srcset="@img/home/product-2-pc.jpg" media="(min-width: 30.061em)" type="image/webp">
+							<img class="ibg" src="@img/home/product-2-pc.jpg" width="1440" height="800" alt="image">
+						</picture>
+					</li>
+					<li class="img-products__item">
+						<picture>
+							<source srcset="@img/home/product-3-mb.jpg" media="(max-width: 30.061em)" type="image/webp">
+							<source srcset="@img/home/product-3-pc.jpg" media="(min-width: 30.061em)" type="image/webp">
+							<img class="ibg" src="@img/home/product-3-pc.jpg" width="1440" height="800" alt="image">
+						</picture>
+					</li>
+					<li class="img-products__item">
+						<picture>
+							<source srcset="@img/home/product-4-mb.jpg" media="(max-width: 30.061em)" type="image/webp">
+							<source srcset="@img/home/product-4-pc.jpg" media="(min-width: 30.061em)" type="image/webp">
+							<img class="ibg" src="@img/home/product-4-pc.jpg" width="1440" height="800" alt="image">
+						</picture>
+					</li>
+				</ul>
+				<div class="products__container">
+					<div class="products__slider swiper">
+						<ul class="products__wrapper swiper-wrapper">
+							<li class="products__slide slide-products swiper-slide">
+								<div class="slide-products__item">
+									<h1 class="slide-products__title title-60-35 mb-33-19">
+										Виробництво<br> промислової хімії
+									</h1>
+									<p class="slide-products__text mb-33-19">
+										Розробляємо рішення навіть для самих специфічних напрямів, розуміючи, наскільки важливим є фактор часу та безкомпромісність для великих підприємств
+									</p>
+									<a href="#" class="slide-products__btn btn btn--light btn--size-a">
+										<span class="btn-txt">детальніше</span>
+										<span class="btn-arrows"></span>
+									</a>
+								</div>
+							</li>
+							<li class="products__slide slide-products swiper-slide">
+								<div class="slide-products__item">
+									<h2 class="slide-products__title title-60-35 mb-33-19">
+										Виробництво<br> побутової хімії
+									</h2>
+									<p class="slide-products__text mb-33-19">
+										Ефективність та якість для нас давно стали не метою, а базисом. Ми йдемо далі — туди, де важливим є глибоке розуміння потреб ринку, актуальні тренди та сучасні запити
+									</p>
+									<a href="#" class="slide-products__btn btn btn--light btn--size-a">
+										<span class="btn-txt">детальніше</span>
+										<span class="btn-arrows"></span>
+									</a>
+								</div>
+							</li>
+							<li class="products__slide slide-products swiper-slide">
+								<div class="slide-products__item">
+									<h2 class="slide-products__title title-60-35 mb-33-19">
+										Виробництво <br>
+										косметики
+									</h2>
+									<p class="slide-products__text mb-33-19">
+										Досвід співпраці з більш ніж 50 європейськими
+										та національними брендами підтверджує ефективність
+										та рентабельність наших дій
+									</p>
+									<a href="#" class="slide-products__btn btn btn--light btn--size-a">
+										<span class="btn-txt">детальніше</span>
+										<span class="btn-arrows"></span>
+									</a>
+								</div>
+							</li>
+							<li class="products__slide slide-products swiper-slide">
+								<div class="slide-products__item">
+									<h2 class="slide-products__title title-60-35 mb-33-19">
+										Виробництво<br>
+										під Privat Label
+									</h2>
+									<p class="slide-products__text mb-33-19">
+										Досвід співпраці з більш ніж 50 європейськими
+										та національними брендами підтверджує ефективність
+										та рентабельність наших дій
+									</p>
+									<a href="#" class="slide-products__btn btn btn--light btn--size-a">
+										<span class="btn-txt">детальніше</span>
+										<span class="btn-arrows"></span>
+									</a>
+								</div>
+							</li>
+						</ul>
+						<div class="products__btns">
+							<button type="button" class="products__btn swiper-button-prev" aria-label="switch slide prev"></button>
+							<button type="button" class="products__btn swiper-button-next" aria-label="switch slide next"></button>
+						</div>
+					</div>
+					<div class="products__thumbs thumbs-products swiper">
+						<ul class="thumbs-products__wrapper swiper-wrapper">
+							<li class="thumbs-products__slide swiper-slide">
+								<div class="thumbs-products__item">
+									<picture>
+										<source srcset="@img/home/thumbs-1.jpg" media="(max-width: 30.061em)" type="image/webp">
+										<img class="ibg" src="@img/home/thumbs-1.jpg" width="165" height="121" alt="image">
+									</picture>
+									<p>Промислова<br> хімія</p>
+								</div>
+							</li>
+							<li class="thumbs-products__slide swiper-slide">
+								<div class="thumbs-products__item">
+									<picture>
+										<source srcset="@img/home/thumbs-2.jpg" media="(max-width: 30.061em)" type="image/webp">
+										<img class="ibg" src="@img/home/thumbs-2.jpg" width="165" height="121" alt="image">
+									</picture>
+									<p>Побутова<br> хімія</p>
+								</div>
+							</li>
+							<li class="thumbs-products__slide swiper-slide">
+								<div class="thumbs-products__item">
+									<picture>
+										<source srcset="@img/home/thumbs-3.jpg" media="(max-width: 30.061em)" type="image/webp">
+										<img class="ibg" src="@img/home/thumbs-3.jpg" width="165" height="121" alt="image">
+									</picture>
+									<p>Косметична<br> продукція</p>
+								</div>
+							</li>
+							<li class="thumbs-products__slide swiper-slide">
+								<div class="thumbs-products__item">
+									<picture>
+										<source srcset="@img/home/thumbs-4.jpg" media="(max-width: 30.061em)" type="image/webp">
+										<img class="ibg" src="@img/home/thumbs-4.jpg" width="165" height="121" alt="image">
+									</picture>
+									<p>Private<br> Lable</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<ul class="products__social social-products">
+						<li class="social-products__item">
+							<a href="#" class="social-products__link" aria-label="link to the social">
+								<img src="@img/icons/it.svg" width="22" height="22" alt="Image">
+							</a>
+						</li>
+						<li class="social-products__item">
+							<a href="#" class="social-products__link" aria-label="link to the social">
+								<img src="@img/icons/fb.svg" width="22" height="22" alt="Image">
+							</a>
+						</li>
+						<li class="social-products__item">
+							<a href="#" class="social-products__link" aria-label="link to the social">
+								<img src="@img/icons/in.svg" width="22" height="22" alt="Image">
+							</a>
+						</li>
+					</ul>
+					<div class="products__side-nav">
+						<button type="button" class="products__side-btn" data-slide="0" aria-label="switch slide">Промислова хімія</button>
+						<button type="button" class="products__side-btn" data-slide="1" aria-label="switch slide">Побутова хімія</button>
+						<button type="button" class="products__side-btn" data-slide="2" aria-label="switch slide">Косметика</button>
+						<button type="button" class="products__side-btn" data-slide="3" aria-label="switch slide">Private Label</button>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="text__container">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, omnis cum? Neque fugit obcaecati esse, repudiandae sint veritatis dolores dignissimos temporibus quae deserunt! Ut nesciunt labore illum corrupti possimus officiis?</p>
+					<br><br><br><br><br><br><br><br><br>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
