@@ -98,6 +98,127 @@ function initSliders() {
 		updateSideNav(productsSlider.realIndex);
 		updateBackground(productsSlider.realIndex);
 	}
+
+	if (document.querySelector('.catalog-slider__slider')) {
+		const catalogSwiper = new Swiper('.catalog-slider__slider', {
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 5,
+			centeredSlides: true,
+			loop: true,
+			spaceBetween: 20,
+			speed: 400,
+			navigation: {
+				prevEl: '.catalog-slider__slider .swiper-button-prev',
+				nextEl: '.catalog-slider__slider .swiper-button-next',
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 2,
+					spaceBetween: 10,
+				},
+				481: {
+					slidesPerView: 5,
+					spaceBetween: 20,
+				},
+			},
+			on: {
+				init(swiper) {
+					updateVisibleSlides(swiper);
+					updateSlideTitle(swiper);
+				},
+				slideChange(swiper) {
+					updateVisibleSlides(swiper);
+					updateSlideTitle(swiper);
+				},
+				resize(swiper) {
+					updateVisibleSlides(swiper);
+					updateSlideTitle(swiper);
+				}
+			}
+		});
+
+		function updateVisibleSlides(swiper) {
+			// Удаляем класс со всех слайдов
+			swiper.slides.forEach(slide => {
+				slide.classList.remove('is-visible');
+			});
+
+			const slidesPerView = swiper.params.slidesPerView;
+			const activeIndex = swiper.activeIndex;
+			const half = Math.floor(slidesPerView / 2);
+
+			for (let i = -half; i <= half; i++) {
+				const index = activeIndex + i;
+				const slide = swiper.slides[index];
+				if (slide) {
+					slide.classList.add('is-visible');
+				}
+			}
+		}
+
+		function updateSlideTitle(swiper) {
+			const usageElement = document.querySelector('.catalog-slider__usage');
+			const nameElement = document.querySelector('.catalog-slider__name-product');
+
+			const activeSlide = swiper.slides[swiper.activeIndex];
+			if (!activeSlide) return;
+
+			// Область применения
+			if (usageElement) {
+				const usage = activeSlide.getAttribute('data-slide-usage') || '';
+				usageElement.textContent = usage;
+			}
+
+			// Название продукта
+			if (nameElement) {
+				const name = activeSlide.getAttribute('data-slide-name') || '';
+				nameElement.textContent = name;
+			}
+		}
+
+	}
+
+
+	if (document.querySelector('.news__slider')) {
+		new Swiper('.news__slider', {
+
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: "auto",
+			spaceBetween: 10,
+			speed: 400,
+
+			freeMode: true,
+
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			// navigation: {
+			// 	prevEl: '.swiper-button-prev',
+			// 	nextEl: '.swiper-button-next',
+			// },
+
+			breakpoints: {
+				320: {
+					spaceBetween: 25,
+				},
+				480: {
+					spaceBetween: 10,
+				},
+			},
+			// Події
+			on: {
+
+			}
+		});
+	}
+
 }
 window.addEventListener("load", function () {
 	initSliders();
@@ -106,19 +227,14 @@ window.addEventListener("load", function () {
 
 
 
-// // Список слайдерів
-// // Перевіряємо, чи є слайдер на сторінці
-// if (document.querySelector('.swiper')) { // Вказуємо склас потрібного слайдера
-// 	// Створюємо слайдер
-// 	new Swiper('.swiper', { // Вказуємо склас потрібного слайдера
-// 		// Підключаємо модулі слайдера
-// 		// для конкретного випадку
+// if (document.querySelector('.swiper')) { 
+// 	new Swiper('.swiper', { 
+
 // 		modules: [Navigation],
 // 		observer: true,
 // 		observeParents: true,
 // 		slidesPerView: 1,
 // 		spaceBetween: 0,
-// 		//autoHeight: true,
 // 		speed: 800,
 
 // 		//touchRatio: 0,

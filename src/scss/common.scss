@@ -68,6 +68,29 @@ html.lenis body {
   font-kerning: none;
 }
 
+.split-words {}
+
+.word {
+  overflow: hidden;
+
+  .word-span {
+    display: inline-block;
+  }
+}
+
+.split-words.set-span {
+  .word {
+    .word-span {
+      transform: translateY(110%);
+      transition: transform .8s cubic-bezier(.22, .89, .34, .96);
+
+      ._view & {
+        transform: translateY(0);
+        transition-delay: calc(var(--index) * .05s);
+      }
+    }
+  }
+}
 
 // .element {
 //   .line {
@@ -169,6 +192,7 @@ html.lenis body {
   height: 100%;
 }
 
+
 // %elImg {
 //      background-repeat: no-repeat;
 //     background-position: center;
@@ -231,25 +255,144 @@ html.lenis body {
   line-height: 1.07;
 }
 
-
+.title-34 {
+  @extend %fontProst;
+  @include adaptiveValue("font-size", 34, 23, 0, 1440.98, 480.98);
+  line-height: 1.07;
+}
 
 // == TEXTS =================
+.txt-main {
+  line-height: 1.46;
+  font-weight: 400;
+  @include adaptiveValue("font-size", 16, 14, 0, 1440.98, 480.98);
+}
 
+.txt-24 {
+  @include adaptiveValue("font-size", 24, 20, 0, 1440.98, 480.98);
+}
 
+.txt-18 {
+  // @extend %fontProst;
+  font-weight: 500;
+  font-size: toRem(18);
+  line-height: 1.076;
+  text-transform: uppercase;
+}
+
+.txt-14 {
+  @extend %fontProst;
+  @include adaptiveValue("font-size", 14, 10,0,1440.98,480.98);
+  line-height: 1.076;
+  // letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.txt-10 {
+  @extend %fontProst;
+  font-size: toRem(10);
+  line-height: 1.076;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+%fs14Upp {
+  font-size: toRem(14);
+  line-height: 1.076;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.t-shadow {
+  color: var(--white);
+  text-shadow: -1px 0 var(--primary), 0 1px var(--primary), 1px 0 var(--primary), 0 -1px var(--primary);
+}
+
+p {
+  text-wrap: balance;
+}
 
 // == MARGINS =================
 .mb-33-19 {
-  @include adaptiveValue("margin-bottom", 33, 19, 0, 1440.98, 480.98);
+  @include adaptiveValue("margin-block-end", 33, 19, 0, 1440.98, 480.98);
 }
 
+.mb-24-20 {
+  @include adaptiveValue("margin-block-end", 24, 20, 0, 1440.98, 480.98);
+}
+
+.mb-114-60 {
+  @include adaptiveValue("margin-block-end", 114, 60, 0, 1440.98, 480.98);
+}
+.mt-114-60 {
+  @include adaptiveValue("margin-block-start", 114, 60, 0, 1440.98, 480.98);
+}
+
+.mtb-60 {
+  @include adaptiveValue("margin-block", 60, 48, 0, 1440.98, 480.98);
+}
+
+.mt-60 {
+  @include adaptiveValue("margin-block-start", 60, 48, 0, 1440.98, 480.98);
+}
+
+.mb-60 {
+  @include adaptiveValue("margin-block-end", 60, 48, 0, 1440.98, 480.98);
+}
+.mb-50 {
+  @include adaptiveValue("margin-block-end", 50, 20, 0, 1440.98, 480.98);
+}
+
+.mb-20 {
+  margin-bottom: toRem(20);
+}
+.mb-21 {
+  @include adaptiveValue("margin-block-end", 21, 16, 0, 1440.98, 480.98);
+}
 
 // == PADDINGS ==================
 
+// == 60-48 =====
+.ptb-60 {
+  @include adaptiveValue("padding-block", 60, 48, 0, 1440.98, 480.98);
+}
 
+.pt-60 {
+  @include adaptiveValue("padding-block-start", 60, 48, 0, 1440.98, 480.98);
+}
+
+.pb-60 {
+  @include adaptiveValue("padding-block-end", 60, 48, 0, 1440.98, 480.98);
+}
+
+%pddLeft84 {
+  @media (min-width:toEm(1100.98)) {
+    padding-left: toRem(84);
+  }
+}
+
+
+
+// -- FONTS WEIGHT ===========================
 .fw-600 {
   font-weight: 600;
 }
 
+
+%container1150 {
+  @media (min-width:$tablet){
+     max-width: toRem(1150);
+     margin-inline: auto; 
+  }
+}
+
+
+
+.bg-dark {
+  background-color: var(--primary);
+  color: var(--white);
+}
 
 // == BUTTONS ==================
 %arrBtn {
@@ -266,10 +409,8 @@ html.lenis body {
   transition: transform .45s ease;
 }
 
-.btn {
+%btnMain {
   position: relative;
-  @extend %fontProst;
-  @extend %gridCenter;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   @include adaptiveValue("font-size", 14, 11, 0, 1440.98, 480.98);
@@ -277,9 +418,14 @@ html.lenis body {
   border-radius: toRem(100);
   max-width: max-content;
   width: 100%;
-
+  
   transition: background-color .3s ease, color .3s ease;
+}
 
+.btn {
+  @extend %fontProst;
+  @extend %gridCenter;
+  @extend %btnMain;
   span {
     display: inline-block;
     position: relative;
@@ -362,6 +508,185 @@ html.lenis body {
     @include adaptiveValue("min-width", 270, 216, 0, 1440.98, 480.98);
   }
 
+  &--size-b {
+    @include adaptiveValue("padding-inline", 67, 53, 0, 1440.98, 480.98);
+    
+    &:before {
+      background-image: url("@img/icons/arr-blue.svg");
+    }
+    
+    .btn-arrows {
+      &::before {
+        background-image: url("@img/icons/arr-white.svg");
+      }
+    }
+  }
+  
   &--height-a {}
 }
 
+.btn-sec {
+    @extend %fontProst;
+  @extend %gridCenter;
+  @extend %btnMain;
+  border: toRem(1) solid transparent;
+  @include adaptiveValue("padding-inline", 67, 53, 0, 1440.98, 480.98);
+  // .btn-sec--light 
+  &--light {
+     background-color: var(--white);
+    color: var(--primary);
+    @media (any-hover: hover){
+      &:hover{
+        background-color: var(--primary);
+        color: var(--white);
+        border-color: var(--white);
+      }
+    }
+  }
+  .btn-sec-txt {
+    display: inline-block;
+  }
+}
+
+
+
+// BLOCK INTRO ==========================
+.block-intro {
+  @extend %pddLeft84;
+  display: grid;
+  column-gap: toRem(67);
+  @include adaptiveValue("row-gap", 24, 20, 0, 1440.98, 480.98);
+
+  // .block-intro--clm
+  &--clm {
+    @media (min-width:toEm(820.98)) {
+      grid-template-columns: 42% 1fr;
+    }
+
+    @media (max-width:toEm(820.98)) {
+      grid-template-columns: 100%;
+    }
+  }
+
+  // .block-intro__head
+  &__head {}
+
+  // .block-intro__label
+  &__label {
+    display: inline-block;
+    @extend %fontProst;
+    @extend %fs14Upp;
+    color: var(--gray);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 18, 10, 0, 1440.98, 480.98);
+    }
+  }
+
+  // .block-intro__title
+  &__title {
+    @extend %fontProst;
+    // line-height: 1.076;
+    text-transform: uppercase;
+    @include adaptiveValue("font-size", 34, 24, 0, 1440.98, 480.98);
+  }
+
+  // .block-intro__link
+  &__link {}
+
+  // .block-intro__text
+  &__text {
+    line-height: 1.47;
+
+    .block-intro--clm & {
+      @media (min-width:toEm(820.98)) {
+        padding-block-start: toRem(33);
+      }
+    }
+
+  }
+
+  // .block-intro__t
+  &__t {
+    @include adaptiveValue("font-size", 16, 14, 0, 1440.98, 480.98);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 24, 20, 0, 1440.98, 480.98);
+    }
+  }
+
+  // .block-intro__wrapper
+  &__wrapper {
+    &--a {
+      max-width: toRem(500);
+    }
+  }
+}
+
+.btn-link {
+  @extend %flexCenter;
+  gap: toRem(18);
+  max-width: max-content;
+  @extend %fs14Upp;
+  @include adaptiveValue("margin-top", 32, 16, 0, 1440.98, 480.98);
+
+  span {
+    display: block;
+    @extend %hoverLine;
+
+    &:before {
+      background-color: var(--primary);
+
+      .touch & {
+        transform: scale(1);
+        transform-origin: 0 50%;
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: relative;
+    top: -1px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: transform .45s ease, opacity .3s ease;
+    @extend %imgContain;
+    background-image: url('@img/icons/arr-blue-2.svg');
+    width: toRem(6.5);
+    aspect-ratio: 5/10;
+
+    .touch & {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      &::after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &--dark {
+    span {
+
+      &:before {
+        background-color: var(--white);
+      }
+    }
+
+    &::after {
+      background-image: url('@img/icons/arr-white-2.svg');
+
+    }
+  }
+}
+
+
+.clr-gray {
+  color: var(--gray);
+}

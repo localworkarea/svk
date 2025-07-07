@@ -1,5 +1,5 @@
 %headerPdd {
-  @media (min-width:$tablet) {
+  @media (min-width:toEm(1100.98)) {
     padding-left: toRem(109);
   }
 }
