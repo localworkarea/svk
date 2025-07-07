@@ -47,6 +47,11 @@
     @extend %flexCenter;
     justify-content: space-between;
     gap: toRem(20);
+      opacity: 0;
+    .loaded & {
+      opacity: 1;
+      transition: opacity .45s ease .3s;
+    }
   }
 
   // .header__logo
@@ -352,11 +357,7 @@
 
   // .menu__container
   &__container {
-    opacity: 0;
-    .loaded & {
-      opacity: 1;
-      transition: opacity .3s ease;
-    }
+  
     @extend %headerPdd;
     @media (min-width:toEm(750.98)){
       padding-block-start: toRem(150);

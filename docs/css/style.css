@@ -640,7 +640,12 @@ p {
 }
 .header__container {
   justify-content: space-between;
-  gap: 1.25rem
+  gap: 1.25rem;
+  opacity: 0
+}
+.loaded .header__container {
+  opacity: 1;
+  transition: opacity .45s ease .3s
 }
 .header__logo {
   position: relative;
@@ -799,13 +804,6 @@ p {
   min-height: 100%;
   display: flex;
   align-items: flex-end
-}
-.menu__container {
-  opacity: 0
-}
-.loaded .menu__container {
-  opacity: 1;
-  transition: opacity .3s ease
 }
 .menu__top {
   display: flex;
@@ -1011,7 +1009,14 @@ p {
 }
 .products__slider {
   position: relative;
-  align-items: flex-end
+  align-items: flex-end;
+  visibility: hidden;
+  opacity: 0
+}
+.loaded .products__slider {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .45s ease,visibility .45s ease
 }
 .products__btns {
   position: absolute;
@@ -1100,14 +1105,7 @@ p {
   object-position: top
 }
 .slide-products {
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0
-}
-.loaded .slide-products {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .3s ease,visibility .3s ease
+  pointer-events: none
 }
 .slide-products.swiper-slide-active {
   pointer-events: all
