@@ -994,6 +994,10 @@ p {
   min-height: 100svh;
   color: var(--white)
 }
+.loaded .products {
+  opacity: 1!important;
+  transition: opacity .3s ease
+}
 .products::before {
   content: "";
   z-index: 2;

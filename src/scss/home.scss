@@ -5,6 +5,11 @@
   position: relative;
   min-height: 100svh;
   color: var(--white);
+  
+  .loaded & {
+    opacity: 1 !important;
+    transition: opacity .3s ease;
+  }
 
   &::before {
     content: '';
