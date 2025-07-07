@@ -2605,7 +2605,8 @@ p {
     display: none
   }
   .thumbs-products {
-    max-width: 100%
+    max-width: 100%;
+    display: block!important
   }
   .thumbs-products__item {
     position: relative;

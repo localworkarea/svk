@@ -7,7 +7,7 @@ import { pathtofiles } from "./config/gulp-settings.js";
 // Імпорт функціоналу NodeJS
 import fs from 'fs';
 
-import { criticalCss } from "./config/gulp-tasks/critical.js";
+// import { criticalCss } from "./config/gulp-tasks/critical.js";
 
 
 
@@ -50,16 +50,16 @@ const fonts = gulp.series(reset, function (done) {
 const devTasks = gulp.series(fonts, gitignore);
 // Порядок виконання завдань для режиму продакшн
 let buildTasks;
-// if (process.argv.includes('--nowebp')) {
-// 	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, imagesOptimize, copySvg), gitignore));
-// } else {
-// 	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, copySvg), gitignore));
-// }
 if (process.argv.includes('--nowebp')) {
-	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, imagesOptimize, copySvg), gitignore,criticalCss));
+	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, imagesOptimize, copySvg), gitignore));
 } else {
-	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, copySvg), gitignore,criticalCss));
+	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, copySvg), gitignore));
 }
+// if (process.argv.includes('--nowebp')) {
+// 	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, imagesOptimize, copySvg), gitignore,criticalCss));
+// } else {
+// 	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, copySvg), gitignore,criticalCss));
+// }
 
 
 // Експорт завдань

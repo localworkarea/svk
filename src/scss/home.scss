@@ -317,6 +317,7 @@
 
   @media (max-width:$mobileSmall) {
     max-width: 100%;
+    display: block !important;
   }
 
   // .thumbs-products__wrapper
