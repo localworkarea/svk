@@ -645,7 +645,7 @@ p {
 }
 .loaded .header__container {
   opacity: 1;
-  transition: opacity .45s ease .3s
+  transition: opacity .3s ease 0s
 }
 .header__logo {
   position: relative;
@@ -993,10 +993,6 @@ p {
   position: relative;
   min-height: 100svh;
   color: var(--white)
-}
-.loaded .products {
-  opacity: 1!important;
-  transition: opacity .3s ease
 }
 .products::before {
   content: "";
@@ -1599,7 +1595,12 @@ p {
     z-index: 3;
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
+    opacity: 0
+  }
+  .loaded .products__side-nav {
+    opacity: 1;
+    transition: opacity .3s ease
   }
   .slide-products {
     padding-block: 7.5rem
@@ -2611,6 +2612,13 @@ p {
   .thumbs-products {
     max-width: 100%;
     display: block!important
+  }
+  .thumbs-products__wrapper {
+    opacity: 0
+  }
+  .loaded .thumbs-products__wrapper {
+    transition: opacity .3s ease .2s;
+    opacity: 1
   }
   .thumbs-products__item {
     position: relative;

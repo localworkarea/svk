@@ -50,7 +50,7 @@
       opacity: 0;
     .loaded & {
       opacity: 1;
-      transition: opacity .45s ease .3s;
+      transition: opacity .3s ease 0s;
     }
   }
 
