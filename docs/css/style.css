@@ -207,8 +207,8 @@ html.lenis body {
   transition: transform .8s cubic-bezier(.22,.89,.34,.96),-webkit-transform .8s cubic-bezier(.22,.89,.34,.96)
 }
 ._view .split-words.set-span .word .word-span {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
+  -webkit-transform: translateY(10%);
+  transform: translateY(10%);
   transition-delay: calc(var(--index)*.05s)
 }
 [data-ticker] {

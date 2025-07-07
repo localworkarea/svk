@@ -7,6 +7,10 @@ import { pathtofiles } from "./config/gulp-settings.js";
 // Імпорт функціоналу NodeJS
 import fs from 'fs';
 
+import { criticalCss } from "./config/gulp-tasks/critical.js";
+
+
+
 // Передаємо значення у глобальну змінну
 global.app = {
 	isBuild: process.argv.includes('--build'),
@@ -47,9 +51,9 @@ const devTasks = gulp.series(fonts, gitignore);
 // Порядок виконання завдань для режиму продакшн
 let buildTasks;
 if (process.argv.includes('--nowebp')) {
-	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, imagesOptimize, copySvg), gitignore));
+	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, imagesOptimize, copySvg), gitignore,criticalCss));
 } else {
-	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, copySvg), gitignore));
+	buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, gulp.parallel(WebP, copySvg), gitignore,criticalCss));
 }
 
 

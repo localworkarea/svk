@@ -85,7 +85,7 @@ html.lenis body {
       transition: transform .8s cubic-bezier(.22, .89, .34, .96);
 
       ._view & {
-        transform: translateY(0);
+        transform: translateY(10%);
         transition-delay: calc(var(--index) * .05s);
       }
     }
