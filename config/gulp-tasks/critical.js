@@ -11,7 +11,7 @@ export const criticalCss = () => {
         css: [
           'dist/css/style.css'
         ],
-        width: 1300,
+        width: 480,
         height: 900,
         // minify: true
       })
