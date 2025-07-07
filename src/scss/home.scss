@@ -227,9 +227,11 @@
   @extend %pddLeft84;
   pointer-events: none;
   visibility: hidden;
-
+  opacity: 0;
   .loaded & {
+    opacity: 1;
     visibility: visible;
+    transition: opacity .3s ease, visibility .3s ease;
   }
 
   &.swiper-slide-active {

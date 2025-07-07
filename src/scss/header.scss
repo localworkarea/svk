@@ -352,6 +352,11 @@
 
   // .menu__container
   &__container {
+    opacity: 0;
+    .loaded & {
+      opacity: 1;
+      transition: opacity .3s ease;
+    }
     @extend %headerPdd;
     @media (min-width:toEm(750.98)){
       padding-block-start: toRem(150);

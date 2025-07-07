@@ -800,6 +800,13 @@ p {
   display: flex;
   align-items: flex-end
 }
+.menu__container {
+  opacity: 0
+}
+.loaded .menu__container {
+  opacity: 1;
+  transition: opacity .3s ease
+}
 .menu__top {
   display: flex;
   justify-content: space-between;
@@ -1094,10 +1101,13 @@ p {
 }
 .slide-products {
   pointer-events: none;
-  visibility: hidden
+  visibility: hidden;
+  opacity: 0
 }
 .loaded .slide-products {
-  visibility: visible
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s ease,visibility .3s ease
 }
 .slide-products.swiper-slide-active {
   pointer-events: all
