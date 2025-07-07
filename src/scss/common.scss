@@ -54,7 +54,9 @@ html.lenis body {
   padding-inline: toRem(25);
   margin-inline: auto;
   max-width: toRem(1370);
-  // @include adaptiveValue("max-width", 1580, 1180,0,1920.98,1440.98);
+}
+[class*="__container-b"] {
+  max-width: toRem(1200);
 }
 
 
@@ -268,6 +270,9 @@ html.lenis body {
   @include adaptiveValue("font-size", 16, 14, 0, 1440.98, 480.98);
 }
 
+.txt-26 {
+  @include adaptiveValue("font-size", 26, 18, 0, 1440.98, 480.98);
+}
 .txt-24 {
   @include adaptiveValue("font-size", 24, 20, 0, 1440.98, 480.98);
 }
@@ -328,6 +333,9 @@ p {
 .mt-114-60 {
   @include adaptiveValue("margin-block-start", 114, 60, 0, 1440.98, 480.98);
 }
+.mb-85 {
+  @include adaptiveValue("margin-block-end", 85, 52, 0, 1440.98, 480.98);
+}
 
 .mtb-60 {
   @include adaptiveValue("margin-block", 60, 48, 0, 1440.98, 480.98);
@@ -349,6 +357,9 @@ p {
 }
 .mb-21 {
   @include adaptiveValue("margin-block-end", 21, 16, 0, 1440.98, 480.98);
+}
+.mb-16 {
+  @include adaptiveValue("margin-block-end", 16, 14, 0, 1440.98, 480.98);
 }
 
 // == PADDINGS ==================
@@ -623,6 +634,28 @@ p {
   }
 }
 
+
+%btnLinkArr {
+  &::after {
+    content: '';
+    position: relative;
+    top: -1px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: transform .45s ease, opacity .3s ease;
+    @extend %imgContain;
+    background-image: url('@img/icons/arr-blue-2.svg');
+    width: toRem(6.5);
+    aspect-ratio: 5/10;
+
+    .touch & {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+}
+
 .btn-link {
   @extend %flexCenter;
   gap: toRem(18);
@@ -644,23 +677,7 @@ p {
     }
   }
 
-  &::after {
-    content: '';
-    position: relative;
-    top: -1px;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: transform .45s ease, opacity .3s ease;
-    @extend %imgContain;
-    background-image: url('@img/icons/arr-blue-2.svg');
-    width: toRem(6.5);
-    aspect-ratio: 5/10;
-
-    .touch & {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+  @extend %btnLinkArr;
 
   @media (any-hover: hover) {
     &:hover {
