@@ -195,17 +195,6 @@ html.lenis body {
 }
 
 
-// %elImg {
-//      background-repeat: no-repeat;
-//     background-position: center;
-//     background-size:contain;
-//     @media (orientation: landscape) {
-//       background-image: url('@img/elements/elements-1-pc.png');
-//     }
-//     @media (orientation: portrait) {    
-//       background-image: url('@img/elements/elements-1-mb.png');
-//     }
-// }
 %imgContain {
   background-repeat: no-repeat;
   background-position: center;
@@ -251,7 +240,7 @@ html.lenis body {
 
 
 // == TITLES ================
-.title-60-35 {
+.title-main {
   @extend %fontProst;
   @include adaptiveValue("font-size", 60, 35, 0, 1440.98, 480.98);
   line-height: 1.07;
@@ -277,6 +266,12 @@ html.lenis body {
   @include adaptiveValue("font-size", 24, 20, 0, 1440.98, 480.98);
 }
 
+.txt-18-16 {
+  @include adaptiveValue("font-size", 18, 16, 0, 1440.98, 480.98);
+}
+.txt-17-12 {
+  @include adaptiveValue("font-size", 17, 12, 0, 1440.98, 480.98);
+}
 .txt-18 {
   // @extend %fontProst;
   font-weight: 500;
@@ -364,7 +359,9 @@ p {
 
 // == PADDINGS ==================
 
-// == 60-48 =====
+.pb-120 {
+  @include adaptiveValue("padding-block-end", 120, 40, 0, 1440.98, 480.98);
+}
 .ptb-60 {
   @include adaptiveValue("padding-block", 60, 48, 0, 1440.98, 480.98);
 }
@@ -384,7 +381,20 @@ p {
 }
 
 
+// ======= GAP ===============================
+%gap53-40 {
+  @include adaptiveValue("gap", 53, 40,0,1440.98,480.98);
+}
+%gap50-28 {
+  @include adaptiveValue("gap", 50, 28,0,1440.98,480.98);
+}
 
+%gap37-20 {
+ @include adaptiveValue("gap", 37, 20,0,1440.98,480.98);
+}
+%gap20-13 {
+ @include adaptiveValue("gap", 20, 13,0,1440.98,480.98);
+}
 // -- FONTS WEIGHT ===========================
 .fw-600 {
   font-weight: 600;
@@ -563,11 +573,14 @@ p {
 
 // BLOCK INTRO ==========================
 .block-intro {
-  @extend %pddLeft84;
   display: grid;
   column-gap: toRem(67);
   @include adaptiveValue("row-gap", 24, 20, 0, 1440.98, 480.98);
-
+  grid-auto-rows: max-content;
+  &--pl {
+    @extend %pddLeft84;
+    
+  }
   // .block-intro--clm
   &--clm {
     @media (min-width:toEm(820.98)) {

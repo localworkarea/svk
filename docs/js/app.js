@@ -714,7 +714,7 @@
         }
     };
     const lenis = new Lenis({
-        lerp: .04
+        lerp: .1
     });
     function raf(time) {
         lenis.raf(time);
