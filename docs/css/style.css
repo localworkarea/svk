@@ -1602,6 +1602,9 @@ p {
     opacity: 1;
     transition: opacity .3s ease
   }
+  .products__thumbs {
+    display: none
+  }
   .slide-products {
     padding-block: 7.5rem
   }
@@ -1617,9 +1620,6 @@ p {
     transition: -webkit-transform .45s ease;
     transition: transform .45s ease;
     transition: transform .45s ease,-webkit-transform .45s ease
-  }
-  .thumbs-products {
-    display: none
   }
   .thumbs-products__item img {
     display: none
@@ -2599,6 +2599,16 @@ p {
   .products__side-nav {
     display: none
   }
+  .products__thumbs {
+    display: block!important
+  }
+  .products__thumbs-body {
+    opacity: 0
+  }
+  .loaded .products__thumbs-body {
+    transition: opacity .3s ease .2s;
+    opacity: 1
+  }
   .slide-products {
     padding-top: 8.125rem;
     padding-bottom: 2.625rem
@@ -2610,15 +2620,7 @@ p {
     display: none
   }
   .thumbs-products {
-    max-width: 100%;
-    display: block!important
-  }
-  .thumbs-products__wrapper {
-    opacity: 0
-  }
-  .loaded .thumbs-products__wrapper {
-    transition: opacity .3s ease .2s;
-    opacity: 1
+    max-width: 100%
   }
   .thumbs-products__item {
     position: relative;

@@ -4728,7 +4728,7 @@
     }
     function initSliders() {
         if (document.querySelector(".products__slider")) {
-            const thumbsSlider = new Swiper(".products__thumbs", {
+            const thumbsSlider = new Swiper(".thumbs-products", {
                 slidesPerView: 2,
                 spaceBetween: 12,
                 watchSlidesProgress: true,
