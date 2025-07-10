@@ -214,6 +214,7 @@ html.lenis body {
 
 
 
+
 // == TITLES ================
 .title-main {
   @extend %fontProst;
@@ -239,6 +240,9 @@ html.lenis body {
 }
 .txt-24 {
   @include adaptiveValue("font-size", 24, 20, 0, 1440.98, 480.98);
+}
+.txt-22 {
+  @include adaptiveValue("font-size", 22, 18, 0, 1440.98, 480.98);
 }
 
 .txt-18-16 {
@@ -415,6 +419,24 @@ p {
       width: 100%;
   }
 }
+
+%mandatory {
+    @media (max-width: toEm(768.98)) {
+      display: flex;
+      overflow: auto;
+      scroll-snap-type: x mandatory;
+      padding-left: toRem(25);
+      padding-right: toRem(25);
+      margin-inline: toRem(-25);
+      li {
+         scroll-snap-align: center;
+      }
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+}
+
 
 %hoverLine {
   position: relative;
@@ -621,9 +643,15 @@ p {
     @media (min-width:toEm(820.98)) {
       grid-template-columns: 42% 1fr;
     }
-
+    
     @media (max-width:toEm(820.98)) {
       grid-template-columns: 100%;
+    }
+  }
+  // .block-intro--clm-b
+  &--clm-b {
+    @media (min-width:toEm(820.98)) {
+      grid-template-columns: 50% 1fr;
     }
   }
 

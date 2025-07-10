@@ -269,6 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function setProductPlusItemsCount() {
     const lists = document.querySelectorAll('.product-plus__list');
     const listCount = document.querySelectorAll('.progress__counters');
+    const listResolve = document.querySelectorAll('.resolve');
     if (lists.length > 0) {
       lists.forEach((list) => {
         const items = list.querySelectorAll('.product-plus__item');
@@ -279,6 +280,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (listCount.length > 0) {
       listCount.forEach((list) => {
         const items = list.querySelectorAll('.progress__item');
+        const count = items.length;
+        list.style.setProperty('--items-count', count);
+      });
+    }
+    if (listResolve.length > 0) {
+      listResolve.forEach((list) => {
+        const items = list.querySelectorAll('.resolve__item');
         const count = items.length;
         list.style.setProperty('--items-count', count);
       });
