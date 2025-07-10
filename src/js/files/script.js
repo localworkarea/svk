@@ -217,84 +217,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // ==== slider-value ==========================================================================
-  const slider = document.querySelector(".slider-value");
-  if (!slider) return;
-  const sliderBody = slider.querySelector(".slider-value__body");
-  // Размеры
-  let bodyScrollWidth = sliderBody.scrollWidth;
-  let parentWidth = slider.clientWidth;
-  let maxTranslateX = bodyScrollWidth - parentWidth;
 
-  function updateSizes() {
-    bodyScrollWidth = sliderBody.scrollWidth;
-    parentWidth = slider.clientWidth;
-    maxTranslateX = bodyScrollWidth - parentWidth;
+
+
+  function updateHeadHeightVar() {
+    const ctaBodies = document.querySelectorAll('.body-el');
+    if (ctaBodies.length > 0) {
+      ctaBodies.forEach((body) => {
+        const ctaHead = body.querySelector('.body-head-el');
+        if (ctaHead) {
+          const headHeight = ctaHead.offsetHeight;
+          body.style.setProperty('--head-height', `${headHeight}px`);
+        }
+      });
+    }
   }
 
-  // Переменные для анимации
-  let targetTranslateX = 0;
-  let currentTranslateX = 0;
-
-  function updateSliderPosition() {
-    const rect = slider.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-
-    // Здесь мы определяем два триггера:
-    const triggerStart = rect.bottom - viewportHeight - 80; // Когда НИЗ блока дотянулся до НИЗА окна
-    const triggerEnd = rect.top - 80; // Когда ВЕРХ блока дотянулся до ВЕРХА окна
-
-    const totalDistance = triggerEnd - triggerStart;
-
-    let progress = (0 - triggerStart) / totalDistance;
-    progress = Math.min(Math.max(progress, 0), 1);
-
-    // Движение от 0 до -maxTranslateX
-    targetTranslateX = maxTranslateX * progress;
-  }
-
-  // Сглаживающая анимация
-  function animate() {
-    // Плавное догоняние
-    currentTranslateX += (targetTranslateX - currentTranslateX) * 0.1;
-
-    sliderBody.style.transform = `translateX(-${currentTranslateX}px)`;
-
-    requestAnimationFrame(animate);
-  }
-
-  // Инициализация
-  updateSizes();
-  updateSliderPosition();
-  animate();
-
-  window.addEventListener("scroll", updateSliderPosition);
-
-
-
-function updateHeadHeightVar() {
-  const ctaBodies = document.querySelectorAll('.body-el');
-  if (ctaBodies.length > 0) {
-    ctaBodies.forEach((body) => {
-      const ctaHead = body.querySelector('.body-head-el');
-      if (ctaHead) {
-        const headHeight = ctaHead.offsetHeight;
-        body.style.setProperty('--head-height', `${headHeight}px`);
-      }
-    });
-  }
-}
-
-updateHeadHeightVar();
+  updateHeadHeightVar();
 
 
 
   // === видео воспроизведение ==================
-    const videoNews = document.querySelector('.news__video');
+  const videoNews = document.querySelector('.news__video');
   if (videoNews) {
     const cover = videoNews.querySelector('.news__cover');
     const video = videoNews.querySelector('video');
-  
+
     if (cover && video) {
       cover.addEventListener('click', () => {
         cover.classList.add('_play');
@@ -303,8 +251,101 @@ updateHeadHeightVar();
         video.play();
       });
     }
-  }  
+  }
 
+
+
+
+
+
+
+
+
+
+
+
+
+  // === Подсчет количества элементов ==============
+  function setProductPlusItemsCount() {
+    const lists = document.querySelectorAll('.product-plus__list');
+    const listCount = document.querySelectorAll('.progress__counters');
+    if (lists.length > 0) {
+      lists.forEach((list) => {
+        const items = list.querySelectorAll('.product-plus__item');
+        const count = items.length;
+        list.style.setProperty('--items-count', count);
+      });
+    }
+    if (listCount.length > 0) {
+      listCount.forEach((list) => {
+        const items = list.querySelectorAll('.progress__item');
+        const count = items.length;
+        list.style.setProperty('--items-count', count);
+      });
+    }
+  }
+  setProductPlusItemsCount();
+
+
+
+
+
+
+
+
+
+
+
+  // ==== slider-value ==========================================================================
+
+  let updateSizes = () => {};
+  let updateSliderPosition = () => {};
+
+  const slider = document.querySelector(".slider-value");
+  let sliderBody;
+  let bodyScrollWidth = 0;
+  let parentWidth = 0;
+  let maxTranslateX = 0;
+
+  let targetTranslateX = 0;
+  let currentTranslateX = 0;
+
+  if (slider) {
+    sliderBody = slider.querySelector(".slider-value__body");
+
+    updateSizes = function () {
+      bodyScrollWidth = sliderBody.scrollWidth;
+      parentWidth = slider.clientWidth;
+      maxTranslateX = bodyScrollWidth - parentWidth;
+    };
+
+    updateSliderPosition = function () {
+      const rect = slider.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      const triggerStart = rect.bottom - viewportHeight - 80;
+      const triggerEnd = rect.top - 80;
+
+      const totalDistance = triggerEnd - triggerStart;
+
+      let progress = (0 - triggerStart) / totalDistance;
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      targetTranslateX = maxTranslateX * progress;
+    };
+
+    function animate() {
+      currentTranslateX += (targetTranslateX - currentTranslateX) * 0.1;
+      sliderBody.style.transform = `translateX(-${currentTranslateX}px)`;
+      requestAnimationFrame(animate);
+    }
+
+    updateSizes();
+    updateSliderPosition();
+    animate();
+
+    window.addEventListener("scroll", updateSliderPosition);
+  }
 
 
 
@@ -326,4 +367,53 @@ updateHeadHeightVar();
   resizeObserver.observe(document.body);
 
 
+
 });
+
+
+
+// Загрузка плагина маски только при клике на поле =================
+let inputmaskLoaded = false;
+
+document.addEventListener("focusin", async function (event) {
+  const input = event.target;
+
+  if (input.hasAttribute("data-mask") && !input.dataset.masked) {
+    if (!inputmaskLoaded) {
+      try {
+        await loadInputMask();
+        inputmaskLoaded = true;
+      } catch (e) {
+        console.error("Не удалось загрузить Inputmask:", e);
+        return;
+      }
+    }
+
+    // Получаем язык документа
+    const lang = document.documentElement.lang;
+
+    // Выбираем маску в зависимости от языка
+    const mask = (lang === "uk" || lang === "ru") 
+       ? "+38 (999) 999 99 99"
+      : "+99 999 999 99 99";
+
+    Inputmask({
+      mask: mask,
+      showMaskOnHover: false,
+      showMaskOnFocus: true
+    }).mask(input);
+
+    input.dataset.masked = "true";
+  }
+});
+
+function loadInputMask() {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/inputmask@5.0.9/dist/inputmask.min.js";
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+// =====================

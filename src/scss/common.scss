@@ -88,7 +88,7 @@ html.lenis body {
 
       ._view & {
         transform: translateY(10%);
-        transition-delay: calc(var(--index) * .05s);
+        transition-delay: calc(var(--index) * .07s);
       }
     }
   }
@@ -212,31 +212,6 @@ html.lenis body {
   // font-weight: 400;
 }
 
-%hoverLine {
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: toRem(-2);
-    left: 0;
-    width: 100%;
-    height: toRem(1);
-    background-color: var(--white);
-    transform: scale(0, 1);
-    transform-origin: 100% 50%;
-    transition: transform .8s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  @media (any-hover: hover) {
-    &:hover {
-      &::before {
-        transform: scale(1);
-        transform-origin: 0 50%;
-      }
-    }
-  }
-}
 
 
 // == TITLES ================
@@ -269,9 +244,16 @@ html.lenis body {
 .txt-18-16 {
   @include adaptiveValue("font-size", 18, 16, 0, 1440.98, 480.98);
 }
+.txt-18-14 {
+  @include adaptiveValue("font-size", 18, 14, 0, 1440.98, 480.98);
+}
 .txt-17-12 {
   @include adaptiveValue("font-size", 17, 12, 0, 1440.98, 480.98);
 }
+.txt-16-14 {
+  @include adaptiveValue("font-size", 16, 14, 0, 1440.98, 480.98);
+}
+
 .txt-18 {
   // @extend %fontProst;
   font-weight: 500;
@@ -331,6 +313,9 @@ p {
 .mb-85 {
   @include adaptiveValue("margin-block-end", 85, 52, 0, 1440.98, 480.98);
 }
+.mb-80 {
+  margin-block-end: toRem(80);
+}
 
 .mtb-60 {
   @include adaptiveValue("margin-block", 60, 48, 0, 1440.98, 480.98);
@@ -346,9 +331,15 @@ p {
 .mb-50 {
   @include adaptiveValue("margin-block-end", 50, 20, 0, 1440.98, 480.98);
 }
+.mb-44 {
+  @include adaptiveValue("margin-block-end", 44, 40, 0, 1440.98, 480.98);
+}
 
+.mb-24 {
+  margin-block-end: toRem(24);
+}
 .mb-20 {
-  margin-bottom: toRem(20);
+  margin-block-end: toRem(20);
 }
 .mb-21 {
   @include adaptiveValue("margin-block-end", 21, 16, 0, 1440.98, 480.98);
@@ -356,9 +347,15 @@ p {
 .mb-16 {
   @include adaptiveValue("margin-block-end", 16, 14, 0, 1440.98, 480.98);
 }
+.mb-11 {
+  margin-block-end: toRem(11);
+}
 
 // == PADDINGS ==================
 
+.pt-120 {
+  @include adaptiveValue("padding-block-start", 120, 40, 0, 1440.98, 480.98);
+}
 .pb-120 {
   @include adaptiveValue("padding-block-end", 120, 40, 0, 1440.98, 480.98);
 }
@@ -389,6 +386,9 @@ p {
   @include adaptiveValue("gap", 50, 28,0,1440.98,480.98);
 }
 
+%gap40-30 {
+ @include adaptiveValue("gap", 40, 30,0,1440.98,480.98);
+}
 %gap37-20 {
  @include adaptiveValue("gap", 37, 20,0,1440.98,480.98);
 }
@@ -405,6 +405,40 @@ p {
   @media (min-width:$tablet){
      max-width: toRem(1150);
      margin-inline: auto; 
+     width: 100%;
+    }
+  }
+  %container998 {
+    @media (min-width:$tablet){
+      max-width: toRem(998);
+      margin-inline: auto; 
+      width: 100%;
+  }
+}
+
+%hoverLine {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: toRem(-2);
+    left: 0;
+    width: 100%;
+    height: toRem(1);
+    background-color: var(--white);
+    transform: scale(0, 1);
+    transform-origin: 100% 50%;
+    transition: transform .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      &::before {
+        transform: scale(1);
+        transform-origin: 0 50%;
+      }
+    }
   }
 }
 
@@ -432,6 +466,7 @@ p {
 
 %btnMain {
   position: relative;
+  text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   @include adaptiveValue("font-size", 14, 11, 0, 1440.98, 480.98);
@@ -671,6 +706,7 @@ p {
 
 .btn-link {
   @extend %flexCenter;
+  @extend %fontProst;
   gap: toRem(18);
   max-width: max-content;
   @extend %fs14Upp;
@@ -681,6 +717,7 @@ p {
     @extend %hoverLine;
 
     &:before {
+      bottom: toRem(-4);
       background-color: var(--primary);
 
       .touch & {

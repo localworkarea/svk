@@ -4,7 +4,7 @@ import { flsModules } from "./modules.js";
 import Lenis from 'lenis'
 
 const lenis = new Lenis({
-	lerp: 0.1,
+	// lerp: 0.1,
 })
 
 function raf(time) {

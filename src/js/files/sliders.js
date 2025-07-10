@@ -181,6 +181,88 @@ function initSliders() {
 	}
 
 
+	if (document.querySelector('.product-catalog__slider')) {
+		function setSubtitleHeights() {
+			const cards = document.querySelectorAll('.card-product-catalog');
+
+			if (cards.length) {
+				cards.forEach(card => {
+					const block = card.querySelector('.card-product-catalog__block');
+					const subtitle = card.querySelector('.card-product-catalog__subtitle');
+
+					let subtitleHeight = 0;
+
+					if (subtitle) {
+						subtitleHeight = subtitle.getBoundingClientRect().height;
+					}
+
+					if (block) {
+						block.style.setProperty('--subtitle-height', `${subtitleHeight}px`);
+					}
+				});
+			}
+		}
+
+		new Swiper('.product-catalog__slider', {
+
+			observer: true,
+			observeParents: true,
+			// slidesPerView: 4,
+			spaceBetween: 1,
+			speed: 400,
+			
+			breakpoints: {
+				320: {
+					slidesPerView: 1.3,
+					centeredSlides: true,
+					initialSlide: 1,
+				},
+				480: {
+					slidesPerView: 2,
+				},
+				730: {
+						centeredSlides: true,
+					slidesPerView: 2.5,
+					initialSlide: 1,
+				},
+				992: {
+					centeredSlides: true,
+					slidesPerView: 3,
+					initialSlide: 2,
+				},
+				1200: {
+					centeredSlides: false,
+					slidesPerView: 4,
+					initialSlide: 0,
+				},
+				1500: {
+					slidesPerView: 4,
+						initialSlide: 1,
+					},
+			},
+			// Події
+			on: {
+				init: function() {
+					setTimeout(() => {
+						setSubtitleHeights();
+					}, 100);
+				}
+			}
+		});
+		let lastWidth = window.innerWidth;
+  const resizeObserver = new ResizeObserver(entries => {
+    requestAnimationFrame(() => {
+      entries.forEach(entry => {
+        const currentWidth = entry.contentRect.width;
+        if (currentWidth !== lastWidth) {
+					setSubtitleHeights();
+          lastWidth = currentWidth;
+        }
+      });
+    });
+  });
+  resizeObserver.observe(document.body);
+	}
 	if (document.querySelector('.news__slider')) {
 		new Swiper('.news__slider', {
 

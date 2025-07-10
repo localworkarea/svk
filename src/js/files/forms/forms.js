@@ -223,21 +223,32 @@ export function formSubmit() {
 		}));
 		// Показуємо попап, якщо підключено модуль попапів 
 		// та для форми вказано налаштування
-		setTimeout(() => {
-			if (flsModules.popup) {
-				const popup = form.dataset.popupMessage;
-				popup ? flsModules.popup.open(popup) : null;
-			}
-		}, 0);
-		// Очищуємо форму
+		// setTimeout(() => {
+		// 	if (flsModules.popup) {
+		// 		const popup = form.dataset.popupMessage;
+		// 		popup ? flsModules.popup.open(popup) : null;
+		// 	}
+		// }, 0);
 		formValidate.formClean(form);
-		// Повідомляємо до консолі
-		formLogging(`Форму відправлено!`);
 	}
-	function formLogging(message) {
-		FLS(`[Форми]: ${message}`);
-	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Модуль форми "кількість" */
 export function formQuantity() {
 	document.addEventListener("click", function (e) {

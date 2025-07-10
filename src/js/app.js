@@ -108,7 +108,7 @@ flsForms.formFieldsInit({
 });
 */
 /* Надсилання форми */
-// flsForms.formSubmit();
+flsForms.formSubmit();
 
 /* Модуль форми "кількість" */
 // flsForms.formQuantity();
