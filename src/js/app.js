@@ -75,7 +75,7 @@ flsFunctions.showMore();
 Документация:
 Сниппет (HTML):
 */
-// flsFunctions.customCursor(true);
+flsFunctions.customCursor(false);
 
 /*
 Модуль "Бігучий рядок" (Alpha)

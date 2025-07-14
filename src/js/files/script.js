@@ -270,6 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const lists = document.querySelectorAll('.product-plus__list');
     const listCount = document.querySelectorAll('.progress__counters');
     const listResolve = document.querySelectorAll('.resolve');
+    const listBoxes = document.querySelectorAll('.boxes-product__list');
     if (lists.length > 0) {
       lists.forEach((list) => {
         const items = list.querySelectorAll('.product-plus__item');
@@ -287,6 +288,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (listResolve.length > 0) {
       listResolve.forEach((list) => {
         const items = list.querySelectorAll('.resolve__item');
+        const count = items.length;
+        list.style.setProperty('--items-count', count);
+      });
+    }
+    if (listBoxes.length > 0) {
+      listBoxes.forEach((list) => {
+        const items = list.querySelectorAll('.boxes-product__item');
         const count = items.length;
         list.style.setProperty('--items-count', count);
       });
@@ -357,6 +365,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+
   // ResizeObserver
   let lastWidth = window.innerWidth;
   const resizeObserver = new ResizeObserver(entries => {
@@ -401,9 +413,9 @@ document.addEventListener("focusin", async function (event) {
     const lang = document.documentElement.lang;
 
     // Выбираем маску в зависимости от языка
-    const mask = (lang === "uk" || lang === "ru") 
-       ? "+38 (999) 999 99 99"
-      : "+99 999 999 99 99";
+    const mask = (lang === "uk" || lang === "ru") ?
+      "+38 (999) 999 99 99" :
+      "+99 999 999 99 99";
 
     Inputmask({
       mask: mask,
@@ -425,3 +437,52 @@ function loadInputMask() {
   });
 }
 // =====================
+
+
+
+
+function digitsCountInit(counters) {
+  counters.forEach(el => {
+    if (el.hasAttribute('data-go')) return;
+    el.setAttribute('data-go', '');
+
+    const start = parseInt(el.getAttribute('data-count-start')) || 0;
+    const end = parseInt(el.getAttribute('data-count-end')) || 100;
+    const speed = parseInt(el.getAttribute('data-count-speed')) || 1000;
+
+    let startTime = null;
+    const range = end - start;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / speed, 1);
+      const value = Math.floor(progress * range + start);
+      el.textContent = value;
+
+      if (progress < 1) {
+        window.requestAnimationFrame(animate);
+      } else {
+        el.textContent = end;
+        el.removeAttribute('data-go');
+      }
+    };
+
+    el.textContent = start; 
+    window.requestAnimationFrame(animate);
+  });
+}
+
+
+function digitsCountTrigger(e) {
+  const entry = e.detail.entry;
+  const target = entry.target;
+
+  if (entry.isIntersecting) {
+    const counters = target.querySelectorAll('[data-count]');
+    if (counters.length) {
+      digitsCountInit(counters);
+    }
+  }
+}
+
+document.addEventListener('watcherCallback', digitsCountTrigger);

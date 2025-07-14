@@ -1,5 +1,7 @@
 // Підключення списку активних модулів
-import { flsModules } from "./modules.js";
+import {
+	flsModules
+} from "./modules.js";
 
 import Lenis from 'lenis'
 
@@ -8,8 +10,8 @@ const lenis = new Lenis({
 })
 
 function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
+	lenis.raf(time);
+	requestAnimationFrame(raf);
 }
 
 requestAnimationFrame(raf);
@@ -40,7 +42,26 @@ export function isWebp() {
 	});
 }
 /* Перевірка мобільного браузера */
-export let isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
+export let isMobile = {
+	Android: function () {
+		return navigator.userAgent.match(/Android/i);
+	},
+	BlackBerry: function () {
+		return navigator.userAgent.match(/BlackBerry/i);
+	},
+	iOS: function () {
+		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+	},
+	Opera: function () {
+		return navigator.userAgent.match(/Opera Mini/i);
+	},
+	Windows: function () {
+		return navigator.userAgent.match(/IEMobile/i);
+	},
+	any: function () {
+		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+	}
+};
 /* Додавання класу touch для HTML, якщо браузер мобільний */
 export function addTouchClass() {
 	// Додавання класу _touch для HTML, якщо браузер мобільний
@@ -58,7 +79,9 @@ export function addLoadedClass() {
 }
 // Отримання хешу на адресі сайту
 export function getHash() {
-	if (location.hash) { return location.hash.replace('#', ''); }
+	if (location.hash) {
+		return location.hash.replace('#', '');
+	}
 }
 // Вказівка хеша на адресу сайту
 export function setHash(hash) {
@@ -258,6 +281,7 @@ export function spollers() {
 				});
 			}
 		}
+
 		function setSpollerAction(e) {
 			const el = e.target;
 			if (el.closest('summary') && el.closest('[data-spollers]')) {
@@ -274,7 +298,9 @@ export function spollers() {
 							hideSpollersBody(spollersBlock);
 						}
 
-						!spollerBlock.open ? spollerBlock.open = true : setTimeout(() => { spollerBlock.open = false }, spollerSpeed);
+						!spollerBlock.open ? spollerBlock.open = true : setTimeout(() => {
+							spollerBlock.open = false
+						}, spollerSpeed);
 
 						spollerTitle.classList.toggle('_spoller-active');
 						_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
@@ -285,12 +311,10 @@ export function spollers() {
 							const scrollSpollerNoHeader = spollerBlock.hasAttribute('data-spoller-scroll-noheader') ? document.querySelector('.header').offsetHeight : 0;
 
 							//setTimeout(() => {
-							window.scrollTo(
-								{
-									top: spollerBlock.offsetTop - (scrollSpollerOffset + scrollSpollerNoHeader),
-									behavior: "smooth",
-								}
-							);
+							window.scrollTo({
+								top: spollerBlock.offsetTop - (scrollSpollerOffset + scrollSpollerNoHeader),
+								behavior: "smooth",
+							});
 							//}, spollerSpeed);
 						}
 					}
@@ -307,12 +331,15 @@ export function spollers() {
 							const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
 							spollerClose.classList.remove('_spoller-active');
 							_slideUp(spollerClose.nextElementSibling, spollerSpeed);
-							setTimeout(() => { spollerCloseBlock.open = false }, spollerSpeed);
+							setTimeout(() => {
+								spollerCloseBlock.open = false
+							}, spollerSpeed);
 						}
 					});
 				}
 			}
 		}
+
 		function hideSpollersBody(spollersBlock) {
 			const spollerActiveBlock = spollersBlock.querySelector('details[open]');
 			if (spollerActiveBlock && !spollersBlock.querySelectorAll('._slide').length) {
@@ -320,7 +347,9 @@ export function spollers() {
 				const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
 				spollerActiveTitle.classList.remove('_spoller-active');
 				_slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
-				setTimeout(() => { spollerActiveBlock.open = false }, spollerSpeed);
+				setTimeout(() => {
+					spollerActiveBlock.open = false
+				}, spollerSpeed);
 			}
 		}
 	}
@@ -399,10 +428,12 @@ export function tabs() {
 			});
 		}
 	}
+
 	function setTabsStatus(tabsBlock) {
 		let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
 		let tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
 		const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
+
 		function isTabsAnamate(tabsBlock) {
 			if (tabsBlock.hasAttribute('data-tabs-animate')) {
 				return tabsBlock.dataset.tabsAnimate > 0 ? Number(tabsBlock.dataset.tabsAnimate) : 500;
@@ -433,6 +464,7 @@ export function tabs() {
 			});
 		}
 	}
+
 	function setTabsAction(e) {
 		const el = e.target;
 		if (el.closest('[data-tabs-title]')) {
@@ -513,16 +545,19 @@ export function showMore() {
 				initItemsMedia(mdQueriesArray);
 			}
 		}
+
 		function initItemsMedia(mdQueriesArray) {
 			mdQueriesArray.forEach(mdQueriesItem => {
 				initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 			});
 		}
+
 		function initItems(showMoreBlocks, matchMedia) {
 			showMoreBlocks.forEach(showMoreBlock => {
 				initItem(showMoreBlock, matchMedia);
 			});
 		}
+
 		function initItem(showMoreBlock, matchMedia = false) {
 			showMoreBlock = matchMedia ? showMoreBlock.item : showMoreBlock;
 			let showMoreContent = showMoreBlock.querySelectorAll('[data-showmore-content]');
@@ -543,6 +578,7 @@ export function showMore() {
 				showMoreButton.hidden = true;
 			}
 		}
+
 		function getHeight(showMoreBlock, showMoreContent) {
 			let hiddenHeight = 0;
 			const showMoreType = showMoreBlock.dataset.showmore ? showMoreBlock.dataset.showmore : 'size';
@@ -579,6 +615,7 @@ export function showMore() {
 			showMoreContent.style.height = `${hiddenHeight}px`;
 			return originalHeight;
 		}
+
 		function showMoreActions(e) {
 			const targetEvent = e.target;
 			const targetType = e.type;
@@ -644,56 +681,178 @@ export function rippleEffect() {
 	});
 }
 // Модуль "Сustom сursor" =======================================================================================================================================================================================================================
+// export function customCursor(isShadowTrue) {
+// 	const wrapper = document.querySelector('[data-custom-cursor]') ? document.querySelector('[data-custom-cursor]') : document.documentElement;
+// 	if (wrapper && !isMobile.any()) {
+// 		// Створюємо та додаємо об'єкт курсору
+// 		const cursor = document.createElement('div');
+// 		cursor.classList.add('fls-cursor');
+// 		cursor.style.opacity = 0;
+// 		cursor.insertAdjacentHTML('beforeend', `<span class="fls-cursor__pointer"></span>`);
+// 		isShadowTrue ? cursor.insertAdjacentHTML('beforeend', `<span class="fls-cursor__shadow"></span>`) : null;
+// 		wrapper.append(cursor);
+
+// 		const cursorPointer = document.querySelector('.fls-cursor__pointer');
+// 		const cursorPointerStyle = {
+// 			width: cursorPointer.offsetWidth,
+// 			height: cursorPointer.offsetHeight
+// 		}
+// 		let cursorShadow, cursorShadowStyle;
+// 		if (isShadowTrue) {
+// 			cursorShadow = document.querySelector('.fls-cursor__shadow');
+// 			cursorShadowStyle = {
+// 				width: cursorShadow.offsetWidth,
+// 				height: cursorShadow.offsetHeight
+// 			}
+// 		}
+// 		function mouseActions(e) {
+// 			if (e.type === 'mouseout') {
+// 				cursor.style.opacity = 0;
+// 			} else if (e.type === 'mousemove') {
+// 				cursor.style.removeProperty('opacity');
+// 				if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input') || (window.getComputedStyle(e.target).cursor !== 'none' && window.getComputedStyle(e.target).cursor !== 'default')) {
+// 					cursor.classList.add('_hover');
+// 				} else {
+// 					cursor.classList.remove('_hover');
+// 				}
+// 			} else if (e.type === 'mousedown') {
+// 				cursor.classList.add('_active');
+
+// 			} else if (e.type === 'mouseup') {
+// 				cursor.classList.remove('_active');
+// 			}
+// 			cursorPointer ? cursorPointer.style.transform = `translate3d(${e.clientX - cursorPointerStyle.width / 2}px, ${e.clientY - cursorPointerStyle.height / 2}px, 0)` : null;
+// 			cursorShadow ? cursorShadow.style.transform = `translate3d(${e.clientX - cursorShadowStyle.width / 2}px, ${e.clientY - cursorShadowStyle.height / 2}px, 0)` : null;
+// 		}
+
+// 		window.addEventListener('mouseup', mouseActions);
+// 		window.addEventListener('mousedown', mouseActions);
+// 		window.addEventListener('mousemove', mouseActions);
+// 		window.addEventListener('mouseout', mouseActions);
+// 	}
+// }
 export function customCursor(isShadowTrue) {
-	const wrapper = document.querySelector('[data-custom-cursor]') ? document.querySelector('[data-custom-cursor]') : document.documentElement;
+	const wrapper = document.querySelector('[data-custom-cursor]') || document.documentElement;
+
 	if (wrapper && !isMobile.any()) {
-		// Створюємо та додаємо об'єкт курсору
 		const cursor = document.createElement('div');
 		cursor.classList.add('fls-cursor');
 		cursor.style.opacity = 0;
-		cursor.insertAdjacentHTML('beforeend', `<span class="fls-cursor__pointer"></span>`);
-		isShadowTrue ? cursor.insertAdjacentHTML('beforeend', `<span class="fls-cursor__shadow"></span>`) : null;
+		cursor.innerHTML = `
+            <span class="fls-cursor__pointer"></span>
+            ${isShadowTrue ? '<span class="fls-cursor__shadow"></span>' : ''}
+        `;
 		wrapper.append(cursor);
 
-		const cursorPointer = document.querySelector('.fls-cursor__pointer');
-		const cursorPointerStyle = {
-			width: cursorPointer.offsetWidth,
-			height: cursorPointer.offsetHeight
-		}
-		let cursorShadow, cursorShadowStyle;
-		if (isShadowTrue) {
-			cursorShadow = document.querySelector('.fls-cursor__shadow');
-			cursorShadowStyle = {
-				width: cursorShadow.offsetWidth,
-				height: cursorShadow.offsetHeight
+		const pointer = cursor.querySelector('.fls-cursor__pointer');
+		const shadow = cursor.querySelector('.fls-cursor__shadow');
+		const slider = document.querySelector('.about-chronology__slider');
+
+		// Добавляем SVG стрелку внутрь кастомного курсора
+		const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		arrow.setAttribute('class', 'cursor-arrow');
+		arrow.setAttribute('width', '54');
+		arrow.setAttribute('height', '34');
+		arrow.setAttribute('viewBox', '0 0 54 34');
+		arrow.innerHTML = `
+           <path d="M2 17H52M52 17L37.2941 2M52 17L37.2941 32" stroke="#111B51" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        `;
+		pointer.appendChild(arrow);
+
+		// Стили курсора
+		const pointerSize = {
+			width: pointer.offsetWidth,
+			height: pointer.offsetHeight
+		};
+		const shadowSize = shadow ? {
+			width: shadow.offsetWidth,
+			height: shadow.offsetHeight
+		} : null;
+
+		let mouseX = 0,
+			mouseY = 0;
+
+		function renderCursor() {
+			pointer.style.transform = `translate3d(${mouseX - pointerSize.width / 2}px, ${mouseY - pointerSize.height / 2}px, 0)`;
+			if (shadow) {
+				shadow.style.transform = `translate3d(${mouseX - shadowSize.width / 2}px, ${mouseY - shadowSize.height / 2}px, 0)`;
 			}
+
+			// Проверяем курсор на нахождение над любым слайдом
+			const slides = document.querySelectorAll('.about-chronology__slide');
+			let overSlide = false;
+			slides.forEach(slide => {
+				const rect = slide.getBoundingClientRect();
+				const inside = mouseX >= rect.left && mouseX <= rect.right &&
+					mouseY >= rect.top && mouseY <= rect.bottom;
+				if (inside) overSlide = true;
+			});
+
+			document.body.classList.toggle('cursor-hidden', overSlide);
+
+			if (overSlide) {
+				// вычисление центра слайдера (можно использовать контейнер или весь экран)
+				const container = document.querySelector('.about-chronology__slider');
+				const centerX = container.getBoundingClientRect().left + container.getBoundingClientRect().width / 2;
+
+				arrow.style.display = 'block';
+				if (mouseX < centerX * 1) {
+					arrow.style.transform = 'translate(-50%, -50%) rotate(180deg)';
+					arrow.style.opacity = '1';
+					// arrow.style.opacity = '0';
+					// document.body.classList.remove('cursor-hidden', overSlide);
+				} else if (mouseX > centerX * 1.1) {
+					arrow.style.transform = 'translate(-50%, -50%) rotate(0deg)';
+					arrow.style.opacity = '1';
+				} else {
+					// arrow.style.opacity = '0';
+				}
+			} else {
+				arrow.style.opacity = '0';
+			}
+
+			requestAnimationFrame(renderCursor);
 		}
-		function mouseActions(e) {
+
+
+		// Запуск анимации
+		requestAnimationFrame(renderCursor);
+
+		// Обработка событий мыши
+		function handleMouse(e) {
+			mouseX = e.clientX;
+			mouseY = e.clientY;
+
 			if (e.type === 'mouseout') {
 				cursor.style.opacity = 0;
 			} else if (e.type === 'mousemove') {
 				cursor.style.removeProperty('opacity');
-				if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input') || (window.getComputedStyle(e.target).cursor !== 'none' && window.getComputedStyle(e.target).cursor !== 'default')) {
-					cursor.classList.add('_hover');
-				} else {
-					cursor.classList.remove('_hover');
-				}
+
+				const isHoverTarget = e.target.closest('button') || e.target.closest('a') || e.target.closest('input') ||
+					(window.getComputedStyle(e.target).cursor !== 'none' && window.getComputedStyle(e.target).cursor !== 'default');
+
+				cursor.classList.toggle('_hover', isHoverTarget);
 			} else if (e.type === 'mousedown') {
 				cursor.classList.add('_active');
-
 			} else if (e.type === 'mouseup') {
 				cursor.classList.remove('_active');
 			}
-			cursorPointer ? cursorPointer.style.transform = `translate3d(${e.clientX - cursorPointerStyle.width / 2}px, ${e.clientY - cursorPointerStyle.height / 2}px, 0)` : null;
-			cursorShadow ? cursorShadow.style.transform = `translate3d(${e.clientX - cursorShadowStyle.width / 2}px, ${e.clientY - cursorShadowStyle.height / 2}px, 0)` : null;
 		}
 
-		window.addEventListener('mouseup', mouseActions);
-		window.addEventListener('mousedown', mouseActions);
-		window.addEventListener('mousemove', mouseActions);
-		window.addEventListener('mouseout', mouseActions);
+		window.addEventListener('mousemove', handleMouse, {
+			passive: false
+		});
+		window.addEventListener('mousedown', handleMouse, {
+			passive: false
+		});
+		window.addEventListener('mouseup', handleMouse, {
+			passive: false
+		});
+		window.addEventListener('mouseout', handleMouse);
 	}
 }
+
+
 //================================================================================================================================================================================================================================================================================================================
 // Інші корисні функції ================================================================================================================================================================================================================================================================================================================
 //================================================================================================================================================================================================================================================================================================================

@@ -49,7 +49,7 @@
     background-color: var(--primary);
     color: var(--white);
     transform: translate(0, -100%);
-    padding-top: toRem(16);
+    padding-top: toRem(16) !important;
     padding-bottom: toRem(16);
 
     &._header-show {

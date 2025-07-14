@@ -973,6 +973,80 @@
             }
         });
     }
+    function customCursor(isShadowTrue) {
+        const wrapper = document.querySelector("[data-custom-cursor]") || document.documentElement;
+        if (wrapper && !isMobile.any()) {
+            const cursor = document.createElement("div");
+            cursor.classList.add("fls-cursor");
+            cursor.style.opacity = 0;
+            cursor.innerHTML = `\n            <span class="fls-cursor__pointer"></span>\n            ${isShadowTrue ? '<span class="fls-cursor__shadow"></span>' : ""}\n        `;
+            wrapper.append(cursor);
+            const pointer = cursor.querySelector(".fls-cursor__pointer");
+            const shadow = cursor.querySelector(".fls-cursor__shadow");
+            document.querySelector(".about-chronology__slider");
+            const arrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            arrow.setAttribute("class", "cursor-arrow");
+            arrow.setAttribute("width", "54");
+            arrow.setAttribute("height", "34");
+            arrow.setAttribute("viewBox", "0 0 54 34");
+            arrow.innerHTML = `\n           <path d="M2 17H52M52 17L37.2941 2M52 17L37.2941 32" stroke="#111B51" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />\n        `;
+            pointer.appendChild(arrow);
+            const pointerSize = {
+                width: pointer.offsetWidth,
+                height: pointer.offsetHeight
+            };
+            const shadowSize = shadow ? {
+                width: shadow.offsetWidth,
+                height: shadow.offsetHeight
+            } : null;
+            let mouseX = 0, mouseY = 0;
+            function renderCursor() {
+                pointer.style.transform = `translate3d(${mouseX - pointerSize.width / 2}px, ${mouseY - pointerSize.height / 2}px, 0)`;
+                if (shadow) shadow.style.transform = `translate3d(${mouseX - shadowSize.width / 2}px, ${mouseY - shadowSize.height / 2}px, 0)`;
+                const slides = document.querySelectorAll(".about-chronology__slide");
+                let overSlide = false;
+                slides.forEach(slide => {
+                    const rect = slide.getBoundingClientRect();
+                    const inside = mouseX >= rect.left && mouseX <= rect.right && mouseY >= rect.top && mouseY <= rect.bottom;
+                    if (inside) overSlide = true;
+                });
+                document.body.classList.toggle("cursor-hidden", overSlide);
+                if (overSlide) {
+                    const container = document.querySelector(".about-chronology__slider");
+                    const centerX = container.getBoundingClientRect().left + container.getBoundingClientRect().width / 2;
+                    arrow.style.display = "block";
+                    if (mouseX < centerX * 1) {
+                        arrow.style.transform = "translate(-50%, -50%) rotate(180deg)";
+                        arrow.style.opacity = "1";
+                    } else if (mouseX > centerX * 1.1) {
+                        arrow.style.transform = "translate(-50%, -50%) rotate(0deg)";
+                        arrow.style.opacity = "1";
+                    }
+                } else arrow.style.opacity = "0";
+                requestAnimationFrame(renderCursor);
+            }
+            requestAnimationFrame(renderCursor);
+            function handleMouse(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                if (e.type === "mouseout") cursor.style.opacity = 0; else if (e.type === "mousemove") {
+                    cursor.style.removeProperty("opacity");
+                    const isHoverTarget = e.target.closest("button") || e.target.closest("a") || e.target.closest("input") || window.getComputedStyle(e.target).cursor !== "none" && window.getComputedStyle(e.target).cursor !== "default";
+                    cursor.classList.toggle("_hover", isHoverTarget);
+                } else if (e.type === "mousedown") cursor.classList.add("_active"); else if (e.type === "mouseup") cursor.classList.remove("_active");
+            }
+            window.addEventListener("mousemove", handleMouse, {
+                passive: false
+            });
+            window.addEventListener("mousedown", handleMouse, {
+                passive: false
+            });
+            window.addEventListener("mouseup", handleMouse, {
+                passive: false
+            });
+            window.addEventListener("mouseout", handleMouse);
+        }
+    }
     function FLS(message) {
         setTimeout(() => {
             if (window.FLS) console.log(message);
@@ -5118,6 +5192,49 @@
             },
             on: {}
         });
+        if (document.querySelector(".about-chronology__slider")) new Swiper(".about-chronology__slider", {
+            observer: true,
+            observeParents: true,
+            slidesPerView: "auto",
+            spaceBetween: 0,
+            speed: 400,
+            freeMode: true,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 40
+                },
+                480: {
+                    slidesPerView: "auto",
+                    spaceBetween: 0
+                }
+            },
+            on: {}
+        });
+        if (document.querySelector(".prospects__slider")) new Swiper(".prospects__slider", {
+            observer: true,
+            observeParents: true,
+            slidesPerView: "auto",
+            spaceBetween: 0,
+            speed: 400,
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    centeredSlides: true,
+                    initialSlide: 1,
+                    spaceBetween: 40
+                },
+                480: {
+                    slidesPerView: 3.2,
+                    spaceBetween: 40
+                },
+                769: {
+                    slidesPerView: 4,
+                    spaceBetween: 86
+                }
+            },
+            on: {}
+        });
     }
     window.addEventListener("load", function() {
         initSliders();
@@ -6030,6 +6147,7 @@
             const lists = document.querySelectorAll(".product-plus__list");
             const listCount = document.querySelectorAll(".progress__counters");
             const listResolve = document.querySelectorAll(".resolve");
+            const listBoxes = document.querySelectorAll(".boxes-product__list");
             if (lists.length > 0) lists.forEach(list => {
                 const items = list.querySelectorAll(".product-plus__item");
                 const count = items.length;
@@ -6042,6 +6160,11 @@
             });
             if (listResolve.length > 0) listResolve.forEach(list => {
                 const items = list.querySelectorAll(".resolve__item");
+                const count = items.length;
+                list.style.setProperty("--items-count", count);
+            });
+            if (listBoxes.length > 0) listBoxes.forEach(list => {
+                const items = list.querySelectorAll(".boxes-product__item");
                 const count = items.length;
                 list.style.setProperty("--items-count", count);
             });
@@ -6129,11 +6252,44 @@
             document.head.appendChild(script);
         });
     }
+    function digitsCountInit(counters) {
+        counters.forEach(el => {
+            if (el.hasAttribute("data-go")) return;
+            el.setAttribute("data-go", "");
+            const start = parseInt(el.getAttribute("data-count-start")) || 0;
+            const end = parseInt(el.getAttribute("data-count-end")) || 100;
+            const speed = parseInt(el.getAttribute("data-count-speed")) || 1e3;
+            let startTime = null;
+            const range = end - start;
+            const animate = timestamp => {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / speed, 1);
+                const value = Math.floor(progress * range + start);
+                el.textContent = value;
+                if (progress < 1) window.requestAnimationFrame(animate); else {
+                    el.textContent = end;
+                    el.removeAttribute("data-go");
+                }
+            };
+            el.textContent = start;
+            window.requestAnimationFrame(animate);
+        });
+    }
+    function digitsCountTrigger(e) {
+        const entry = e.detail.entry;
+        const target = entry.target;
+        if (entry.isIntersecting) {
+            const counters = target.querySelectorAll("[data-count]");
+            if (counters.length) digitsCountInit(counters);
+        }
+    }
+    document.addEventListener("watcherCallback", digitsCountTrigger);
     window["FLS"] = false;
     addTouchClass();
     addLoadedClass();
     menuInit();
     showMore();
+    customCursor(false);
     formSubmit();
     headerScroll();
     digitsCounter();

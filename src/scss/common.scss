@@ -208,11 +208,13 @@ html.lenis body {
 }
 
 %fontProst {
-  font-family: "ProstoOne";
-  // font-weight: 400;
+  font-family: "ProstoOne",sans-serif;
 }
 
 
+.ff-acc {
+  font-family: "ProstoOne",sans-serif;
+}
 
 
 // == TITLES ================
@@ -235,6 +237,13 @@ html.lenis body {
   @include adaptiveValue("font-size", 16, 14, 0, 1440.98, 480.98);
 }
 
+.txt-big {
+  @include adaptiveValue("font-size", 230, 100, 0, 1440.98, 480.98);
+}
+.txt-big-2 {
+  @include adaptiveValue("font-size", 250, 100, 0, 1440.98, 480.98);
+}
+
 .txt-26 {
   @include adaptiveValue("font-size", 26, 18, 0, 1440.98, 480.98);
 }
@@ -245,6 +254,9 @@ html.lenis body {
   @include adaptiveValue("font-size", 22, 18, 0, 1440.98, 480.98);
 }
 
+.txt-19-12 {
+  @include adaptiveValue("font-size", 19, 12, 0, 1440.98, 480.98);
+}
 .txt-18-16 {
   @include adaptiveValue("font-size", 18, 16, 0, 1440.98, 480.98);
 }
@@ -291,15 +303,31 @@ html.lenis body {
 }
 
 .t-shadow {
+  @extend %fontProst;
   color: var(--white);
   text-shadow: -1px 0 var(--primary), 0 1px var(--primary), 1px 0 var(--primary), 0 -1px var(--primary);
 }
+
+%writingModeVertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
 
 p {
   text-wrap: balance;
 }
 
 // == MARGINS =================
+
+.mt-hero {
+  @media (min-width: $mobileSmall) {
+    padding-block-start: toRem(88);
+  }
+  @media (max-width: $mobileSmall) {
+    padding-block-start: toRem(100);
+  }
+}
 .mb-33-19 {
   @include adaptiveValue("margin-block-end", 33, 19, 0, 1440.98, 480.98);
 }
@@ -338,6 +366,9 @@ p {
 .mb-44 {
   @include adaptiveValue("margin-block-end", 44, 40, 0, 1440.98, 480.98);
 }
+.mb-40 {
+  @include adaptiveValue("margin-block-end", 40, 30, 0, 1440.98, 480.98);
+}
 
 .mb-24 {
   margin-block-end: toRem(24);
@@ -357,6 +388,9 @@ p {
 
 // == PADDINGS ==================
 
+.ptb-120 {
+  @include adaptiveValue("padding-block", 120, 40, 0, 1440.98, 480.98);
+}
 .pt-120 {
   @include adaptiveValue("padding-block-start", 120, 40, 0, 1440.98, 480.98);
 }

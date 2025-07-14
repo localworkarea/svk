@@ -210,7 +210,7 @@ function initSliders() {
 			// slidesPerView: 4,
 			spaceBetween: 1,
 			speed: 400,
-			
+
 			breakpoints: {
 				320: {
 					slidesPerView: 1.3,
@@ -221,7 +221,7 @@ function initSliders() {
 					slidesPerView: 2,
 				},
 				730: {
-						centeredSlides: true,
+					centeredSlides: true,
 					slidesPerView: 2.5,
 					initialSlide: 1,
 				},
@@ -237,12 +237,12 @@ function initSliders() {
 				},
 				1500: {
 					slidesPerView: 4,
-						initialSlide: 1,
-					},
+					initialSlide: 1,
+				},
 			},
 			// Події
 			on: {
-				init: function() {
+				init: function () {
 					setTimeout(() => {
 						setSubtitleHeights();
 					}, 100);
@@ -250,18 +250,18 @@ function initSliders() {
 			}
 		});
 		let lastWidth = window.innerWidth;
-  const resizeObserver = new ResizeObserver(entries => {
-    requestAnimationFrame(() => {
-      entries.forEach(entry => {
-        const currentWidth = entry.contentRect.width;
-        if (currentWidth !== lastWidth) {
-					setSubtitleHeights();
-          lastWidth = currentWidth;
-        }
-      });
-    });
-  });
-  resizeObserver.observe(document.body);
+		const resizeObserver = new ResizeObserver(entries => {
+			requestAnimationFrame(() => {
+				entries.forEach(entry => {
+					const currentWidth = entry.contentRect.width;
+					if (currentWidth !== lastWidth) {
+						setSubtitleHeights();
+						lastWidth = currentWidth;
+					}
+				});
+			});
+		});
+		resizeObserver.observe(document.body);
 	}
 	if (document.querySelector('.news__slider')) {
 		new Swiper('.news__slider', {
@@ -292,6 +292,91 @@ function initSliders() {
 				},
 				480: {
 					spaceBetween: 10,
+				},
+			},
+			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.about-chronology__slider')) {
+		new Swiper('.about-chronology__slider', {
+
+			// modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: "auto",
+			spaceBetween: 0,
+			speed: 400,
+			
+			freeMode: true,
+			// grabCursor: true,
+			
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+			
+			// navigation: {
+				// 	prevEl: '.swiper-button-prev',
+				// 	nextEl: '.swiper-button-next',
+				// },
+				
+				breakpoints: {
+					320: {
+						slidesPerView: 1,
+						spaceBetween:40,
+					},
+					480: {
+						slidesPerView: "auto",
+						spaceBetween: 0,
+				},
+			},
+			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.prospects__slider')) {
+		new Swiper('.prospects__slider', {
+
+			// modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: "auto",
+			spaceBetween: 0,
+			speed: 400,
+			
+			// grabCursor: true,
+			
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+			
+			// navigation: {
+				// 	prevEl: '.swiper-button-prev',
+				// 	nextEl: '.swiper-button-next',
+				// },
+				
+				breakpoints: {
+					320: {
+						slidesPerView: 2,
+						centeredSlides: true,
+					initialSlide: 1,
+						spaceBetween:40,
+					},
+					480: {
+						slidesPerView: 3.2,
+						spaceBetween:40,
+					},
+					769: {
+						slidesPerView: 4,
+						spaceBetween: 86,
 				},
 			},
 			// Події

@@ -153,18 +153,6 @@ class ScrollWatcher {
 				entry: entry
 			}
 		}));
-
-		/*
-		// Вибираємо потрібні об'єкти
-		if (targetElement.dataset.watch === 'some value') {
-			// пишемо унікальну специфіку
-		}
-		if (entry.isIntersecting) {
-			//Бачимо об'єкт
-		} else {
-			//Не бачимо об'єкт
-		}
-		*/
 	}
 }
 // Запускаємо та додаємо в об'єкт модулів
