@@ -2687,7 +2687,21 @@ body.cursor-hidden {
 .item-catalog {
   position: relative;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  opacity: 0;
+  -webkit-transform: translateY(30%);
+  transform: translateY(30%);
+  transition-property: opacity,-webkit-transform;
+  transition-property: opacity,transform;
+  transition-property: opacity,transform,-webkit-transform;
+  transition-duration: .85s;
+  transition-timing-function: ease;
+  transition-delay: 0s
+}
+.item-catalog._view {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0)
 }
 .item-catalog__img {
   position: relative;

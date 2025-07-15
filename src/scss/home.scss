@@ -4120,7 +4120,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
+  opacity: 0;
+  transform: translateY(30%);
+  transition-property: opacity, transform;
+  transition-duration: 0.85s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  &._view {
+    opacity: 1;
+    transform: translateY(0);
+  }
   @media (any-hover: hover) {
     &:hover {
       .item-catalog__img {

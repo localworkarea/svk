@@ -503,7 +503,7 @@ const brands = [
   { name: "Perfect", logo: "files/search/perfect.png" },
   { name: "ПусяFRESH", logo: "files/search/puciaFRESH.png", isTop: true },
   { name: "MorecoBeauty", logo: "files/search/morecoBeauty.png", isTop: true },
-  { name: "Moreco", logo: "files/search/morecoBeauty.png", isTop: true },
+  { name: "Moreco", logo: "files/search/moreco.png", isTop: true },
   { name: "SW", logo: "files/search/sw.png", isTop: true },
 
 ];

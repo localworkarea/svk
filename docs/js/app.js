@@ -6659,7 +6659,7 @@
         isTop: true
     }, {
         name: "Moreco",
-        logo: "files/search/morecoBeauty.png",
+        logo: "files/search/moreco.png",
         isTop: true
     }, {
         name: "SW",
