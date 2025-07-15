@@ -440,7 +440,7 @@ function loadInputMask() {
 
 
 
-
+// СЧИТАЛКА ПО ЗАДАННЫМ ПАРАМЕТРАМ ============================================
 function digitsCountInit(counters) {
   counters.forEach(el => {
     if (el.hasAttribute('data-go')) return;
@@ -486,3 +486,161 @@ function digitsCountTrigger(e) {
 }
 
 document.addEventListener('watcherCallback', digitsCountTrigger);
+// ====================================================================
+
+
+
+
+
+
+
+
+
+
+// == SEARCH INPUTS BRANDS ============================
+const brands = [
+  { name: "Пуся", logo: "files/search/pucia.png" },
+  { name: "Perfect", logo: "files/search/perfect.png" },
+  { name: "ПусяFRESH", logo: "files/search/puciaFRESH.png", isTop: true },
+  { name: "MorecoBeauty", logo: "files/search/morecoBeauty.png", isTop: true },
+  { name: "Moreco", logo: "files/search/morecoBeauty.png", isTop: true },
+  { name: "SW", logo: "files/search/sw.png", isTop: true },
+
+];
+
+// Історія пошуку для всіх інпутів загальна
+let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+document.querySelectorAll('.search').forEach(searchElement => {
+  const searchInput = searchElement.querySelector('.search__input');
+  const searchList = searchElement.querySelector('.search__list');
+  const searchHeader = searchElement.querySelector('.search__header');
+  const searchBox = searchElement.querySelector('.search__box');
+  const searchNull = searchElement.querySelector('.search__null');
+
+
+  function closeUI() {
+    searchList.innerHTML = "";
+    searchHeader.innerHTML = "";
+    searchNull.style.display = "none";
+    searchBox.style.pointerEvents = "none";
+    searchInput.classList.remove("_input-focus");
+    searchElement.classList.remove("_input-focus");
+  }
+
+  function updateUI(type) {
+    searchList.innerHTML = "";
+    searchHeader.innerHTML = "";
+    searchNull.style.display = "none";
+
+    if (type === "history" && searchHistory.length > 0) {
+      searchHeader.innerHTML = `
+        <div class="search__history">
+          Історія пошуку 
+          <button class="search__clear-btn">Очистити</button>
+        </div>
+      `;
+
+      searchHeader.querySelector('.search__clear-btn')
+        .addEventListener("click", e => clearHistory(e));
+      renderList(searchHistory);
+    } else if (type === "top") {
+      searchHeader.innerHTML = `
+        <div class="search__top">
+          Топ запитів 
+          <button class="search__top-link">Інші рекомендації</button>
+        </div>
+      `;
+
+      searchHeader.querySelector('.search__top-link')
+        .addEventListener("click", e => {
+          e.stopPropagation(); 
+          updateUI("top");
+        });
+      renderList(brands.filter(brand => brand.isTop), true);
+    }
+  }
+
+  function renderList(items, isTop = false) {
+    searchNull.style.display = items.length === 0 ? "block" : "none";
+  
+    items.forEach(brand => {
+      const item = document.createElement("button");
+      item.setAttribute("type", "button");
+      item.classList.add("search__item");
+      if (isTop) item.classList.add("search__item--top");
+      item.innerHTML = `
+        <img src="${brand.logo}" width="37" height="24" class="search__logo" alt="${brand.name}">
+        <span class="search__name">${brand.name}</span>
+        <span class="search__icon icon-search"></span>
+      `;
+      item.addEventListener("click", (e) => {
+        e.stopPropagation(); 
+        searchInput.value = brand.name;
+        searchList.innerHTML = "";
+        searchHeader.innerHTML = "";
+        searchNull.style.display = "none";
+        addToHistory(brand);
+        closeUI();
+      });
+      searchList.appendChild(item);
+    });
+  }
+  
+
+  function addToHistory(brand) {
+    if (!searchHistory.some(item => item.name === brand.name)) {
+      searchHistory.unshift(brand);
+      if (searchHistory.length > 7) searchHistory.pop();
+      localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    }
+  }
+
+  function clearHistory(e) {
+    e.stopPropagation();
+    searchHistory = [];
+    localStorage.removeItem("searchHistory");
+    updateUI("top");
+    searchInput.focus();
+  }
+
+  searchInput.addEventListener("focus", () => {
+    searchInput.classList.add("_input-focus");
+    searchElement.classList.add("_input-focus");
+    searchBox.style.pointerEvents = "all";
+    if (searchInput.value) {
+      searchInput.dispatchEvent(new Event("input"));
+    } else {
+      updateUI(searchHistory.length > 0 ? "history" : "top");
+    }
+  });
+
+  searchInput.addEventListener("input", () => {
+    searchHeader.innerHTML = "";
+    searchList.innerHTML = "";
+    searchNull.style.display = "none";
+
+    const query = searchInput.value.toUpperCase();
+    if (query.length > 0) {
+      const filteredBrands = brands.filter(brand =>
+        brand.name.toUpperCase().includes(query)
+      );
+      renderList(filteredBrands);
+    } else {
+      updateUI(searchHistory.length > 0 ? "history" : "top");
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest('.search')) {
+      closeUI();
+    }
+  });
+});
+// == END OF SEARCH INPUTS BRANDS ============================
+
+
+
+
+
+

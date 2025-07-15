@@ -85,10 +85,11 @@ class SelectConstructor {
 			const selectItems = data ? document.querySelectorAll(data) : document.querySelectorAll('select');
 			if (selectItems.length) {
 				this.selectsInit(selectItems);
-				this.setLogging(`Прокинувся, построїв селектов: (${selectItems.length})`);
-			} else {
-				this.setLogging('Сплю, немає жодного select');
-			}
+				// this.setLogging(`Прокинувся, построїв селектов: (${selectItems.length})`);
+			} 
+			// else {
+				// this.setLogging('Сплю, немає жодного select');
+			// }
 		}
 	}
 	// Конструктор CSS класу
@@ -549,10 +550,10 @@ class SelectConstructor {
 			}
 		}));
 	}
-	// Логінг у консоль
-	setLogging(message) {
-		this.config.logging ? FLS(`[select]: ${message} `) : null;
-	}
+	// // Логінг у консоль
+	// setLogging(message) {
+	// 	this.config.logging ? FLS(`[select]: ${message} `) : null;
+	// }
 }
 // Запускаємо та додаємо в об'єкт модулів
 flsModules.select = new SelectConstructor({});

@@ -732,9 +732,10 @@ export function rippleEffect() {
 // 	}
 // }
 export function customCursor(isShadowTrue) {
+	const slides = document.querySelectorAll('.about-chronology__slide');
 	const wrapper = document.querySelector('[data-custom-cursor]') || document.documentElement;
 
-	if (wrapper && !isMobile.any()) {
+	if (wrapper && !isMobile.any() && slides.length > 0) {
 		const cursor = document.createElement('div');
 		cursor.classList.add('fls-cursor');
 		cursor.style.opacity = 0;

@@ -11,7 +11,7 @@
 	<link rel="preload" href="fonts/Montserrat-Italic.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="stylesheet" href="css/style.min.css?_v=20250714205454">
+	<link rel="stylesheet" href="css/style.min.css?_v=20250715164841">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -194,6 +194,261 @@
 			</div>
 		</header>
 		<main class="page">
+			<section class="catalog mt-hero mb-114-60">
+				<div class="catalog__container">
+					<div class="product-hero__body mb-60">
+						<h1 class="product-hero__title title-main split-words set-span">Каталог продукції</h1>
+						<div class="product-hero__bg">
+							<picture>
+								<source srcset="img/catalog/catalog-hero-pc.webp" media="(max-width: 30.061em)" type="image/webp">
+								<source srcset="img/catalog/catalog-hero-pc.webp" media="(min-width: 30.061em)" type="image/webp">
+								<img loading="lazy" class="ibg" src="img/catalog/catalog-hero-pc.webp" width="1320" height="430" alt="image">
+							</picture>
+						</div>
+					</div>
+					<div class="catalog__filters filters mb-36">
+						<ul class="filters__category category">
+							<li class="category__item">
+								<a href="#" class="category__link btn btn--category _active" aria-label="category">
+									<span class="btn-txt">вся продукція</span>
+								</a>
+							</li>
+							<li class="category__item">
+								<a href="#" class="category__link btn btn--category" aria-label="category">
+									<span class="btn-txt">Побутова хімія</span>
+								</a>
+							</li>
+							<li class="category__item">
+								<a href="#" class="category__link btn btn--category" aria-label="category">
+									<span class="btn-txt">Промислова хімія</span>
+								</a>
+							</li>
+							<li class="category__item">
+								<a href="#" class="category__link btn btn--category" aria-label="category">
+									<span class="btn-txt">Косметика</span>
+								</a>
+							</li>
+						</ul>
+						<div data-lenis-prevent="false" class="filters__subcategory subcategory">
+							<div class="subcategory__search">
+								<div class="search">
+									<div class="search__wrapper">
+										<input type="text" class="search__input" placeholder="Пошук">
+									</div>
+									<div class="search__box">
+										<div class="search__header"></div>
+										<div class="search__list"></div>
+										<div class="search__null">
+											<div class="search__null-wr">
+												<p class="search__null-txt">У нас немає таких товарів</p>
+												<p class="search__null-txt-acc">Спробуй пошукати щось схоже у нашому каталозі</p>
+												<a href="catalog.html" class="search__null-link btn btn--dark btn--size-b">
+													<span class="btn-txt">Перейти до каталогу</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="subcategory__select">
+								<div data-one-select class="subcategory__type">
+									<select name="form[]" data-show-selected data-class-modif="type-select" data-speed="200" data-scroll="200">
+										<option value="" data-show>Об'єм</option>
+										<option value="2">100 мл</option>
+										<option value="3">200 мл</option>
+										<option value="4">300 мл</option>
+										<option value="5">400 мл</option>
+										<option value="6">600 мл</option>
+										<option value="7">800 мл</option>
+										<option value="8">1000 мл</option>
+										<option value="9">1500 мл</option>
+									</select>
+									<select name="form[]" data-show-selected data-class-modif="type-select" data-speed="200" data-scroll="200">
+										<option value="" data-show>Призначення</option>
+										<option value="2">Автохімія</option>
+										<option value="3">Коагулянти</option>
+										<option value="4">Добрива</option>
+										<option value="5">Ингибиторы</option>
+										<option value="6">Реагенти</option>
+										<option value="7">Миючі засоби</option>
+										<option value="8">Флюси</option>
+										<option value="9">Клеї</option>
+									</select>
+									<select name="form[]" data-show-selected data-class-modif="type-select" data-speed="200" data-scroll="200">
+										<option value="" data-show>Торгова марка</option>
+										<option value="2">Perfect</option>
+										<option value="3">Super Wash</option>
+										<option value="4">ПусяFRESH</option>
+										<option value="5">MorecoBeauty</option>
+									</select>
+									<select name="form[]" data-show-selected data-class-modif="type-select" data-speed="200" data-scroll="200">
+										<option value="" data-show>Аромат</option>
+										<option value="2">Ваніль</option>
+										<option value="3">Персик</option>
+										<option value="4">Морська свіжість</option>
+										<option value="5">Гірський вітер</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="catalog__body">
+						<ul class="catalog__list mb-85">
+							<li class="catalog__item item-catalog">
+								<div class="item-catalog__img">
+									<img class="ibg ibg--contain" src="img/catalog/product-1.webp" width="200" height="270" alt="Image">
+								</div>
+								<div class="item-catalog__footer">
+									<span class="item-catalog__type">Засіб для прання</span>
+									<span class="item-catalog__name">COLOR SUPER WASH</span>
+								</div>
+								<a href="card-industrial.html" class="item-catalog__link" aria-label="link to the item"></a>
+							</li>
+							<li class="catalog__item item-catalog">
+								<div class="item-catalog__img">
+									<img class="ibg ibg--contain" src="img/catalog/product-2.webp" width="200" height="270" alt="Image">
+								</div>
+								<div class="item-catalog__footer">
+									<span class="item-catalog__type">Засіб для прання</span>
+									<span class="item-catalog__name">COLOR SUPER WASH</span>
+								</div>
+								<a href="card-household.html" class="item-catalog__link" aria-label="link to the item"></a>
+							</li>
+							<li class="catalog__item item-catalog">
+								<div class="item-catalog__img">
+									<img class="ibg ibg--contain" src="img/catalog/product-3.webp" width="200" height="270" alt="Image">
+								</div>
+								<div class="item-catalog__footer">
+									<span class="item-catalog__type">Миючі засоби</span>
+									<span class="item-catalog__name">COLOR SUPER WASH</span>
+								</div>
+								<a href="card-industrial.html" class="item-catalog__link" aria-label="link to the item"></a>
+							</li>
+							<li class="catalog__item item-catalog">
+								<div class="item-catalog__img">
+									<img class="ibg ibg--contain" src="img/catalog/product-4.webp" width="200" height="270" alt="Image">
+								</div>
+								<div class="item-catalog__footer">
+									<span class="item-catalog__type">Засіб для прання</span>
+									<span class="item-catalog__name">COLOR SUPER WASH</span>
+								</div>
+								<a href="card-industrial.html" class="item-catalog__link" aria-label="link to the item"></a>
+							</li>
+							<li class="catalog__item item-catalog">
+								<div class="item-catalog__img">
+									<img class="ibg ibg--contain" src="img/catalog/product-5.webp" width="200" height="270" alt="Image">
+								</div>
+								<div class="item-catalog__footer">
+									<span class="item-catalog__type">Миючі засоби</span>
+									<span class="item-catalog__name">COLOR SUPER WASH</span>
+								</div>
+								<a href="card-household.html" class="item-catalog__link" aria-label="link to the item"></a>
+							</li>
+							<li class="catalog__item item-catalog">
+								<div class="item-catalog__img">
+									<img class="ibg ibg--contain" src="img/catalog/product-6.webp" width="200" height="270" alt="Image">
+								</div>
+								<div class="item-catalog__footer">
+									<span class="item-catalog__type">Засіб для прання</span>
+									<span class="item-catalog__name">COLOR SUPER WASH</span>
+								</div>
+								<a href="card-industrial.html" class="item-catalog__link" aria-label="link to the item"></a>
+							</li>
+							<li class="catalog__item item-catalog">
+								<div class="item-catalog__img">
+									<img class="ibg ibg--contain" src="img/catalog/product-1.webp" width="200" height="270" alt="Image">
+								</div>
+								<div class="item-catalog__footer">
+									<span class="item-catalog__type">Засіб для прання</span>
+									<span class="item-catalog__name">COLOR SUPER WASH</span>
+								</div>
+								<a href="card-industrial.html" class="item-catalog__link" aria-label="link to the item"></a>
+							</li>
+							<li class="catalog__item item-catalog">
+								<div class="item-catalog__img">
+									<img class="ibg ibg--contain" src="img/catalog/product-2.webp" width="200" height="270" alt="Image">
+								</div>
+								<div class="item-catalog__footer">
+									<span class="item-catalog__type">Засіб для прання</span>
+									<span class="item-catalog__name">COLOR SUPER WASH</span>
+								</div>
+								<a href="card-household.html" class="item-catalog__link" aria-label="link to the item"></a>
+							</li>
+						</ul>
+						<button class="catalog__more btn btn--gray" type="button" aria-label="load more products">
+							<span>завантажити ще</span>
+						</button>
+					</div>
+				</div>
+			</section>
+			<section class="product-downld pb-60 pb-120">
+				<div class="product-downld__container-b">
+					<div class="product-downld__body body-el">
+						<div class="product-downld__img">
+							<img loading="lazy" src="img/catalog/download.webp" width="338" height="256" alt="Image">
+						</div>
+						<div data-watch data-watch-threshold="1" data-watch-once class="product-downld__head body-head-el">
+							<h2 class="product-downld__title split-words set-span title-34">Каталог продукції</h2>
+							<a href="files/catalog.webp" download="catalog.webp" class="product-downld__link btn btn--dark btn--size-b" aria-label="link to download">
+								<span class="btn-txt">Завантажити</span>
+								<span class="btn-arrows"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="samples ptb-60">
+				<div class="samples__container">
+					<div class="samples__body">
+						<div class="samples__img">
+							<img class="ibg ibg--contain" src="img/products-line/mask-02.webp" width="530" height="444" alt="Image">
+						</div>
+						<div data-watch data-watch-threshold="1" data-watch-once class="samples__head">
+							<h2 class="samples__title split-words set-span title-34 mb-11">Замовити зразки</h2>
+							<p class="samples__subtitle txt-main mb-24">Залиште нам свої дані і наші менеджери
+								Вам зателефонують</p>
+							<form class="samples__form form-samples" data-dev action="#" method="POST">
+								<div class="form-samples__items mb-24">
+									<div class="form-samples__item">
+										<input type="text" name="form[name]" placeholder="Ваше ім'я" class="form-samples__input input" required>
+									</div>
+									<div class="form-samples__item">
+										<input type="tel" data-mask inputmode="numeric" name="form[tel]" placeholder="телефон" class="form-samples__input input" required>
+									</div>
+								</div>
+								<button type="submit" class="form-samples__button btn btn--dark btn--size-b">
+									<span class="btn-txt">замовити дзвінок</span>
+									<span class="btn-arrows"></span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="seo-text pb-60">
+				<div class="seo-text__container">
+					<div data-showmore="items" class="seo-text__body">
+						<div data-showmore-content=2 class="seo-text__content">
+							<p>Коли ти востаннє дивилась на своє волосся не просто як на черговий “пунктик” у рутині, а як на зброю масового зваблення? Наше волосся – це більше, ніж просто пасма. Це – частина нашої особистості, потужний атрибут, здатний спокусити,
+								надихнути і навіть підвищити впевненість. І тут на сцену виходить ефективний догляд зі спокусливим ароматом, що більше нагадує інтимний ритуал, ніж банальну щоденну процедуру.</p>
+							<p>Внутрішня впевненість починається з ніжності до себе<br> Кожна жінка – це цілий Всесвіт, а волосся – своєрідна галактика у цьому просторі. Якщо ти звикла поспіхом намилювати, швидко змивати та хапати перший-ліпший шампунь, пора
+								змінити парадигму. Подумайте: чому б не перетворити звичайне миття у чуттєвий ритуал? Вибір продукту – це ніби вибір коханця на вечір: він має приємно пахнути, спокушати </p>
+							<p>Коли ти востаннє дивилась на своє волосся не просто як на черговий “пунктик” у рутині, а як на зброю масового зваблення? Наше волосся – це більше, ніж просто пасма. Це – частина нашої особистості, потужний атрибут, здатний спокусити,
+								надихнути і навіть підвищити впевненість. І тут на сцену виходить ефективний догляд зі спокусливим ароматом, що більше нагадує інтимний ритуал, ніж банальну щоденну процедуру.</p>
+							<p>Внутрішня впевненість починається з ніжності до себе<br> Кожна жінка – це цілий Всесвіт, а волосся – своєрідна галактика у цьому просторі. Якщо ти звикла поспіхом намилювати, швидко змивати та хапати перший-ліпший шампунь, пора
+								змінити парадигму. Подумайте: чому б не перетворити звичайне миття у чуттєвий ритуал? Вибір продукту – це ніби вибір коханця на вечір: він має приємно пахнути, спокушати </p>
+							<p>Коли ти востаннє дивилась на своє волосся не просто як на черговий “пунктик” у рутині, а як на зброю масового зваблення? Наше волосся – це більше, ніж просто пасма. Це – частина нашої особистості, потужний атрибут, здатний спокусити,
+								надихнути і навіть підвищити впевненість. І тут на сцену виходить ефективний догляд зі спокусливим ароматом, що більше нагадує інтимний ритуал, ніж банальну щоденну процедуру.</p>
+							<p>Внутрішня впевненість починається з ніжності до себе<br> Кожна жінка – це цілий Всесвіт, а волосся – своєрідна галактика у цьому просторі. Якщо ти звикла поспіхом намилювати, швидко змивати та хапати перший-ліпший шампунь, пора
+								змінити парадигму. Подумайте: чому б не перетворити звичайне миття у чуттєвий ритуал? Вибір продукту – це ніби вибір коханця на вечір: він має приємно пахнути, спокушати </p>
+						</div>
+						<button hidden data-showmore-button type="button" class="seo-text__btn" aria-label="show more content">
+							<span class="btn-more">Розгорнути</span>
+							<span class="btn-hidden">Згорнути</span>
+						</button>
+					</div>
+				</div>
+			</div>
 		</main>
 		<footer class="footer">
 			<div data-watch data-watch-threshold="0.5" data-watch-once class="footer__container-b">
@@ -316,7 +571,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20250714205454" defer></script>
+	<script src="js/app.min.js?_v=20250715164841" defer></script>
 </body>
 
 </html>

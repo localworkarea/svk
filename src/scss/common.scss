@@ -55,6 +55,7 @@ html.lenis body {
   margin-inline: auto;
   max-width: toRem(1370);
 }
+
 [class*="__container-b"] {
   max-width: toRem(1200);
 }
@@ -208,12 +209,12 @@ html.lenis body {
 }
 
 %fontProst {
-  font-family: "ProstoOne",sans-serif;
+  font-family: "ProstoOne", sans-serif;
 }
 
 
 .ff-acc {
-  font-family: "ProstoOne",sans-serif;
+  font-family: "ProstoOne", sans-serif;
 }
 
 
@@ -240,6 +241,7 @@ html.lenis body {
 .txt-big {
   @include adaptiveValue("font-size", 230, 100, 0, 1440.98, 480.98);
 }
+
 .txt-big-2 {
   @include adaptiveValue("font-size", 250, 100, 0, 1440.98, 480.98);
 }
@@ -247,9 +249,11 @@ html.lenis body {
 .txt-26 {
   @include adaptiveValue("font-size", 26, 18, 0, 1440.98, 480.98);
 }
+
 .txt-24 {
   @include adaptiveValue("font-size", 24, 20, 0, 1440.98, 480.98);
 }
+
 .txt-22 {
   @include adaptiveValue("font-size", 22, 18, 0, 1440.98, 480.98);
 }
@@ -257,17 +261,25 @@ html.lenis body {
 .txt-19-12 {
   @include adaptiveValue("font-size", 19, 12, 0, 1440.98, 480.98);
 }
+
 .txt-18-16 {
   @include adaptiveValue("font-size", 18, 16, 0, 1440.98, 480.98);
 }
+
 .txt-18-14 {
   @include adaptiveValue("font-size", 18, 14, 0, 1440.98, 480.98);
 }
+
 .txt-17-12 {
   @include adaptiveValue("font-size", 17, 12, 0, 1440.98, 480.98);
 }
+
 .txt-16-14 {
   @include adaptiveValue("font-size", 16, 14, 0, 1440.98, 480.98);
+}
+
+.txt-12-11 {
+  @include adaptiveValue("font-size", 12, 11, 0, 1440.98, 480.98);
 }
 
 .txt-18 {
@@ -280,7 +292,7 @@ html.lenis body {
 
 .txt-14 {
   @extend %fontProst;
-  @include adaptiveValue("font-size", 14, 10,0,1440.98,480.98);
+  @include adaptiveValue("font-size", 14, 10, 0, 1440.98, 480.98);
   line-height: 1.076;
   // letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -324,10 +336,12 @@ p {
   @media (min-width: $mobileSmall) {
     padding-block-start: toRem(88);
   }
+
   @media (max-width: $mobileSmall) {
     padding-block-start: toRem(100);
   }
 }
+
 .mb-33-19 {
   @include adaptiveValue("margin-block-end", 33, 19, 0, 1440.98, 480.98);
 }
@@ -339,12 +353,15 @@ p {
 .mb-114-60 {
   @include adaptiveValue("margin-block-end", 114, 60, 0, 1440.98, 480.98);
 }
+
 .mt-114-60 {
   @include adaptiveValue("margin-block-start", 114, 60, 0, 1440.98, 480.98);
 }
+
 .mb-85 {
   @include adaptiveValue("margin-block-end", 85, 52, 0, 1440.98, 480.98);
 }
+
 .mb-80 {
   margin-block-end: toRem(80);
 }
@@ -360,28 +377,39 @@ p {
 .mb-60 {
   @include adaptiveValue("margin-block-end", 60, 48, 0, 1440.98, 480.98);
 }
+
 .mb-50 {
   @include adaptiveValue("margin-block-end", 50, 20, 0, 1440.98, 480.98);
 }
+
 .mb-44 {
   @include adaptiveValue("margin-block-end", 44, 40, 0, 1440.98, 480.98);
 }
+
 .mb-40 {
   @include adaptiveValue("margin-block-end", 40, 30, 0, 1440.98, 480.98);
+}
+
+.mb-36 {
+  margin-block-end: toRem(36);
 }
 
 .mb-24 {
   margin-block-end: toRem(24);
 }
+
 .mb-20 {
   margin-block-end: toRem(20);
 }
+
 .mb-21 {
   @include adaptiveValue("margin-block-end", 21, 16, 0, 1440.98, 480.98);
 }
+
 .mb-16 {
   @include adaptiveValue("margin-block-end", 16, 14, 0, 1440.98, 480.98);
 }
+
 .mb-11 {
   margin-block-end: toRem(11);
 }
@@ -391,12 +419,15 @@ p {
 .ptb-120 {
   @include adaptiveValue("padding-block", 120, 40, 0, 1440.98, 480.98);
 }
+
 .pt-120 {
   @include adaptiveValue("padding-block-start", 120, 40, 0, 1440.98, 480.98);
 }
+
 .pb-120 {
   @include adaptiveValue("padding-block-end", 120, 40, 0, 1440.98, 480.98);
 }
+
 .ptb-60 {
   @include adaptiveValue("padding-block", 60, 48, 0, 1440.98, 480.98);
 }
@@ -418,21 +449,25 @@ p {
 
 // ======= GAP ===============================
 %gap53-40 {
-  @include adaptiveValue("gap", 53, 40,0,1440.98,480.98);
+  @include adaptiveValue("gap", 53, 40, 0, 1440.98, 480.98);
 }
+
 %gap50-28 {
-  @include adaptiveValue("gap", 50, 28,0,1440.98,480.98);
+  @include adaptiveValue("gap", 50, 28, 0, 1440.98, 480.98);
 }
 
 %gap40-30 {
- @include adaptiveValue("gap", 40, 30,0,1440.98,480.98);
+  @include adaptiveValue("gap", 40, 30, 0, 1440.98, 480.98);
 }
+
 %gap37-20 {
- @include adaptiveValue("gap", 37, 20,0,1440.98,480.98);
+  @include adaptiveValue("gap", 37, 20, 0, 1440.98, 480.98);
 }
+
 %gap20-13 {
- @include adaptiveValue("gap", 20, 13,0,1440.98,480.98);
+  @include adaptiveValue("gap", 20, 13, 0, 1440.98, 480.98);
 }
+
 // -- FONTS WEIGHT ===========================
 .fw-600 {
   font-weight: 600;
@@ -440,35 +475,38 @@ p {
 
 
 %container1150 {
-  @media (min-width:$tablet){
-     max-width: toRem(1150);
-     margin-inline: auto; 
-     width: 100%;
-    }
+  @media (min-width:$tablet) {
+    max-width: toRem(1150);
+    margin-inline: auto;
+    width: 100%;
   }
-  %container998 {
-    @media (min-width:$tablet){
-      max-width: toRem(998);
-      margin-inline: auto; 
-      width: 100%;
+}
+
+%container998 {
+  @media (min-width:$tablet) {
+    max-width: toRem(998);
+    margin-inline: auto;
+    width: 100%;
   }
 }
 
 %mandatory {
-    @media (max-width: toEm(768.98)) {
-      display: flex;
-      overflow: auto;
-      scroll-snap-type: x mandatory;
-      padding-left: toRem(25);
-      padding-right: toRem(25);
-      margin-inline: toRem(-25);
-      li {
-         scroll-snap-align: center;
-      }
-      &::-webkit-scrollbar {
-        display: none;
-      }
+  @media (max-width: toEm(768.98)) {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding-left: toRem(25);
+    padding-right: toRem(25);
+    margin-inline: toRem(-25);
+
+    li {
+      scroll-snap-align: center;
     }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 
@@ -530,14 +568,20 @@ p {
   border-radius: toRem(100);
   max-width: max-content;
   width: 100%;
-  
-  transition: background-color .3s ease, color .3s ease;
+
+  // transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+
 }
 
 .btn {
   @extend %fontProst;
   @extend %gridCenter;
   @extend %btnMain;
+
   span {
     display: inline-block;
     position: relative;
@@ -622,39 +666,78 @@ p {
 
   &--size-b {
     @include adaptiveValue("padding-inline", 67, 53, 0, 1440.98, 480.98);
-    
+
     &:before {
       background-image: url("@img/icons/arr-blue.svg");
     }
-    
+
     .btn-arrows {
       &::before {
         background-image: url("@img/icons/arr-white.svg");
       }
     }
   }
-  
+
   &--height-a {}
+
+  &--gray {
+    @include adaptiveValue("padding-inline", 67, 53, 0, 1440.98, 480.98);
+    background-color: rgb(204, 204, 204, 0.24);
+    border: toRem(1) solid transparent;
+    @media (any-hover: hover){
+      &:hover{
+        border-color: var(--primary);
+      }
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &--category {
+    border: toRem(1) solid var(--primary);
+    @include adaptiveValue("padding-inline", 47, 36, 0, 1440.98, 480.98);
+
+    &::before {
+      display: none;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--primary);
+        color: var(--white);
+      }
+    }
+
+    &._active {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+  }
 }
 
 .btn-sec {
-    @extend %fontProst;
+  @extend %fontProst;
   @extend %gridCenter;
   @extend %btnMain;
   border: toRem(1) solid transparent;
   @include adaptiveValue("padding-inline", 67, 53, 0, 1440.98, 480.98);
+
   // .btn-sec--light 
   &--light {
-     background-color: var(--white);
+    background-color: var(--white);
     color: var(--primary);
-    @media (any-hover: hover){
-      &:hover{
+
+    @media (any-hover: hover) {
+      &:hover {
         background-color: var(--primary);
         color: var(--white);
         border-color: var(--white);
       }
     }
   }
+
   .btn-sec-txt {
     display: inline-block;
   }
@@ -668,20 +751,23 @@ p {
   column-gap: toRem(67);
   @include adaptiveValue("row-gap", 24, 20, 0, 1440.98, 480.98);
   grid-auto-rows: max-content;
+
   &--pl {
     @extend %pddLeft84;
-    
+
   }
+
   // .block-intro--clm
   &--clm {
     @media (min-width:toEm(820.98)) {
       grid-template-columns: 42% 1fr;
     }
-    
+
     @media (max-width:toEm(820.98)) {
       grid-template-columns: 100%;
     }
   }
+
   // .block-intro--clm-b
   &--clm-b {
     @media (min-width:toEm(820.98)) {
