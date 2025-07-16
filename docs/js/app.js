@@ -5594,6 +5594,29 @@
             },
             on: {}
         });
+        if (document.querySelector(".similar__slider")) new Swiper(".similar__slider", {
+            observer: true,
+            observeParents: true,
+            spaceBetween: 0,
+            speed: 400,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1.2,
+                    centeredSlides: true,
+                    initialSlide: 1,
+                    spaceBetween: 28
+                },
+                480: {
+                    slidesPerView: 3.1,
+                    spaceBetween: 28
+                },
+                820: {
+                    slidesPerView: 4,
+                    spaceBetween: 28
+                }
+            },
+            on: {}
+        });
     }
     window.addEventListener("load", function() {
         initSliders();

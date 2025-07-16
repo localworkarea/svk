@@ -385,6 +385,51 @@ function initSliders() {
 			}
 		});
 	}
+	if (document.querySelector('.similar__slider')) {
+		new Swiper('.similar__slider', {
+
+			// modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			// slidesPerView: "auto",
+			spaceBetween: 0,
+			speed: 400,
+			
+			// grabCursor: true,
+			
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+			
+			// navigation: {
+				// 	prevEl: '.swiper-button-prev',
+				// 	nextEl: '.swiper-button-next',
+				// },
+				
+				breakpoints: {
+					320: {
+						slidesPerView: 1.2,
+						centeredSlides: true,
+					initialSlide: 1,
+						spaceBetween:28,
+					},
+					480: {
+						slidesPerView: 3.1,
+						spaceBetween:28,
+					},
+					820: {
+						slidesPerView: 4,
+						spaceBetween: 28,
+				},
+			},
+			// Події
+			on: {
+
+			}
+		});
+	}
 
 }
 window.addEventListener("load", function () {

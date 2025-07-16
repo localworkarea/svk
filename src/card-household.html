@@ -1,15 +1,166 @@
 <!DOCTYPE html>
 <html lang="uk">
-	@@include('html/_head.htm',{
-	"title":"SVK | CARD HOUSEHOLD"
-	})
-	<body>
-		<div class="wrapper page-card-household">
-			@@include('html/_header.htm',{})
-			<main class="page">
-			</main>
-			@@include('html/_footer.htm',{})
-		</div>
-		@@include('html/_js.htm',{})
-	</body>
+@@include('html/_head.htm',{
+"title":"SVK | CARD HOUSEHOLD"
+})
+
+<body>
+	<div class="wrapper page-card-household">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="card mt-hero">
+				<div class="card__container">
+					<div class="card__hero mb-60">
+						<div class="card__bg product-hero__bg">
+							<picture>
+								<source srcset="@img/catalog/card-hero-1-mb.png" media="(max-width: 30.061em)" type="image/webp">
+								<source srcset="@img/catalog/card-hero-1-pc.png" media="(min-width: 30.061em)" type="image/webp">
+								<img loading="lazy" class="ibg" src="@img/catalog/card-hero-1-pc.png" width="1320" height="430" alt="image">
+							</picture>
+						</div>
+						<div class="card__img">
+							<img class="ibg ibg--contain" src="@img/catalog/card-02.png" width="546" height="625" alt="Image">
+						</div>
+						<div class="card__title-wr">
+							<h1 class="card__title split-words set-span title-44">Гель для<br> прання Super<br> Wash Universal</h1>
+						</div>
+						<div class="card__about">
+							<p class="card__txt txt-main">
+								Гель для стирки Super Wash Universal в объеме 4,1 л – это идеальное решение для вашей повседневной стирки. Благодаря новой активной формуле из 5 энзимов этот гель эффективно справляется со всеми видами загрязнений, обеспечивая
+								безупречную чистоту ваших вещей. Подходит как для белой,
+								так и для цветной стирки, сохраняя яркость и насыщенность цветов.
+							</p>
+							<a href="#" class="card__btn btn btn--dark btn--size-b" aria-label="open a form">
+								<span class="btn-txt">Залишити заявку</span>
+								<span class="btn-arrows"></span>
+							</a>
+						</div>
+					</div>
+					<div class="card__specification specification mb-60">
+						<div data-watch data-watch-threshold="1" data-watch-once class="block-intro__head">
+							<span class="block-intro__label split-words set-span">Super Wash Universal</span>
+							<h2 class="block-intro__title split-words set-span">
+								Характеристики продукту
+							</h2>
+						</div>
+					</div>
+					<div class="card__similar similar">
+						<div class="similar__intro block-intro block-intro--pl block-intro--clm mb-50">
+							<div data-watch data-watch-threshold="1" data-watch-once class="block-intro__head">
+								<h2 class="block-intro__title split-words set-span">
+									<span class="clr-gray">схожі</span><br>
+									продукти
+								</h2>
+							</div>
+							<div class="news__btns block-intro__text">
+								<a href="catalog.html" class="similar__btn-top btn btn--dark btn--size-b" aria-label="link to the catalog">
+									<span class="btn-txt">Перейти в каталог</span>
+									<span class="btn-arrows"></span>
+								</a>
+							</div>
+						</div>
+						<div data-watch data-watch-threshold="1" data-watch-once class="similar__slider swiper">
+							<ul class="similar__wrapper swiper-wrapper">
+								<li class="similar__slide item-catalog swiper-slide">
+									<div class="item-catalog__img">
+										<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-1.png" width="200" height="270" alt="Image">
+									</div>
+									<div class="item-catalog__footer">
+										<span class="item-catalog__type">Засіб для прання</span>
+										<span class="item-catalog__name">COLOR SUPER WASH</span>
+									</div>
+									<a href="card-industrial.html" class="item-catalog__link" aria-label="link to the item"></a>
+								</li>
+								<li class="similar__slide item-catalog swiper-slide">
+									<div class="item-catalog__img">
+										<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-2.png" width="200" height="270" alt="Image">
+									</div>
+									<div class="item-catalog__footer">
+										<span class="item-catalog__type">Засіб для прання</span>
+										<span class="item-catalog__name">COLOR SUPER WASH</span>
+									</div>
+									<a href="card-household.html" class="item-catalog__link" aria-label="link to the item"></a>
+								</li>
+								<li class="similar__slide item-catalog swiper-slide">
+									<div class="item-catalog__img">
+										<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-3.png" width="200" height="270" alt="Image">
+									</div>
+									<div class="item-catalog__footer">
+										<span class="item-catalog__type">Миючі засоби</span>
+										<span class="item-catalog__name">COLOR SUPER WASH</span>
+									</div>
+									<a href="card-industrial.html" class="item-catalog__link" aria-label="link to the item"></a>
+								</li>
+								<li class="similar__slide item-catalog swiper-slide">
+									<div class="item-catalog__img">
+										<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-4.png" width="200" height="270" alt="Image">
+									</div>
+									<div class="item-catalog__footer">
+										<span class="item-catalog__type">Засіб для прання</span>
+										<span class="item-catalog__name">COLOR SUPER WASH</span>
+									</div>
+									<a href="card-industrial.html" class="item-catalog__link" aria-label="link to the item"></a>
+								</li>
+							</ul>
+						</div>
+						<a href="catalog.html" class="similar__btn-footer btn btn--dark btn--size-b" aria-label="link to the catalog">
+							<span class="btn-txt">Перейти в каталог</span>
+							<span class="btn-arrows"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+			<section class="partners ptb-60">
+				<div class="partners__container mb-60">
+					<div class="partners__intro block-intro block-intro--pl block-intro--clm">
+						<div data-watch data-watch-threshold="1" data-watch-once class="block-intro__head">
+							<span class="block-intro__label split-words set-span">цей продукт</span>
+							<h2 class="block-intro__title split-words set-span">
+								<span class="clr-gray">ви можете</span><br>придбати
+							</h2>
+						</div>
+						<div class="partners__ticker">
+							<div data-ticker data-ticker-speed="30" data-ticker-dir="rtl" class="partners__body">
+								<ul class="partners__wrapper">
+									<li class="partners__logo">
+										<img loading="lazy" class="ibg ibg--contain" src="@img/partners/partners-01.svg" width="200" height="100" alt="logo">
+									</li>
+									<li class="partners__logo">
+										<img class="ibg ibg--contain" src="@img/partners/partners-02.svg" width="200" height="100" alt="logo">
+									</li>
+									<li class="partners__logo">
+										<img class="ibg ibg--contain" src="@img/partners/partners-03.svg" width="200" height="100" alt="logo">
+									</li>
+									<li class="partners__logo">
+										<img class="ibg ibg--contain" src="@img/partners/partners-04.svg" width="200" height="100" alt="logo">
+									</li>
+									<li class="partners__logo">
+										<img class="ibg ibg--contain" src="@img/partners/partners-01.svg" width="200" height="100" alt="logo">
+									</li>
+									<li class="partners__logo">
+										<img class="ibg ibg--contain" src="@img/partners/partners-02.svg" width="200" height="100" alt="logo">
+									</li>
+									<li class="partners__logo">
+										<img class="ibg ibg--contain" src="@img/partners/partners-03.svg" width="200" height="100" alt="logo">
+									</li>
+									<li class="partners__logo">
+										<img class="ibg ibg--contain" src="@img/partners/partners-04.svg" width="200" height="100" alt="logo">
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			@@include('html/_prod-dwn.htm',{})
+			@@include('html/_samples.htm',{})
+			@@include('html/_seo.htm',{
+			"padding":"pb-60"
+			})
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
 </html>
