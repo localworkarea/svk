@@ -364,6 +364,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  // Animagion IMG on Article page =======================================
+  const figures = document.querySelectorAll(".article__body figure");
+  if (figures.length > 0) {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target.querySelector("img");
+          if (img) {
+            img.classList.add("_view");
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    figures.forEach(figure => observer.observe(figure));
+  }
+  // ========================================================
 
 
 
@@ -467,7 +491,7 @@ function digitsCountInit(counters) {
       }
     };
 
-    el.textContent = start; 
+    el.textContent = start;
     window.requestAnimationFrame(animate);
   });
 }
@@ -498,13 +522,34 @@ document.addEventListener('watcherCallback', digitsCountTrigger);
 
 
 // == SEARCH INPUTS BRANDS ============================
-const brands = [
-  { name: "Пуся", logo: "files/search/pucia.png" },
-  { name: "Perfect", logo: "files/search/perfect.png" },
-  { name: "ПусяFRESH", logo: "files/search/puciaFRESH.png", isTop: true },
-  { name: "MorecoBeauty", logo: "files/search/morecoBeauty.png", isTop: true },
-  { name: "Moreco", logo: "files/search/moreco.png", isTop: true },
-  { name: "SW", logo: "files/search/sw.png", isTop: true },
+const brands = [{
+    name: "Пуся",
+    logo: "files/search/pucia.png"
+  },
+  {
+    name: "Perfect",
+    logo: "files/search/perfect.png"
+  },
+  {
+    name: "ПусяFRESH",
+    logo: "files/search/puciaFRESH.png",
+    isTop: true
+  },
+  {
+    name: "MorecoBeauty",
+    logo: "files/search/morecoBeauty.png",
+    isTop: true
+  },
+  {
+    name: "Moreco",
+    logo: "files/search/moreco.png",
+    isTop: true
+  },
+  {
+    name: "SW",
+    logo: "files/search/sw.png",
+    isTop: true
+  },
 
 ];
 
@@ -554,7 +599,7 @@ document.querySelectorAll('.search').forEach(searchElement => {
 
       searchHeader.querySelector('.search__top-link')
         .addEventListener("click", e => {
-          e.stopPropagation(); 
+          e.stopPropagation();
           updateUI("top");
         });
       renderList(brands.filter(brand => brand.isTop), true);
@@ -563,7 +608,7 @@ document.querySelectorAll('.search').forEach(searchElement => {
 
   function renderList(items, isTop = false) {
     searchNull.style.display = items.length === 0 ? "block" : "none";
-  
+
     items.forEach(brand => {
       const item = document.createElement("button");
       item.setAttribute("type", "button");
@@ -575,7 +620,7 @@ document.querySelectorAll('.search').forEach(searchElement => {
         <span class="search__icon icon-search"></span>
       `;
       item.addEventListener("click", (e) => {
-        e.stopPropagation(); 
+        e.stopPropagation();
         searchInput.value = brand.name;
         searchList.innerHTML = "";
         searchHeader.innerHTML = "";
@@ -586,7 +631,7 @@ document.querySelectorAll('.search').forEach(searchElement => {
       searchList.appendChild(item);
     });
   }
-  
+
 
   function addToHistory(brand) {
     if (!searchHistory.some(item => item.name === brand.name)) {
@@ -642,5 +687,50 @@ document.querySelectorAll('.search').forEach(searchElement => {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const shareButtons = document.querySelectorAll('[data-share]');
 
+  if (shareButtons.length) {
+    function copyToClipboard(text) {
+      const tempTextarea = document.createElement('textarea');
+      tempTextarea.readOnly = true;
+      tempTextarea.value = text;
+      document.body.appendChild(tempTextarea);
+      tempTextarea.select();
+      tempTextarea.setSelectionRange(0, text.length);
+      document.execCommand('copy');
+      document.body.removeChild(tempTextarea);
+    }
 
+    function handleShareCopy(button) {
+      const url = window.location.href;
+      copyToClipboard(url);
+
+      // Добавляем визуальные классы к текущей кнопке
+      button.classList.add('_copied');
+
+      // Ищем родителя и блок для текста
+      const parent = button.closest('.share');
+      const copiedText = parent?.querySelector('.share__copied');
+
+      if (copiedText) {
+        copiedText.classList.add('_show');
+        setTimeout(() => {
+          copiedText.classList.remove('_show');
+        }, 1000);
+      }
+
+      // Удаляем класс через 1 секунду
+      setTimeout(() => {
+        button.classList.remove('_copied');
+      }, 1000);
+    }
+
+    shareButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        handleShareCopy(button);
+      });
+    });
+  }
+});

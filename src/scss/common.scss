@@ -240,6 +240,11 @@ html.lenis body {
   @include adaptiveValue("font-size", 34, 23, 0, 1440.98, 480.98);
   line-height: 1.07;
 }
+.title-30 {
+  @extend %fontProst;
+  @include adaptiveValue("font-size", 30, 26, 0, 1440.98, 480.98);
+  line-height: 1.07;
+}
 
 // == TEXTS =================
 .txt-main {
@@ -409,6 +414,7 @@ p {
   @include adaptiveValue("margin-block-end", 40, 30, 0, 1440.98, 480.98);
 }
 
+
 .mb-36 {
   margin-block-end: toRem(36);
 }
@@ -460,6 +466,9 @@ p {
 
 .pb-60 {
   @include adaptiveValue("padding-block-end", 60, 48, 0, 1440.98, 480.98);
+}
+.pt-40 {
+  @include adaptiveValue("padding-block-start", 40, 30, 0, 1440.98, 480.98);
 }
 
 %pddLeft84 {
@@ -736,6 +745,11 @@ p {
       background-color: var(--primary);
       color: var(--white);
     }
+  }
+  &--category-b {
+    min-height: toRem(40) !important;
+    font-size: toRem(11) !important;
+    padding-inline: toRem(38) !important;
   }
 }
 

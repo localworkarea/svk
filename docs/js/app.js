@@ -6588,6 +6588,24 @@
             animate();
             window.addEventListener("scroll", updateSliderPosition);
         }
+        const figures = document.querySelectorAll(".article__body figure");
+        if (figures.length > 0) {
+            const options = {
+                root: null,
+                rootMargin: "0px",
+                threshold: .2
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target.querySelector("img");
+                        if (img) img.classList.add("_view");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+            figures.forEach(figure => observer.observe(figure));
+        }
         let lastWidth = window.innerWidth;
         const resizeObserver = new ResizeObserver(entries => {
             requestAnimationFrame(() => {
@@ -6774,6 +6792,43 @@
         document.addEventListener("click", e => {
             if (!e.target.closest(".search")) closeUI();
         });
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        const shareButtons = document.querySelectorAll("[data-share]");
+        if (shareButtons.length) {
+            function copyToClipboard(text) {
+                const tempTextarea = document.createElement("textarea");
+                tempTextarea.readOnly = true;
+                tempTextarea.value = text;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                tempTextarea.setSelectionRange(0, text.length);
+                document.execCommand("copy");
+                document.body.removeChild(tempTextarea);
+            }
+            function handleShareCopy(button) {
+                const url = window.location.href;
+                copyToClipboard(url);
+                button.classList.add("_copied");
+                const parent = button.closest(".share");
+                const copiedText = parent?.querySelector(".share__copied");
+                if (copiedText) {
+                    copiedText.classList.add("_show");
+                    setTimeout(() => {
+                        copiedText.classList.remove("_show");
+                    }, 1e3);
+                }
+                setTimeout(() => {
+                    button.classList.remove("_copied");
+                }, 1e3);
+            }
+            shareButtons.forEach(button => {
+                button.addEventListener("click", e => {
+                    e.preventDefault();
+                    handleShareCopy(button);
+                });
+            });
+        }
     });
     window["FLS"] = false;
     addTouchClass();
