@@ -225,6 +225,11 @@ html.lenis body {
   line-height: 1.07;
 }
 
+.title-60 {
+  @extend %fontProst;
+  @include adaptiveValue("font-size", 63, 23, 0, 1440.98, 480.98);
+  line-height: 1.07;
+}
 .title-44 {
   @extend %fontProst;
   @include adaptiveValue("font-size", 44, 30, 0, 1440.98, 480.98);
@@ -350,6 +355,9 @@ p {
 .mb-33-19 {
   @include adaptiveValue("margin-block-end", 33, 19, 0, 1440.98, 480.98);
 }
+.mb-30-20 {
+  @include adaptiveValue("margin-block-end", 30, 20, 0, 1440.98, 480.98);
+}
 
 .mb-24-20 {
   @include adaptiveValue("margin-block-end", 24, 20, 0, 1440.98, 480.98);
@@ -366,6 +374,9 @@ p {
 .mb-85 {
   @include adaptiveValue("margin-block-end", 85, 52, 0, 1440.98, 480.98);
 }
+.mb-70 {
+  @include adaptiveValue("margin-block-end", 70, 26, 0, 1440.98, 480.98);
+}
 
 .mb-80 {
   margin-block-end: toRem(80);
@@ -379,6 +390,9 @@ p {
   @include adaptiveValue("margin-block-start", 60, 48, 0, 1440.98, 480.98);
 }
 
+.mb-67 {
+  @include adaptiveValue("margin-block-end", 67, 40, 0, 1440.98, 480.98);
+}
 .mb-60 {
   @include adaptiveValue("margin-block-end", 60, 48, 0, 1440.98, 480.98);
 }
@@ -417,6 +431,9 @@ p {
 
 .mb-11 {
   margin-block-end: toRem(11);
+}
+.mb-6 {
+  margin-block-end: toRem(6);
 }
 
 // == PADDINGS ==================
