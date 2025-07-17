@@ -62,6 +62,7 @@ textarea.item-form__input {
   // .item-form__item
 		&__item {
 			position: relative;
+			font-weight: 500;
 			.select {
 				z-index: 6 !important;
 			}

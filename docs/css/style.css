@@ -836,7 +836,8 @@ textarea.item-form__input {
   display: grid
 }
 .item-form__item {
-  position: relative
+  position: relative;
+  font-weight: 500
 }
 .item-form__item .select {
   z-index: 6!important
