@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="uk">
-	@@include('html/_head.htm',{
-	"title":"SVK | 404"
-	})
-	<body>
-		<div class="wrapper page-not-found">
-			@@include('html/_header.htm',{})
-			<main class="page">
-			</main>
-			@@include('html/_footer.htm',{})
-		</div>
-		@@include('html/_js.htm',{})
-	</body>
+@@include('html/_head.htm',{
+"title":"SVK | 404"
+})
+
+<body>
+	<div class="wrapper page-not-found">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="not-found mt-hero">
+				<div class="not-found__container">
+					<div class="not-found__body">
+						<div class="not-found__none t-shadow">
+							404
+						</div>
+						<div class="not-found__block">
+							<h1 class="not-found__title title-34">Сторінку<br> не знайдено</h1>
+							<a href="index.html" class="not-found__link btn btn--dark btn--size-b" aria-label="link to the main page">
+								<span class="btn-txt">на головну</span>
+								<span class="btn-arrows"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
 </html>

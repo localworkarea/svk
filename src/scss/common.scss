@@ -95,125 +95,15 @@ html.lenis body {
   }
 }
 
-// .element {
-//   .line {
-//     overflow: hidden;
-//   }
-//   .word {
-//     transform: translateY(100%);
-//     transition: transform .55s cubic-bezier(.22,.89,.34,.96);
-//   }
-//   &._watcher-view {
-//     .word {
-//       transform: translateY(0);
-//       transition-delay: calc(var(--index) * .03s);
-//     }
-//   }
-// }
-// ================================================================
 
 
-%lineElements {
-  overflow: hidden;
-  -webkit-line-clamp: 3;
-  display: box;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  white-space: normal;
-}
-
-
-
-
-// Ticker =================================
-[data-ticker] {
-  overflow: hidden;
-  width: max-content;
-  display: flex;
-  align-items: center;
-
-  >* {
-    display: flex;
-    flex-wrap: nowrap;
-  }
-}
-
-@keyframes scroll {
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes scroll-rev {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(0%);
-  }
-}
-
-// ========================================
-
-
-
-%ibg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-%img {
-  width: 100%;
-  height: auto;
-}
-
-%gridCenter {
-  display: grid;
-  place-items: center;
-}
-
-%flexCenter {
-  display: flex;
-  align-items: center;
-}
-
-%absoluteCenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-%absoluteTopLeft {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-
-%imgContain {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-%imgCover {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-%fontProst {
-  font-family: "ProstoOne", sans-serif;
-}
 
 
 .ff-acc {
+  font-family: "ProstoOne", sans-serif;
+}
+
+%fontProst {
   font-family: "ProstoOne", sans-serif;
 }
 
@@ -406,6 +296,9 @@ p {
   @include adaptiveValue("margin-block-end", 50, 20, 0, 1440.98, 480.98);
 }
 
+.mb-48 {
+  @include adaptiveValue("margin-block-end", 48, 30, 0, 1440.98, 480.98);
+}
 .mb-44 {
   @include adaptiveValue("margin-block-end", 44, 40, 0, 1440.98, 480.98);
 }
@@ -456,6 +349,10 @@ p {
   @include adaptiveValue("padding-block-end", 120, 40, 0, 1440.98, 480.98);
 }
 
+.ptb-90 {
+  padding-block: toRem(90);
+}
+
 .ptb-60 {
   @include adaptiveValue("padding-block", 60, 48, 0, 1440.98, 480.98);
 }
@@ -503,6 +400,56 @@ p {
 .fw-600 {
   font-weight: 600;
 }
+
+%ibg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+%img {
+  width: 100%;
+  height: auto;
+}
+
+%gridCenter {
+  display: grid;
+  place-items: center;
+}
+
+%flexCenter {
+  display: flex;
+  align-items: center;
+}
+
+%absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%absoluteTopLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+%imgContain {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+%imgCover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 
 
 %container1150 {
@@ -941,3 +888,48 @@ p {
 .clr-gray {
   color: var(--gray);
 }
+
+
+%lineElements {
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  display: box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+
+// Ticker =================================
+[data-ticker] {
+  overflow: hidden;
+  width: max-content;
+  display: flex;
+  align-items: center;
+
+  >* {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-rev {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+// ========================================
+
+

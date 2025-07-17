@@ -854,6 +854,99 @@
             }, delay);
         }
     };
+    function spollers() {
+        const spollersArray = document.querySelectorAll("[data-spollers]");
+        if (spollersArray.length > 0) {
+            document.addEventListener("click", setSpollerAction);
+            const spollersRegular = Array.from(spollersArray).filter(function(item, index, self) {
+                return !item.dataset.spollers.split(",")[0];
+            });
+            if (spollersRegular.length) initSpollers(spollersRegular);
+            let mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
+            if (mdQueriesArray && mdQueriesArray.length) mdQueriesArray.forEach(mdQueriesItem => {
+                mdQueriesItem.matchMedia.addEventListener("change", function() {
+                    initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+                });
+                initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+            });
+            function initSpollers(spollersArray, matchMedia = false) {
+                spollersArray.forEach(spollersBlock => {
+                    spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
+                    if (matchMedia.matches || !matchMedia) {
+                        spollersBlock.classList.add("_spoller-init");
+                        initSpollerBody(spollersBlock);
+                    } else {
+                        spollersBlock.classList.remove("_spoller-init");
+                        initSpollerBody(spollersBlock, false);
+                    }
+                });
+            }
+            function initSpollerBody(spollersBlock, hideSpollerBody = true) {
+                let spollerItems = spollersBlock.querySelectorAll("details");
+                if (spollerItems.length) spollerItems.forEach(spollerItem => {
+                    let spollerTitle = spollerItem.querySelector("summary");
+                    if (hideSpollerBody) {
+                        spollerTitle.removeAttribute("tabindex");
+                        if (!spollerItem.hasAttribute("data-open")) {
+                            spollerItem.open = false;
+                            spollerTitle.nextElementSibling.hidden = true;
+                        } else {
+                            spollerTitle.classList.add("_spoller-active");
+                            spollerItem.open = true;
+                        }
+                    } else {
+                        spollerTitle.setAttribute("tabindex", "-1");
+                        spollerTitle.classList.remove("_spoller-active");
+                        spollerItem.open = true;
+                        spollerTitle.nextElementSibling.hidden = false;
+                    }
+                });
+            }
+            function setSpollerAction(e) {
+                const el = e.target;
+                if (el.closest("summary") && el.closest("[data-spollers]")) {
+                    e.preventDefault();
+                    if (el.closest("[data-spollers]").classList.contains("_spoller-init")) {
+                        const spollerTitle = el.closest("summary");
+                        const spollerBlock = spollerTitle.closest("details");
+                        const spollersBlock = spollerTitle.closest("[data-spollers]");
+                        const oneSpoller = spollersBlock.hasAttribute("data-one-spoller");
+                        const scrollSpoller = spollerBlock.hasAttribute("data-spoller-scroll");
+                        const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+                        if (!spollersBlock.querySelectorAll("._slide").length) {
+                            if (oneSpoller && !spollerBlock.open) hideSpollersBody(spollersBlock);
+                            !spollerBlock.open ? spollerBlock.open = true : setTimeout(() => {
+                                spollerBlock.open = false;
+                            }, spollerSpeed);
+                            spollerTitle.classList.toggle("_spoller-active");
+                            _slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
+                            if (scrollSpoller && spollerTitle.classList.contains("_spoller-active")) {
+                                const scrollSpollerValue = spollerBlock.dataset.spollerScroll;
+                                const scrollSpollerOffset = +scrollSpollerValue ? +scrollSpollerValue : 0;
+                                const scrollSpollerNoHeader = spollerBlock.hasAttribute("data-spoller-scroll-noheader") ? document.querySelector(".header").offsetHeight : 0;
+                                window.scrollTo({
+                                    top: spollerBlock.offsetTop - (scrollSpollerOffset + scrollSpollerNoHeader),
+                                    behavior: "smooth"
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            function hideSpollersBody(spollersBlock) {
+                const spollerActiveBlock = spollersBlock.querySelector("details[open]");
+                if (spollerActiveBlock && !spollersBlock.querySelectorAll("._slide").length) {
+                    const spollerActiveTitle = spollerActiveBlock.querySelector("summary");
+                    const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+                    spollerActiveTitle.classList.remove("_spoller-active");
+                    _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
+                    setTimeout(() => {
+                        spollerActiveBlock.open = false;
+                    }, spollerSpeed);
+                }
+            }
+        }
+    }
     function menuInit() {
         if (document.querySelector(".icon-menu")) document.addEventListener("click", function(e) {
             if (bodyLockStatus && e.target.closest(".icon-menu")) if (document.documentElement.classList.contains("menu-open")) functions_menuClose(); else menuOpen();
@@ -1140,6 +1233,42 @@
             FLS(`[gotoBlock]: Юхуу...їдемо до ${targetBlock}`);
         } else FLS(`[gotoBlock]: Йой... Такого блоку немає на сторінці: ${targetBlock}`);
     };
+    function formFieldsInit(options = {
+        viewPass: false,
+        autoHeight: false
+    }) {
+        document.body.addEventListener("focusin", function(e) {
+            const targetElement = e.target;
+            if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
+                if (!targetElement.hasAttribute("data-no-focus-classes")) {
+                    targetElement.classList.add("_form-focus");
+                    targetElement.parentElement.classList.add("_form-focus");
+                }
+                formValidate.removeError(targetElement);
+                targetElement.hasAttribute("data-validate") ? formValidate.removeError(targetElement) : null;
+            }
+        });
+        document.body.addEventListener("focusout", function(e) {
+            const targetElement = e.target;
+            if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
+                if (!targetElement.hasAttribute("data-no-focus-classes")) {
+                    targetElement.classList.remove("_form-focus");
+                    targetElement.parentElement.classList.remove("_form-focus");
+                }
+                targetElement.hasAttribute("data-validate") ? formValidate.validateInput(targetElement) : null;
+            }
+        });
+        document.body.addEventListener("input", function(e) {
+            const targetElement = e.target;
+            if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") if (targetElement.value.trim() !== "") {
+                targetElement.classList.add("_form-fill");
+                targetElement.parentElement.classList.add("_form-fill");
+            } else {
+                targetElement.classList.remove("_form-fill");
+                targetElement.parentElement.classList.remove("_form-fill");
+            }
+        });
+    }
     let formValidate = {
         getErrors(form) {
             let error = 0;
@@ -1203,6 +1332,8 @@
                     const el = inputs[index];
                     el.parentElement.classList.remove("_form-focus");
                     el.classList.remove("_form-focus");
+                    el.classList.remove("_form-fill");
+                    el.parentElement.classList.remove("_form-fill");
                     formValidate.removeError(el);
                 }
                 let checkboxes = form.querySelectorAll(".checkbox__input");
@@ -6834,8 +6965,10 @@
     addTouchClass();
     addLoadedClass();
     menuInit();
+    spollers();
     showMore();
     customCursor(false);
+    formFieldsInit({});
     formSubmit();
     headerScroll();
     digitsCounter();

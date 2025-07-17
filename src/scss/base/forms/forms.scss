@@ -8,6 +8,8 @@ textarea {
 	-moz-appearance: none;
 	appearance: none;
 }
+
+
 .input {
 	width: 100%;
 	display: block;
@@ -42,9 +44,82 @@ textarea {
 	}
 }
 
-textarea.input {
+textarea.input,
+textarea.item-form__input {
 	resize: none;
 	padding: 0px 0px;
+}
+
+.item-form {
+	display: grid;
+  // .item-form--dark
+  &--dark {}
+
+		// .item-form__items
+		&__items {
+		}
+	
+  // .item-form__item
+		&__item {
+			position: relative;
+			.select {
+				z-index: 6 !important;
+			}
+			
+			@media (min-width:$mobileSmall){
+				font-size: toRem(14);
+			}
+			@media (max-width:$mobileSmall){
+				 font-size: toRem(16); 
+			}
+			.item-form--dark & {
+				color: var(--white);
+			}
+		
+			textarea {
+				min-height: toRem(42);
+				padding-top: toRem(10);
+			}
+		}
+
+		// .item-form__label
+		&__label {
+			pointer-events: none;
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			transition: top .3s ease;
+			._form-focus &,
+			._form-fill & {
+				top: toRem(-16);
+			}
+			._form-error & {
+				color: red;
+			}
+		}
+
+		// .item-form__input
+		&__input {
+			width: 100%;
+			display: block;
+			border-bottom: toRem(1) solid;
+			outline: none;
+			min-height: toRem(32);
+			border-radius: 0;
+				caret-color: inherit;
+			.item-form--dark & {
+				border-color: var(--white);
+			}
+			._form-error & {
+				border-color: red;
+			}
+		}
+
+		// .item-form__submit
+		&__submit {
+			    @include adaptiveValue("padding-inline", 67, 53, 0, 1440.98, 480.98);
+		}
 }
 
 

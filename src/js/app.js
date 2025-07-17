@@ -44,7 +44,7 @@ flsFunctions.menuInit();
 Модуль "Спойлери"
 Сніппет (HTML): spollers
 */
-// flsFunctions.spollers();
+flsFunctions.spollers();
 
 /*
 Модуль "Таби"
@@ -101,12 +101,10 @@ flsFunctions.customCursor(false);
 import * as flsForms from "./files/forms/forms.js";
 
 /* Робота з полями форми */
-/*
 flsForms.formFieldsInit({
-	viewPass: false,
-	autoHeight: false
+	// viewPass: false,
+	// autoHeight: false
 });
-*/
 /* Надсилання форми */
 flsForms.formSubmit();
 

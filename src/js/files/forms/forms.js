@@ -1,14 +1,27 @@
 // Підключення списку активних модулів
-import { flsModules } from "../modules.js";
+import {
+	flsModules
+} from "../modules.js";
 // Допоміжні функції
-import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
+import {
+	isMobile,
+	_slideUp,
+	_slideDown,
+	_slideToggle,
+	FLS
+} from "../functions.js";
 // Модуль прокручування до блоку
-import { gotoBlock } from "../scroll/gotoblock.js";
+import {
+	gotoBlock
+} from "../scroll/gotoblock.js";
 //================================================================================================================================================================================================================================================================================================================================
 
 
 // Робота із полями форми.
-export function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
+export function formFieldsInit(options = {
+	viewPass: false,
+	autoHeight: false
+}) {
 	document.body.addEventListener("focusin", function (e) {
 		const targetElement = e.target;
 		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
@@ -31,39 +44,20 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 			targetElement.hasAttribute('data-validate') ? formValidate.validateInput(targetElement) : null;
 		}
 	});
-	// Якщо увімкнено, додаємо функціонал "Показати пароль"
-	if (options.viewPass) {
-		document.addEventListener("click", function (e) {
-			let targetElement = e.target;
-			if (targetElement.closest('[class*="__viewpass"]')) {
-				let inputType = targetElement.classList.contains('_viewpass-active') ? "password" : "text";
-				targetElement.parentElement.querySelector('input').setAttribute("type", inputType);
-				targetElement.classList.toggle('_viewpass-active');
-			}
-		});
-	}
-	// Якщо увімкнено, додаємо функціонал "Автовисота"
-	if (options.autoHeight) {
-		const textareas = document.querySelectorAll('textarea[data-autoheight]');
-		if (textareas.length) {
-			textareas.forEach(textarea => {
-				const startHeight = textarea.hasAttribute('data-autoheight-min') ?
-					Number(textarea.dataset.autoheightMin) : Number(textarea.offsetHeight);
-				const maxHeight = textarea.hasAttribute('data-autoheight-max') ?
-					Number(textarea.dataset.autoheightMax) : Infinity;
-				setHeight(textarea, Math.min(startHeight, maxHeight))
-				textarea.addEventListener('input', () => {
-					if (textarea.scrollHeight > startHeight) {
-						textarea.style.height = `auto`;
-						setHeight(textarea, Math.min(Math.max(textarea.scrollHeight, startHeight), maxHeight));
-					}
-				});
-			});
-			function setHeight(textarea, height) {
-				textarea.style.height = `${height}px`;
+	document.body.addEventListener("input", function (e) {
+		const targetElement = e.target;
+		if (targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA') {
+			if (targetElement.value.trim() !== "") {
+				targetElement.classList.add('_form-fill');
+				targetElement.parentElement.classList.add('_form-fill');
+			} else {
+				targetElement.classList.remove('_form-fill');
+				targetElement.parentElement.classList.remove('_form-fill');
 			}
 		}
-	}
+	});
+
+
 }
 // Валідація форм
 export let formValidate = {
@@ -139,6 +133,8 @@ export let formValidate = {
 				const el = inputs[index];
 				el.parentElement.classList.remove('_form-focus');
 				el.classList.remove('_form-focus');
+				el.classList.remove('_form-fill');
+				el.parentElement.classList.remove('_form-fill');
 				formValidate.removeError(el);
 			}
 			let checkboxes = form.querySelectorAll('.checkbox__input');
@@ -201,7 +197,7 @@ export function formSubmit() {
 					alert("Помилка");
 					form.classList.remove('_sending');
 				}
-			} else if (form.hasAttribute('data-dev')) {	// Якщо режим розробки
+			} else if (form.hasAttribute('data-dev')) { // Якщо режим розробки
 				e.preventDefault();
 				formSent(form);
 			}
@@ -393,6 +389,7 @@ export function formRating() {
 			document.addEventListener('click', formRatingAction)
 		});
 	}
+
 	function formRatingAction(e) {
 		const targetElement = e.target;
 		if (targetElement.closest('.rating__input')) {
@@ -403,6 +400,7 @@ export function formRating() {
 			ratingSet ? formRatingGet(rating, ratingValue) : null;
 		}
 	}
+
 	function formRatingInit(rating, ratingSize) {
 		let ratingItems = ``;
 		for (let index = 0; index < ratingSize; index++) {
@@ -415,6 +413,7 @@ export function formRating() {
 		}
 		rating.insertAdjacentHTML("beforeend", ratingItems)
 	}
+
 	function formRatingGet(rating, ratingValue) {
 		// Тут відправка оцінки (ratingValue) на бекенд...
 		// Отримуємо нову седню оцінку formRatingSend()
@@ -422,6 +421,7 @@ export function formRating() {
 		const resultRating = ratingValue;
 		formRatingSet(rating, resultRating);
 	}
+
 	function formRatingSet(rating, value) {
 		const ratingItems = rating.querySelectorAll('.rating__item');
 		const resultFullItems = parseInt(value);
@@ -441,9 +441,9 @@ export function formRating() {
 			}
 		});
 	}
+
 	function formRatingSend() {
 
 	}
 
 }
-
