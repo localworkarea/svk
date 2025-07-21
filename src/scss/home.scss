@@ -1,7 +1,7 @@
 // =======PRODUCTS SECTION ====================================================
 
 .products {
-  position: relative;
+  // position: relative;
   min-height: 100svh;
   color: var(--white);
 
@@ -27,11 +27,11 @@
 
   // .products__container
   &__container {
-    position: relative;
+    // position: relative;
     z-index: 3;
     min-height: 100svh;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
 
     @media (min-width: $mobileSmall) {
       padding-bottom: toRem(70);
@@ -49,8 +49,8 @@
 
   // .products__slider
   &__slider {
-    position: relative;
-    @extend %flexCenter;
+    // position: relative;
+    // @extend %flexCenter;
     align-items: flex-end;
 
     visibility: hidden;
@@ -78,10 +78,10 @@
 
   // .products__btns
   &__btns {
-    position: absolute;
+    // position: absolute;
     right: toRem(-15);
     z-index: 10;
-    @extend %flexCenter;
+    // @extend %flexCenter;
     gap: toRem(20);
 
     @media (min-width: $mobileSmall) {
@@ -96,7 +96,7 @@
 
   // .products__btn
   &__btn {
-    @extend %gridCenter;
+    // @extend %gridCenter;
     width: toRem(40);
     height: toRem(40);
     flex: 0 0 toRem(40);
@@ -152,7 +152,7 @@
 
   // .products__side-btn
   &__side-btn {
-    position: relative;
+    // position: relative;
     @extend %writingModeVertical;
 
     padding-inline: toRem(10);
@@ -321,7 +321,7 @@
 
   // .social-products__link
   &__link {
-    @extend %gridCenter;
+    // @extend %gridCenter;
 
     @media (min-width: $mobileSmall) {
       transition: transform 0.45s ease;
@@ -397,9 +397,9 @@
 
   // .value__year-txt
   &__year-txt {
-    @extend %fontProst;
+    // @extend %fontProst;
     font-size: clamp(5rem, 2.5rem + 12.5vw, 13.75rem);
-    text-align: center;
+    // text-align: center;
   }
 }
 
@@ -409,7 +409,7 @@
   // .slider-value__body
   &__body {
     will-change: transform;
-    @extend %flexCenter;
+    // @extend %flexCenter;
     // overflow: hidden;
     flex-wrap: nowrap;
     @include adaptiveValue("gap", 33, 20, 0, 1440.98, 480.98);
@@ -454,7 +454,7 @@
 
   // .pl-home__container
   &__container {
-    position: relative;
+    // position: relative;
   }
 
   // .pl-home__head
@@ -503,7 +503,7 @@
 
   // .pl-home__bg
   &__bg {
-    position: relative;
+    // position: relative;
     z-index: 0;
 
     @media (max-width: $mobileSmall) {
@@ -577,7 +577,7 @@
 }
 
 .progress {
-  position: relative;
+  // position: relative;
 
   @media (min-width: $mobileSmall) {
     padding-block: toRem(111);
@@ -598,7 +598,7 @@
 
   // .progress__container
   &__container {
-    position: relative;
+    // position: relative;
     z-index: 2;
   }
 
@@ -607,9 +607,7 @@
     gap: toRem(64) toRem(24);
 
     @media (min-width: toEm(820.98)) {
-      // display: flex;
-      // align-items: center;
-      // justify-content: space-between;
+      
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       max-width: toRem(1250);
@@ -658,12 +656,12 @@
 
   // .progress__item
   &__item {
-    text-align: center;
+    // text-align: center;
   }
 
   // .progress__count
   &__count {
-    @extend %fontProst;
+    // @extend %fontProst;
     @include adaptiveValue("font-size", 60, 46, 0, 1440.98, 480.98);
     margin-bottom: toRem(12);
 
@@ -716,8 +714,8 @@
 
   // .catalog-slider__number
   &__number {
-    @extend %fontProst;
-    @extend %flexCenter;
+    // @extend %fontProst;
+    // @extend %flexCenter;
 
     @media (min-width: toEm(820.98)) {
       gap: toRem(9);
@@ -734,7 +732,7 @@
 
   // .catalog-slider__vrt
   &__vrt {
-    @extend %fontProst;
+    // @extend %fontProst;
     @extend %fs14Upp;
 
     @media (min-width: toEm(820.98)) {
@@ -746,7 +744,7 @@
 
   // .catalog-slider__slider
   &__slider {
-    position: relative;
+    // position: relative;
     @include adaptiveValue("height", 500, 344, 0, 1440.98, 480.98);
 
     @media (min-width: $tablet) {
@@ -770,7 +768,7 @@
   // .catalog-slider__dec
   &__dec {
     display: block;
-    position: absolute;
+    // position: absolute;
     transform: translateY(-50%);
     background-color: var(--gray);
     opacity: 0.19;
@@ -828,7 +826,7 @@
 
   // .catalog-slider__slide
   &__slide {
-    @extend %gridCenter;
+    // @extend %gridCenter;
 
     .slide-catalog {
       transition:
@@ -892,10 +890,10 @@
 
   // .catalog-slider__btn
   &__btn {
-    position: absolute;
+    // position: absolute;
     z-index: 5;
     transform: translateY(-50%);
-    @extend %gridCenter;
+    // @extend %gridCenter;
     width: toRem(40);
     height: toRem(40);
     flex: 0 0 toRem(40);
@@ -954,7 +952,7 @@
 
   // .catalog-slider__footer
   &__footer {
-    @extend %flexCenter;
+    // @extend %flexCenter;
     gap: toRem(18);
 
     @media (min-width: $tablet) {
@@ -975,7 +973,7 @@
 
   // .catalog-slider__product
   &__product {
-    @extend %fontProst;
+    // @extend %fontProst;
     text-transform: uppercase;
     line-height: 1.31;
   }
@@ -1022,9 +1020,9 @@
 
   // .team-cta__body
   &__body {
-    position: relative;
+    // position: relative;
     @extend %container1150;
-    display: grid;
+    // display: grid;
 
     @extend %beforeTeam;
 
@@ -1049,7 +1047,7 @@
 
   // .team-cta__img
   &__img {
-    position: relative;
+    // position: relative;
     z-index: 2;
 
     @media (max-width: toEm(700.98)) {
@@ -1071,7 +1069,7 @@
 
   // .team-cta__head
   &__head {
-    position: relative;
+    // position: relative;
     z-index: 2;
 
     @media (min-width: toEm(700.98)) {
@@ -1308,7 +1306,7 @@
 
   // .news__video
   &__video {
-    position: relative;
+    // position: relative;
     overflow: hidden;
 
     @media (max-width: $mobileSmall) {
@@ -1369,12 +1367,12 @@
 
   // .news__video-title
   &__video-title {
-    position: absolute;
+    // position: absolute;
     bottom: 0;
     left: 0;
     z-index: 3;
     color: var(--white);
-    @extend %fontProst;
+    // @extend %fontProst;
     line-height: 0.85;
     @include adaptiveValue("font-size", 70, 26, 0, 1440.98, 480.98);
     @include adaptiveValue("margin", 50, 20, 0, 1440.98, 480.98);
@@ -1403,11 +1401,11 @@
 }
 
 .slide-news {
-  position: relative;
+  // position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 
   .news-type-2 & {
     @media (min-width:$mobileSmall) {
@@ -1442,17 +1440,7 @@
 
       @extend %arrCardTop;
 
-      // &::before {
-      //   content: '';
-      //   position: absolute;
-      //   z-index: 2;
-      //   top: toRem(10);
-      //   right: toRem(10);
-      //   @extend %imgContain;
-      //   background-image: url("@img/icons/arr-white-3.svg");
-      //   width: toRem(32);
-      //   aspect-ratio: 1;
-      // }
+
       &::after {
         content: '';
         @extend %absoluteTopLeft;
@@ -1515,7 +1503,7 @@
 
   // .slide-news__link
   &__link {
-    position: absolute;
+    // position: absolute;
     inset: 0;
     z-index: 3;
   }
@@ -1530,8 +1518,8 @@
   // .ceo-quote__body
   &__body {
     @extend %container1150;
-    position: relative;
-    display: grid;
+    // position: relative;
+    // display: grid;
     @include adaptiveValue("padding-inline", 105, 50, 0, 1440.98, 480.98);
     @extend %beforeTeam;
 
@@ -1549,7 +1537,7 @@
 
   // .ceo-quote__head
   &__head {
-    position: relative;
+    // position: relative;
     z-index: 1;
     color: var(--white);
     @include adaptiveValue("padding-block", 31, 36, 0, 1440.98, 480.98);
@@ -1630,9 +1618,9 @@
   // .seo-text__btn
   &__btn {
     @include adaptiveValue("margin-top", 16, 10, 0, 1440.98, 480.98);
-    position: relative;
+    // position: relative;
     margin-inline-start: auto;
-    @extend %flexCenter;
+    // @extend %flexCenter;
     gap: toRem(1);
     font-weight: 500;
     color: #9f9f9f;
@@ -1696,7 +1684,7 @@
 
 // ======= SECTION ====================================================
 .product-hero {
-  position: relative;
+  // position: relative;
   overflow: hidden;
   padding-block-end: toRem(26);
 
@@ -1725,14 +1713,14 @@
 
   // .product-hero__body
   &__body {
-    position: relative;
+    // position: relative;
   }
 
   // .product-hero__title
   &__title {
     @extend %absoluteCenter;
     z-index: 5;
-    text-align: center;
+    // text-align: center;
     color: var(--white);
     line-height: 0.99;
 
@@ -1750,7 +1738,7 @@
 
   // .product-hero__bg
   &__bg {
-    position: relative;
+    // position: relative;
 
     &:before {
       content: "";
@@ -1800,14 +1788,14 @@
 
   // .product-hero__year
   &__year {
-    position: relative;
-    text-align: center;
+    // position: relative;
+    // text-align: center;
     max-width: max-content;
     margin-inline: auto;
 
-    .t-shadow {
-      @extend %fontProst;
-    }
+    // .t-shadow {
+    //   @extend %fontProst;
+    // }
 
     &:has(.product-hero__year-title) {
       .t-shadow {
@@ -1830,14 +1818,14 @@
 
   // product-hero__why
   &__why {
-    text-align: center;
-    @extend %fontProst;
+    // text-align: center;
+    // @extend %fontProst;
     @include adaptiveValue("font-size", 190, 90, 0, 1440.98, 480.98);
   }
 
   // .product-hero__year-title
   &__year-title {
-    @extend %fontProst;
+    // @extend %fontProst;
     text-transform: uppercase;
     z-index: 2;
 
@@ -1865,7 +1853,7 @@
   // .product-hero__intro
   &__intro {
     @extend %container1150;
-    display: grid;
+    // display: grid;
     @extend %gap37-20;
 
     @media (min-width: toEm(820.98)) {
@@ -1886,7 +1874,7 @@
 
   // .product-hero__mask
   &__mask {
-    position: relative;
+    // position: relative;
     @extend %imgGridCenter;
 
     img {
@@ -1918,7 +1906,7 @@
 
   // .product-hero__sectors
   &__sectors {
-    display: grid;
+    // display: grid;
     @extend %gap53-40;
     @extend %container1150;
 
@@ -1938,7 +1926,7 @@
   // .product-hero__sectors-img
   &__sectors-img {
     @extend %imgGridCenter;
-    position: relative;
+    // position: relative;
 
     .product-hero__sectors--rev & {
       @media (min-width: toEm(820.98)) {
@@ -2094,7 +2082,7 @@
 
   // .product-advantages__body
   &__body {
-    display: grid;
+    // display: grid;
 
     @media (min-width: toEm(820.98)) {
       grid-template-columns: 1fr 50%;
@@ -2180,7 +2168,7 @@
   &__result {
     font-weight: 700;
     line-height: 2;
-    @extend %flexCenter;
+    // @extend %flexCenter;
     gap: toRem(8);
     @extend %beforeArrAdvantages;
 
@@ -2194,7 +2182,7 @@
   // .product-advantages__list
   &__list {
     color: var(--white);
-    display: grid;
+    // display: grid;
     @extend %gap20-13;
     margin-inline: auto;
 
@@ -2217,9 +2205,9 @@
 
   // .product-advantages__item
   &__item {
-    @extend %flexCenter;
+    // @extend %flexCenter;
     @extend %gap50-28;
-    @extend %fontProst;
+    // @extend %fontProst;
     line-height: 1.3;
     text-transform: uppercase;
     background-color: var(--primary);
@@ -2349,7 +2337,7 @@
 
   // .resolve__item
   &__item {
-    position: relative;
+    // position: relative;
 
     img {
       aspect-ratio: 370/328;
@@ -2382,7 +2370,7 @@
 
   // .resolve__body
   &__body {
-    position: absolute;
+    // position: absolute;
     z-index: 3;
     bottom: 0;
     left: 0;
@@ -2393,7 +2381,7 @@
 
   // .resolve__title
   &__title {
-    @extend %fontProst;
+    // @extend %fontProst;
     text-transform: uppercase;
     line-height: 1.2;
 
@@ -2405,7 +2393,7 @@
 
 // ======= SECTION ====================================================
 .product-ticker {
-  position: relative;
+  // position: relative;
   z-index: 5;
 
   // .product-ticker__body
@@ -2420,7 +2408,7 @@
 
   // .product-ticker__img
   &__img {
-    position: relative;
+    // position: relative;
     @include adaptiveValue("margin-inline", 12, 9, 0, 1440.98, 480.98);
     @include adaptiveValue("max-width", 270, 202, 0, 1440.98, 480.98);
 
@@ -2431,12 +2419,12 @@
 
   // .product-ticker__text
   &__text {
-    position: absolute;
+    // position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     z-index: 2;
-    @extend %fontProst;
+    // @extend %fontProst;
     text-transform: uppercase;
     line-height: 1.2;
 
@@ -2457,9 +2445,9 @@
 
   // .product-plus__container
   &__container {
-    .block-intro__head {
-      text-align: center;
-    }
+    // .block-intro__head {
+    //   text-align: center;
+    // }
 
     .block-intro__label {}
 
@@ -2469,7 +2457,7 @@
   // .product-plus__list
   &__list {
     @extend %gap20-13;
-    display: grid;
+    // display: grid;
 
     @media (min-width: $tablet) {
       grid-template-columns: repeat(3, 1fr);
@@ -2497,17 +2485,12 @@
       }
     }
 
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
-    // .product-plus__item {
-    //   // width: 35%;
-    // }
+ 
   }
 
   // .product-plus__item
   &__item {
-    @extend %flexCenter;
+    // @extend %flexCenter;
     @extend %gap40-30;
     color: var(--white);
     background-color: var(--primary);
@@ -2535,7 +2518,7 @@
   // .product-plus__title
   &__title {
     text-transform: uppercase;
-    @extend %fontProst;
+    // @extend %fontProst;
     line-height: 1.3;
     @include adaptiveValue("font-size", 17, 16, 0, 1440.98, 480.98);
 
@@ -2551,7 +2534,7 @@
 
   // .product-plus__container-b
   &__container-b {
-    position: relative;
+    // position: relative;
 
     &::before {
       @extend %imgContain;
@@ -2573,8 +2556,8 @@
 
   // .product-plus__svk-block
   &__svk-block {
-    position: relative;
-    display: grid;
+    // position: relative;
+    // display: grid;
 
     @media (min-width: toEm(700.98)) {
       grid-template-columns: 1fr 1fr;
@@ -2601,13 +2584,13 @@
 
   // .product-plus__svk
   &__svk {
-    position: absolute;
+    // position: absolute;
     line-height: 1;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: -1;
-    @extend %fontProst;
+    // @extend %fontProst;
     @include adaptiveValue("font-size", 252, 138, 0, 1440.98, 480.98);
     mask: linear-gradient(to top,
         transparent 40%,
@@ -2749,10 +2732,10 @@
 
   // .product-catalog__svk
   &__svk {
-    text-align: center;
+    // text-align: center;
 
     .t-shadow {
-      @extend %fontProst;
+      // @extend %fontProst;
       text-transform: uppercase;
       // @include adaptiveValue("font-size", 250, 100, 0, 1440.98, 480.98);
 
@@ -2786,9 +2769,9 @@
 
 .card-product-catalog {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  // display: flex;
+  // flex-direction: column;
+  // position: relative;
 
   @media (any-hover: hover) {
     &:hover {
@@ -2826,7 +2809,7 @@
   &__img {
     height: 100%;
     background-color: var(--primary);
-    position: relative;
+    // position: relative;
 
     &::before,
     &::after {
@@ -2866,7 +2849,7 @@
 
   // .card-product-catalog__body
   &__body {
-    position: absolute;
+    // position: absolute;
     z-index: 5;
     bottom: 0;
     width: 100%;
@@ -2880,7 +2863,7 @@
   // .card-product-catalog__block
   &__block {
     @extend %cardPadding;
-    @extend %flexCenter;
+    // @extend %flexCenter;
     justify-content: space-between;
     gap: toRem(20);
 
@@ -2971,9 +2954,9 @@
 
   // .boxes-product__item
   &__item {
-    position: relative;
+    // position: relative;
     flex: 1;
-    display: grid;
+    // display: grid;
     grid-template-rows: auto auto;
 
     // gap: toRem(20);
@@ -3000,7 +2983,7 @@
 
   // .boxes-product__head
   &__head {
-    position: relative;
+    // position: relative;
     z-index: 1;
     padding-block-start: toRem(40);
     padding-block-end: toRem(25);
@@ -3014,7 +2997,7 @@
 
   // .boxes-product__title
   &__title {
-    @extend %fontProst;
+    // @extend %fontProst;
     line-height: 1.076;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -3056,11 +3039,11 @@
 
   // .boxes-product__img
   &__img {
-    .item-2 & {
-      position: absolute;
-      inset: 0;
-      grid-row: 1/3;
-    }
+    // .item-2 & {
+    //   position: absolute;
+    //   inset: 0;
+    //   grid-row: 1/3;
+    // }
   }
 }
 
@@ -3072,8 +3055,8 @@
 
   // .product-downld__body
   &__body {
-    position: relative;
-    display: grid;
+    // position: relative;
+    // display: grid;
 
     @media (min-width: $mobile) {
       align-items: flex-end;
@@ -3162,7 +3145,7 @@
   // .samples__body
   &__body {
     @extend %container998;
-    display: grid;
+    // display: grid;
     gap: toRem(27);
 
     @media (min-width: $mobile) {
@@ -3260,7 +3243,7 @@
 }
 
 .list-product {
-  @extend %flexCenter;
+  // @extend %flexCenter;
   flex-wrap: wrap;
   gap: toRem(20);
 
@@ -3328,7 +3311,7 @@
     //   opacity: 1;
     // }
     max-width: toRem(360);
-    @extend %flexCenter;
+    // @extend %flexCenter;
     gap: toRem(24);
     @extend %beforeArrAdvantages;
 
@@ -3412,7 +3395,7 @@
 
 // ======= SECTION ====================================================
 .strive {
-  position: relative;
+  // position: relative;
 
   @media (min-width: $mobileSmall) {
     padding-block: toRem(105);
@@ -3424,24 +3407,11 @@
 
   // .strive__bg
   &__bg {
-    position: absolute;
+    // position: absolute;
     inset: 0;
     z-index: -1;
     @extend %striveBg;
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   inset: 0;
-    //   background: url("@img/bgs/strive-frame.svg"), rgba(17, 27, 81, 0.84);
-    //   background-repeat: no-repeat;
-    //   background-position: 100% 100%;
-    //   background-size: contain;
 
-    //   @media (max-width: $mobile) {
-    //     background-position: 50% 100%;
-    //     background-size: 200%;
-    //   }
-    // }
 
     img {}
   }
@@ -3452,7 +3422,7 @@
   // .strive__body
   &__body {
     color: var(--white);
-    text-align: center;
+    // text-align: center;
 
     @media (min-width: toEm(820.98)) {
       max-width: toRem(735);
@@ -3490,7 +3460,7 @@
 
   // .trust__container-b
   &__container-b {
-    position: relative;
+    // position: relative;
   }
 
   // .trust__wrapper
@@ -3581,9 +3551,9 @@
 
 // ======= SECTION ====================================================
 .production {
-  .block-intro__head {
-    text-align: center;
-  }
+  // .block-intro__head {
+  //   text-align: center;
+  // }
 
   // .production__container
   &__container {}
@@ -3620,7 +3590,7 @@
     }
 
     @include adaptiveValue("min-height", 276, 226, 0, 1440.98, 480.98);
-    display: grid;
+    // display: grid;
     gap: toRem(40);
 
     @media (min-width:$tablet) {
@@ -3646,9 +3616,9 @@
 
   // .product-experience__cases-num
   &__cases-num {
-    @extend %fontProst;
+    // @extend %fontProst;
     font-size: toRem(91);
-    position: relative;
+    // position: relative;
     margin-bottom: toRem(5);
 
     &::before {
@@ -3668,7 +3638,7 @@
 
   // .product-experience__list
   &__list {
-    display: grid;
+    // display: grid;
 
     @media (min-width:toEm(820.98)) {
       grid-auto-rows: max-content;
@@ -3686,10 +3656,10 @@
 
   // .product-experience__vrt
   &__vrt {
-    position: absolute;
+    // position: absolute;
     top: 0;
     right: 0;
-    @extend %fontProst;
+    // @extend %fontProst;
     transform: rotate(180deg);
     @extend %writingModeVertical;
     text-align: right;
@@ -3709,7 +3679,7 @@
 
   // .product-experience__prod
   &__prod {
-    @extend %flexCenter;
+    // @extend %flexCenter;
     justify-content: space-between;
     gap: toRem(60);
 
@@ -3728,7 +3698,7 @@
 
   // .product-experience__prod-count
   &__prod-count {
-    @extend %fontProst;
+    // @extend %fontProst;
     @include adaptiveValue("font-size", 150, 112, 0, 1440.98, 375.98);
     mask: linear-gradient(to top,
         transparent 35%,
@@ -3760,8 +3730,8 @@
 
   // .about__year
   &__year {
-    // text-align: center;
-    display: grid;
+
+    // display: grid;
 
     @media (min-width:$mobile) {
       grid-template-columns: 1fr 51% 1fr;
@@ -3796,9 +3766,9 @@
   // .about__list
 
   &__list {
-    @extend %flexCenter;
+    // @extend %flexCenter;
     justify-content: space-between;
-    text-align: center;
+    // text-align: center;
     flex-wrap: wrap;
     gap: toRem(20);
   }
@@ -3884,9 +3854,9 @@
 }
 
 .about-chronology {
-  .block-intro__head {
-    text-align: center;
-  }
+  // .block-intro__head {
+  //   text-align: center;
+  // }
 
   // .about-chronology__container
   &__container {}
@@ -3905,9 +3875,9 @@
 
 .slide-chronology {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  // display: flex;
+  // flex-direction: column;
+  // position: relative;
   padding-bottom: toRem(31);
 
   @media (min-width:$mobileSmall) {
@@ -3932,7 +3902,7 @@
   // .slide-chronology__line
   &__line {
     display: inline-block;
-    position: absolute;
+    // position: absolute;
     z-index: 1;
     bottom: 0;
     left: 0;
@@ -3989,7 +3959,7 @@
 
   // .about-ticker__line
   &__line {
-    @extend %flexCenter;
+    // @extend %flexCenter;
     @include adaptiveValue("gap", 30, 20, 0, 1440.98, 480.98);
     @include adaptiveValue("padding-inline", 15, 10, 0, 1440.98, 480.98);
   }
@@ -4012,7 +3982,7 @@
     @extend %container1150;
     @extend %cirlceBefore;
 
-    display: grid;
+    // display: grid;
 
     &::before {
       background-image: url("@img/bgs/circle-blue-double-2.png");
@@ -4068,7 +4038,7 @@
 
   // .tare__img
   &__img {
-    position: relative;
+    // position: relative;
 
     @media (min-width:toEm(1024.98)) {
       order: 1;
@@ -4077,7 +4047,7 @@
 
   // .tare__txt
   &__txt {
-    position: absolute;
+    // position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -4121,7 +4091,7 @@
 
 .slide-prospects {
   height: 100%;
-  @extend %gridCenter;
+  // @extend %gridCenter;
 
   img {}
 }
@@ -4190,7 +4160,7 @@
 
   // .catalog__list
   &__list {
-    display: grid;
+    // display: grid;
 
     @media (min-width:toEm(820.98)) {
       grid-template-columns: repeat(4, 1fr);
@@ -4242,9 +4212,9 @@
 }
 
 .item-catalog {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  // position: relative;
+  // display: flex;
+  // flex-direction: column;
 
 
   @media (any-hover: hover) {
@@ -4261,12 +4231,12 @@
 
   // .item-catalog__img
   &__img {
-    position: relative;
+    // position: relative;
     border-radius: toRem(15);
     margin-bottom: toRem(20);
     background-color: rgb(204, 204, 204, 0.24);
     transition: background-color .3s ease;
-    @extend %gridCenter;
+    // @extend %gridCenter;
     padding: toRem(25);
 
     &::before {
@@ -4281,7 +4251,7 @@
     }
 
     img {
-      position: relative;
+      // position: relative;
       z-index: 2;
     }
   }
@@ -4308,14 +4278,14 @@
 
   // .item-catalog__link
   &__link {
-    position: absolute;
+    // position: absolute;
     z-index: 2;
     inset: 0
   }
 }
 
 .category {
-  @extend %flexCenter;
+  // @extend %flexCenter;
   @extend %gap20-13;
 
   @media (min-width:toEm(820.98)) {
@@ -4353,7 +4323,7 @@
 }
 
 .subcategory {
-  display: grid;
+  // display: grid;
 
   @media (min-width:toEm(820.98)) {
     gap: toRem(41);
@@ -4391,9 +4361,9 @@
 
   // .subcategory__type
   &__type {
-    position: relative;
+    // position: relative;
     z-index: 4;
-    @extend %flexCenter;
+    // @extend %flexCenter;
     @extend %gap20-13;
 
     // @media (max-width: toEm(1200.98)) and (min-width:toEm(820.98)) {
@@ -4418,12 +4388,12 @@
 }
 
 .search {
-  position: relative;
+  // position: relative;
   z-index: 5;
 
   // .search__wrapper
   &__wrapper {
-    position: relative;
+    // position: relative;
 
     &::before {
       content: '';
@@ -4487,7 +4457,7 @@
 
   // .search__box
   &__box {
-    position: absolute;
+    // position: absolute;
     min-width: toRem(350);
     top: calc(100% + toRem(4));
     left: 50%;
@@ -4661,8 +4631,8 @@
 
   // .card__hero
   &__hero {
-    position: relative;
-    display: grid;
+    // position: relative;
+    // display: grid;
 
     @media (min-width:toEm(750.98)) {
       gap: toRem(40);
@@ -4706,7 +4676,7 @@
 
   // .card__bg
   &__bg {
-    position: relative;
+    // position: relative;
     z-index: -1;
 
     @media (min-width:$mobileSmall) {
@@ -4755,7 +4725,7 @@
 
   // .card__img
   &__img {
-    position: relative;
+    // position: relative;
     z-index: 3;
 
     @media (min-width:$mobileSmall) {
@@ -4836,7 +4806,7 @@
 
   // .specification__body
   &__body {
-    display: grid;
+    // display: grid;
     gap: toRem(40) toRem(100);
 
     @media (min-width:$mobile) {
@@ -4852,7 +4822,7 @@
 
   // .specification__item
   &__item {
-    display: grid;
+    // display: grid;
     grid-template-columns: auto 1fr;
     gap: toRem(8);
 
@@ -4975,8 +4945,8 @@
 
   // .blog__hero
   &__hero {
-    position: relative;
-    display: grid;
+    // position: relative;
+    // display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 1fr 1fr;
     min-height: toRem(373);
@@ -4998,7 +4968,7 @@
 
   // .blog__bg
   &__bg {
-    position: relative;
+    // position: relative;
     z-index: -1;
     grid-row: 1/3;
     grid-column: 1/2;
@@ -5050,9 +5020,9 @@
 
   // .blog__head
   &__head {
-    position: relative;
+    // position: relative;
     z-index: 2;
-    display: flex;
+    // display: flex;
     align-self: flex-end;
     align-items: flex-end;
     grid-row: 1/3;
@@ -5131,7 +5101,7 @@
 
   // .blog__list
   &__list {
-    display: grid;
+    // display: grid;
 
     @media (min-width:toEm(820.98)) {
       grid-template-columns: repeat(3, 1fr);
@@ -5195,8 +5165,8 @@
 }
 
 .item-blog {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   height: 100%;
   @extend %cardAnimation;
 
@@ -5217,7 +5187,7 @@
   // .item-blog__img
   &__img {
     flex: 1;
-    position: relative;
+    // position: relative;
     background-color: var(--gray);
     @extend %arrCardTop;
 
@@ -5260,7 +5230,7 @@
   // .article__wrapper
   &__wrapper {
     @extend %pddLeft84;
-    display: grid;
+    // display: grid;
     row-gap: toRem(47);
     @include adaptiveValue("column-gap", 100, 40, 0, 1440.98, 992.98);
 
@@ -5463,7 +5433,7 @@
 
 
 .aside {
-  display: grid;
+  // display: grid;
   @include adaptiveValue("gap", 38, 20, 0, 1440.98, 480.98);
 
   @media (max-width: toEm(820.98)) and (min-width:$mobileSmall) {
@@ -5488,7 +5458,7 @@
 
 .share {
   @include adaptiveValue("min-height", 52, 41, 0, 1440.98, 480.98);
-  @extend %flexCenter;
+  // @extend %flexCenter;
   justify-content: space-between;
   border-block: toRem(1) solid rgb(204, 204, 204, 0.35);
 
@@ -5499,7 +5469,7 @@
 
   // .share__list
   &__list {
-    @extend %flexCenter;
+    // @extend %flexCenter;
 
     @media (min-width:$mobileSmall) {
       gap: toRem(8);
@@ -5512,7 +5482,7 @@
 
   // .share__item
   &__item {
-    position: relative;
+    // position: relative;
   }
 
   // .share__link
@@ -5533,7 +5503,7 @@
 
   // .share__copied
   &__copied {
-    position: absolute;
+    // position: absolute;
     top: -100%;
     left: 50%;
     background-color: var(--white);
@@ -5563,7 +5533,7 @@
 }
 
 .manager {
-  text-align: center;
+  // text-align: center;
   padding-block: toRem(48);
   padding-inline: toRem(10);
   background-color: rgb(204, 204, 204, 0.1);
@@ -5668,8 +5638,8 @@
 }
 
 .catalog-aside {
-  position: relative;
-  display: grid;
+  // position: relative;
+  // display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
   align-items: flex-end;
@@ -5689,7 +5659,7 @@
 
   // .catalog-aside__bg
   &__bg {
-    position: relative;
+    // position: relative;
     z-index: -1;
     grid-column: 1/2;
     grid-row: 1/3;
@@ -5734,7 +5704,7 @@
 
   // .catalog-aside__head
   &__head {
-    position: relative;
+    // position: relative;
     z-index: 2;
     grid-column: 1/2;
     grid-row: 1/3;
@@ -5784,7 +5754,7 @@
 .form-aside {
   @extend %borderRadius25;
   @extend %asideMaxWidth;
-  text-align: center;
+  // text-align: center;
   padding-block: toRem(44);
   background: linear-gradient(180deg, rgba(204, 204, 204, 0.42) 0%, rgba(204, 204, 204, 0) 38%);
 
@@ -5830,7 +5800,7 @@
 
   // .breadcrumb__list
   &__list {
-    @extend %flexCenter;
+    // @extend %flexCenter;
     @include adaptiveValue("gap", 14, 11);
     @include adaptiveValue("font-size", 16, 10);
     line-height: 1.46;
@@ -5891,7 +5861,7 @@
   // .contacts__head
   &__head {
     @extend %container1150;
-    display: grid;
+    // display: grid;
     @include adaptiveValue("gap", 90, 40, 0, 1440.98, 480.98);
 
     @media (min-width:toEm(750.98)) {
@@ -5917,7 +5887,7 @@
 
   // .contacts__info
   &__info {
-    position: relative;
+    // position: relative;
     text-transform: uppercase;
     line-height: 1.15;
     color: var(--white);
@@ -5986,7 +5956,7 @@
 
   // .contacts__map
   &__map {
-    position: relative;
+    // position: relative;
 
     iframe {
       position: relative;
@@ -6051,7 +6021,7 @@
 }
 
 .social-contacts {
-  @extend %flexCenter;
+  // @extend %flexCenter;
   gap: toRem(25);
   margin-top: toRem(30);
 
@@ -6081,9 +6051,9 @@
 
   // .dapartments__container-b
   &__container-b {
-    .block-intro__head {
-      text-align: center;
-    }
+    // .block-intro__head {
+    //   text-align: center;
+    // }
 
     .block-intro__label {
       margin-bottom: toRem(11);
@@ -6092,7 +6062,7 @@
 
   // .dapartments__body
   &__body {
-    display: grid;
+    // display: grid;
     @include adaptiveValue("column-gap", 90, 26, 2, 1440.98, 750.98);
 
     @media (min-width:toEm(750.98)) {
@@ -6190,7 +6160,7 @@
 }
 
 .form-departments {
-  position: relative;
+  // position: relative;
   .progress__bg {
     z-index: -1;
     &::before {
@@ -6204,7 +6174,7 @@
 		// .form-departments__body
 		&__body {
       @extend %pddLeft84;
-      display: grid;
+      // display: grid;
       gap: toRem(50);
       @media (min-width:$tablet){
         grid-template-columns: 1fr toRem(600);
@@ -6216,7 +6186,7 @@
           max-width: toRem(600);
         }
         .item-form__items {
-          display: grid;
+          // display: grid;
           @media (min-width:toEm(600.98)){
             gap: toRem(44);
             grid-template-columns: repeat(3,1fr);
@@ -6248,8 +6218,8 @@
 .not-found {
   min-height: calc(100svh - toRem(100));
   padding-block: toRem(150);
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   justify-content: center;
 		// .not-found__container
 		&__container {
@@ -6258,7 +6228,7 @@
 		// .not-found__body
 		&__body {
       margin-inline: auto;
-      text-align: center;
+      // text-align: center;
 		}
 
 		// .not-found__none

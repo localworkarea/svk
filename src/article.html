@@ -10,20 +10,20 @@
 		<main class="page">
 			<article class="article mt-hero">
 				<div class="article__container">
-					<div class="blog__hero mb-60">
-						<div class="blog__bg">
+					<div class="blog__hero grid pos-r mb-60">
+						<div class="blog__bg pos-r">
 							<img class="ibg" src="@img/blog/article-hero.png" width="1320" height="669" alt="Image">
 						</div>
-						<div class="blog__head">
+						<div class="blog__head flex pos-4">
 							<h1 class="blog__title title-34 split-words set-span">Реагенти для водоочищення:<br>
 								чистота та безпека</h1>
 						</div>
 					</div>
-					<div class="article__wrapper">
+					<div class="article__wrapper grid">
 						<div class="article__content">
 							<div class="breadcrumb mb-40">
 								<nav class="breadcrumb__nav">
-									<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb__list">
+									<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb__list flex align-center">
 										<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb__item">
 											<a itemprop="item" href="blog.html"><span itemprop="name">Блог</span></a>
 											<meta itemprop="position" content="1" />
@@ -80,9 +80,9 @@
 								</figure>
 							</div>
 						</div>
-						<aside class="article__aside aside">
+						<aside class="article__aside aside grid">
 
-							<div class="aside__manager manager">
+							<div class="aside__manager manager txt-center">
 								<div class="manager__img">
 									<img class="ibg ibg--contain" src="@img/contacts/manager.png" width="173" height="173" alt="Image">
 								</div>
@@ -92,11 +92,11 @@
 								<a href="mailto:v2245@ukr.net" class="manager__mail" aria-label="mail">v2245@ukr.net</a>
 							</div>
 
-							<div class="aside__catalog catalog-aside">
-								<div class="catalog-aside__bg">
+							<div class="aside__catalog catalog-aside grid pos-r">
+								<div class="catalog-aside__bg pos-r">
 									<img loading="lazy" class="ibg" src="@img/blog/blog-1.jpg" width="315" height="415" alt="Image">
 								</div>
-								<div class="catalog-aside__head">
+								<div class="catalog-aside__head pos-r">
 									<p class="catalog-aside__title title-30">Каталог<br> компанії</p>
 									<div class="catalog-aside__btn btn-sec btn-sec--light">
 										<span>Промислова хімія</span>
@@ -105,7 +105,7 @@
 								<a href="catalog.html" class="catalog-aside__link" aria-label="link to the page"></a>
 							</div>
 
-							<div class="aside__form form-aside">
+							<div class="aside__form form-aside txt-center">
 								<p class="form-aside__title title-30 mb-11">Унікальна пропозиція</p>
 								<p class="form-aside__subtitle txt-main mb-24">Залиште нам свої дані і наші менеджери Вам зателефонують</p>
 								<form class="form-aside__form form-samples" data-dev action="#" method="POST">
@@ -125,33 +125,33 @@
 
 						</aside>
 						<div class="article__footer">
-							<div class="article__share share mb-40">
+							<div class="article__share share flex align-center mb-40">
 								<p class="share__txt txt-main">Поділитися статтею</p>
-								<ul class="share__list">
-									<li class="share__item">
+								<ul class="share__list flex align-center">
+									<li class="share__item pos-r">
 										<a href="#" data-share class="share__link" aria-label="share">
 											<img class="ibg ibg--contain" src="@img/icons/share-link.svg" width="32" height="32" alt="Image">
 										</a>
-										 <div class="share__copied txt-main">Скопійовано!</div>
+										 <div class="share__copied pos-a txt-main">Скопійовано!</div>
 									</li>
-									<li class="share__item">
+									<li class="share__item pos-r">
 										<a href="#" class="share__link" aria-label="share">
 											<img class="ibg ibg--contain" src="@img/icons/share-in.svg" width="32" height="32" alt="Image">
 										</a>
 									</li>
-									<li class="share__item">
+									<li class="share__item pos-r">
 										<a href="#" class="share__link" aria-label="share">
 											<img class="ibg ibg--contain" src="@img/icons/share-x.svg" width="32" height="32" alt="Image">
 										</a>
 									</li>
-									<li class="share__item">
+									<li class="share__item pos-r">
 										<a href="#" class="share__link" aria-label="share">
 											<img class="ibg ibg--contain" src="@img/icons/share-fb.svg" width="32" height="32" alt="Image">
 										</a>
 									</li>
 								</ul>
 							</div>
-							<ul data-watch data-watch-threshold="1" data-watch-once class="article__category category">
+							<ul data-watch data-watch-threshold="1" data-watch-once class="article__category category flex align-center">
 								<li class="category__item">
 									<a href="#" class="category__link btn btn--category btn--category-b _active" aria-label="category">
 										<span class="btn-txt">всі статті</span>
@@ -190,7 +190,7 @@
 					<div data-watch data-watch-threshold="1" data-watch-once class="news__slider swiper">
 						<ul class="news__wrapper swiper-wrapper">
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<a href="article.html" class="slide-news__img mb-21" aria-label="link to the page blog">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-1.jpg" width="334" height="402" alt="Image">
 									</a>
@@ -204,7 +204,7 @@
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<a href="article.html" class="slide-news__img mb-21" aria-label="link to the page blog">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-2.jpg" width="334" height="402" alt="Image">
 									</a>
@@ -217,7 +217,7 @@
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<a href="article.html" class="slide-news__img mb-21" aria-label="link to the page blog">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-3.jpg" width="334" height="402" alt="Image">
 									</a>
@@ -229,7 +229,7 @@
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<a href="article.html" class="slide-news__img mb-21" aria-label="link to the page blog">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-1.jpg" width="334" height="402" alt="Image">
 									</a>
@@ -242,7 +242,7 @@
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<a href="article.html" class="slide-news__img mb-21" aria-label="link to the page blog">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-2.jpg" width="334" height="402" alt="Image">
 									</a>
@@ -254,7 +254,7 @@
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<a href="article.html" class="slide-news__img mb-21" aria-label="link to the page blog">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-3.jpg" width="334" height="402" alt="Image">
 									</a>
@@ -267,15 +267,15 @@
 							</li>
 						</ul>
 					</div>
-					<ul class="product-experience__prod pt-60">
+					<ul class="product-experience__prod flex align-center pt-60">
 						<li data-watch data-watch-threshold="1" data-watch-once class="product-experience__prod-item">
-							<p class="product-experience__prod-count t-shadow">300+</p>
+							<p class="product-experience__prod-count ff-acc t-shadow">300+</p>
 							<p class="product-experience__prod-t split-words set-span  title-34">продукції</p>
 							<p class="product-experience__prod-tx txt-main">Компанія SVK прагне до інновацій та якості
 								у всіх аспектах своєї діяльності. </p>
 						</li>
 						<li data-watch data-watch-threshold="1" data-watch-once class="product-experience__prod-item">
-							<p class="product-experience__prod-count t-shadow">300+</p>
+							<p class="product-experience__prod-count ff-acc t-shadow">300+</p>
 							<p class="product-experience__prod-t  split-words set-span title-34">продукції</p>
 							<p class="product-experience__prod-tx txt-main">Компанія SVK прагне до інновацій та якості
 								у всіх аспектах своєї діяльності. </p>
@@ -283,9 +283,9 @@
 					</ul>
 					<div class="boxes-product pt-60">
 						<ul class="boxes-product__list">
-							<li class="boxes-product__item item-1 bg-dark">
-								<div class="boxes-product__head">
-									<p class="boxes-product__title">побутова хімія</p>
+							<li class="boxes-product__item grid pos-r item-1 bg-dark">
+								<div class="boxes-product__head pos-r">
+									<p class="boxes-product__title ff-acc">побутова хімія</p>
 									<p class="boxes-product__txt">Мийні та засоби. Мийні та чистячі. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aspernatur magni </p>
 									<a href="catalog.html" class="boxes-product__link btn-link btn-link--dark"><span>Детальніше</span></a>
 								</div>
@@ -293,9 +293,9 @@
 									<img loading="lazy" class="ibg" src="@img/products-three/three-blocks-1.png" width="378" height="222" alt="Image">
 								</div>
 							</li>
-							<li class="boxes-product__item item-4">
-								<div class="boxes-product__head">
-									<p class="boxes-product__title">промислова хімія</p>
+							<li class="boxes-product__item grid pos-r item-4">
+								<div class="boxes-product__head pos-r">
+									<p class="boxes-product__title ff-acc">промислова хімія</p>
 									<p class="boxes-product__txt">Хімічні речовини промислового призначення для потреб металургійної, машинобудівної, нафтогазової, агрохімічної
 										та інших промисловостей. </p>
 									<a href="catalog.html" class="boxes-product__link btn-link"><span>Детальніше</span></a>
@@ -304,9 +304,9 @@
 									<img loading="lazy" class="ibg" src="@img/products-three/three-blocks-4.png" width="378" height="222" alt="Image">
 								</div>
 							</li>
-							<li class="boxes-product__item item-3 bg-dark">
-								<div class="boxes-product__head">
-									<p class="boxes-product__title">косметична
+							<li class="boxes-product__item grid pos-r item-3 bg-dark">
+								<div class="boxes-product__head pos-r">
+									<p class="boxes-product__title ff-acc">косметична
 										продукція</p>
 									<p class="boxes-product__txt">Хімічні речовини промислового призначення для потреб металургійної, машинобудівної, нафтогазової, агрохімічної
 										та інших промисловостей. </p>
@@ -316,14 +316,14 @@
 									<img loading="lazy" class="ibg" src="@img/products-three/three-blocks-3.png" width="378" height="222" alt="Image">
 								</div>
 							</li>
-							<li class="boxes-product__item item-2">
-								<div class="boxes-product__head">
-									<p class="boxes-product__title">private lable</p>
+							<li class="boxes-product__item grid pos-r item-2">
+								<div class="boxes-product__head pos-r">
+									<p class="boxes-product__title ff-acc">private lable</p>
 									<p class="boxes-product__txt">Хімічні речовини промислового призначення для потреб металургійної, машинобудівної, нафтогазової, агрохімічної
 										та інших промисловостей. </p>
 									<a href="catalog.html" class="boxes-product__link btn-link"><span>Детальніше</span></a>
 								</div>
-								<div class="boxes-product__img">
+								<div class="boxes-product__img pos-a">
 									<img loading="lazy" class="ibg" src="@img/products-three/three-blocks-2.png" width="378" height="222" alt="Image">
 								</div>
 							</li>

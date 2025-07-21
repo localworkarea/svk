@@ -19,7 +19,7 @@
 		"blog": ""
 		})
 		<main class="page">
-			<section class="products">
+			<section class="products pos-r">
 				<ul class="products__img img-products">
 					<li class="img-products__item active">
 						<picture>
@@ -50,8 +50,8 @@
 						</picture>
 					</li>
 				</ul>
-				<div class="products__container">
-					<div class="products__slider swiper">
+				<div class="products__container pos-r flex flex-clmn">
+					<div class="products__slider flex swiper pos-r">
 						<ul class="products__wrapper swiper-wrapper">
 							<li class="products__slide slide-products swiper-slide">
 								<div class="slide-products__item">
@@ -116,9 +116,9 @@
 								</div>
 							</li>
 						</ul>
-						<div class="products__btns">
-							<button type="button" class="products__btn swiper-button-prev" aria-label="switch slide prev"></button>
-							<button type="button" class="products__btn swiper-button-next" aria-label="switch slide next"></button>
+						<div class="products__btns flex align-center pos-a">
+							<button type="button" class="products__btn grid place-center swiper-button-prev" aria-label="switch slide prev"></button>
+							<button type="button" class="products__btn grid place-center swiper-button-next" aria-label="switch slide next"></button>
 						</div>
 					</div>
 					<div style="display: none;" class="products__thumbs">
@@ -167,26 +167,26 @@
 					</div>
 					<ul class="products__social social-products">
 						<li class="social-products__item">
-							<a href="#" class="social-products__link" aria-label="link to the social">
+							<a href="#" class="social-products__link grid place-center" aria-label="link to the social">
 								<img src="@img/icons/it.svg" width="22" height="22" alt="Image">
 							</a>
 						</li>
 						<li class="social-products__item">
-							<a href="#" class="social-products__link" aria-label="link to the social">
+							<a href="#" class="social-products__link grid place-center" aria-label="link to the social">
 								<img src="@img/icons/fb.svg" width="22" height="22" alt="Image">
 							</a>
 						</li>
 						<li class="social-products__item">
-							<a href="#" class="social-products__link" aria-label="link to the social">
+							<a href="#" class="social-products__link grid place-center" aria-label="link to the social">
 								<img src="@img/icons/in.svg" width="22" height="22" alt="Image">
 							</a>
 						</li>
 					</ul>
 					<div class="products__side-nav">
-						<button type="button" class="products__side-btn" data-slide="0" aria-label="switch slide">Промислова хімія</button>
-						<button type="button" class="products__side-btn" data-slide="1" aria-label="switch slide">Побутова хімія</button>
-						<button type="button" class="products__side-btn" data-slide="2" aria-label="switch slide">Косметика</button>
-						<button type="button" class="products__side-btn" data-slide="3" aria-label="switch slide">Private Label</button>
+						<button type="button" class="products__side-btn pos-r" data-slide="0" aria-label="switch slide">Промислова хімія</button>
+						<button type="button" class="products__side-btn pos-r" data-slide="1" aria-label="switch slide">Побутова хімія</button>
+						<button type="button" class="products__side-btn pos-r" data-slide="2" aria-label="switch slide">Косметика</button>
+						<button type="button" class="products__side-btn pos-r" data-slide="3" aria-label="switch slide">Private Label</button>
 					</div>
 				</div>
 			</section>
@@ -208,7 +208,7 @@
 						</div>
 					</div>
 					<div class="value__slider slider-value mb-60">
-						<ul class="slider-value__body">
+						<ul class="slider-value__body flex align-center">
 							<li class="slider-value__item">
 								<img loading="lazy" class="ibg" src="@img/value/appr-01.jpg" width="334" height="402" alt="Image">
 							</li>
@@ -230,18 +230,18 @@
 						</ul>
 					</div>
 					<div class="value__year">
-						<p class="value__year-txt t-shadow">з 1993</p>
+						<p class="value__year-txt ff-acc txt-center t-shadow">з 1993</p>
 					</div>
 				</div>
 			</section>
 			<section class="pl-home pb-60">
-				<div class="pl-home__container">
+				<div class="pl-home__container pos-r">
 					<div data-watch data-watch-threshold="0.5" data-watch-once class="pl-home__head bg-dark">
 						<h2 class="pl-home__tite split-words set-span title-34 mb-20">Прекрасний<br> заголовок про PL</h2>
 						<p class="pl-home__txt txt-main mb-33-19">Компанія SVK прагне до інновацій та якості у всіх аспектах своєї діяльності. Наша історія базується на наукових дослідженнях та глибокому розумінні потреб клієнтів.</p>
 						<a href="#" class="pl-home__link btn-link btn-link--dark"><span>Privat Label</span></a>
 					</div>
-					<div class="pl-home__bg">
+					<div class="pl-home__bg pos-r">
 						<img loading="lazy" class=" ibg" src="@img/pl-home/pl-home.jpg" width="1320" height="593" alt="Image">
 					</div>
 				</div>
@@ -287,7 +287,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="partners__progress progress bg-dark">
+				<div class="partners__progress progress pos-r bg-dark">
 					<div class="progress__bg">
 						<picture>
 							<source srcset="@img/progress/progress-mb.jpg" media="(max-width: 30.061em)" type="image/webp">
@@ -295,28 +295,28 @@
 							<img loading="lazy" class="ibg" src="@img/progress/progress-pc.jpg" width="1440" height="800" alt="image">
 						</picture>
 					</div>
-					<div class="progress__container">
+					<div class="progress__container pos-r ">
 						<ul data-watch data-watch-once class="progress__counters">
-							<li class="progress__item">
-								<div class="progress__count">
+							<li class="progress__item txt-center">
+								<div class="progress__count ff-acc">
 									<span data-digits-counter data-digits-counter-speed="3500" class="progress__numb">2000</span>
 								</div>
 								<p class="progress__txt txt-main">Успіших проєктів</p>
 							</li>
-							<li class="progress__item">
-								<div class="progress__count">
+							<li class="progress__item txt-center">
+								<div class="progress__count ff-acc">
 									<span data-digits-counter data-digits-counter-speed="1500" class="progress__numb">5</span> млн
 								</div>
 								<p class="progress__txt txt-main">Упаковок в місяць</p>
 							</li>
-							<li class="progress__item">
-								<div class="progress__count">
+							<li class="progress__item txt-center">
+								<div class="progress__count ff-acc">
 									<span data-digits-counter data-digits-counter-speed="3500" class="progress__numb">500</span>
 								</div>
 								<p class="progress__txt txt-main">Успіших проєктів</p>
 							</li>
-							<li class="progress__item">
-								<div class="progress__count">
+							<li class="progress__item txt-center">
+								<div class="progress__count ff-acc">
 									<span data-digits-counter data-digits-counter-speed="3500" class="progress__numb">500</span>
 								</div>
 								<p class="progress__txt txt-main">Успіших проєктів</p>
@@ -335,68 +335,68 @@
 							</h2>
 						</div>
 						<div class="block-intro__text">
-							<div class="catalog-slider__number">
+							<div class="catalog-slider__number ff-acc flex align-center">
 								<p class="catalog-slider__num-t t-shadow">300+</p>
-								<p class="catalog-slider__vrt">товарів</p>
+								<p class="catalog-slider__vrt ff-acc">товарів</p>
 							</div>
 						</div>
 					</div>
-					<div class="catalog-slider__slider swiper">
-						<span class="catalog-slider__dec catalog-slider__dec--left"></span>
-						<span class="catalog-slider__dec catalog-slider__dec--right"></span>
+					<div class="catalog-slider__slider pos-r  swiper">
+						<span class="catalog-slider__dec pos-a  catalog-slider__dec--left"></span>
+						<span class="catalog-slider__dec pos-a  catalog-slider__dec--right"></span>
 						<ul class="catalog-slider__wrapper swiper-wrapper">
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER WASH 1">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER WASH 1">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-1.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для посуду" data-slide-name="COLOR  WASH 2">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для посуду" data-slide-name="COLOR  WASH 2">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-2.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для прання" data-slide-name="COLOR SUPER WASH 3">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для прання" data-slide-name="COLOR SUPER WASH 3">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-3.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для пилу" data-slide-name=" SUPER WASH 4">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для пилу" data-slide-name=" SUPER WASH 4">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-4.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для шкіри" data-slide-name="COLOR SUPER  5">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для шкіри" data-slide-name="COLOR SUPER  5">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-5.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER 6">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER 6">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-6.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER WASH 7">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER WASH 7">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-4.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER WASH 8">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER WASH 8">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-5.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
-							<li class="catalog-slider__slide swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER 9">
+							<li class="catalog-slider__slide grid place-center swiper-slide" data-slide-usage="Засіб для скла" data-slide-name="COLOR SUPER 9">
 								<div class="slide-catalog">
 									<img loading="lazy" class="ibg ibg--contain" src="@img/catalog/product-6.png" width="178" height="265" alt="Image">
 								</div>
 							</li>
 
 						</ul>
-						<button type="button" class="catalog-slider__btn swiper-button-prev" aria-label="prev slide"></button>
-						<button type="button" class="catalog-slider__btn swiper-button-next" aria-label="next slide"></button>
+						<button type="button" class="catalog-slider__btn grid place-center pos-a swiper-button-prev" aria-label="prev slide"></button>
+						<button type="button" class="catalog-slider__btn grid place-center pos-a swiper-button-next" aria-label="next slide"></button>
 					</div>
-					<div class="catalog-slider__footer">
-						<div class="catalog-slider__product txt-24">
+					<div class="catalog-slider__footer flex align-center">
+						<div class="catalog-slider__product ff-acc txt-24">
 							<p class="catalog-slider__usage"></p>
 							<p class="catalog-slider__name-product"></p>
 						</div>
@@ -429,7 +429,7 @@
 					<div data-watch data-watch-threshold="1" data-watch-once class="news__slider swiper">
 						<ul class="news__wrapper swiper-wrapper">
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<div class="slide-news__img mb-21">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-4.jpg" width="334" height="402" alt="Image">
 									</div>
@@ -438,11 +438,11 @@
 										<p class="slide-news__title txt-18 split-words set-span">Тут заголовок</p>
 										<p class="slide-news__subtitle txt-18 split-words set-span">Статті/Новини</p>
 									</div>
-									<a href="article.html" class="slide-news__link" aria-label="link to the blog"></a>
+									<a href="article.html" class="slide-news__link pos-a" aria-label="link to the blog"></a>
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<div class="slide-news__img mb-21">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-5.jpg" width="334" height="402" alt="Image">
 									</div>
@@ -451,11 +451,11 @@
 										<p class="slide-news__title txt-18 split-words set-span">Тут заголовок</p>
 										<p class="slide-news__subtitle txt-18 split-words set-span">Статті/Новини</p>
 									</div>
-									<a href="article.html" class="slide-news__link" aria-label="link to the blog"></a>
+									<a href="article.html" class="slide-news__link pos-a" aria-label="link to the blog"></a>
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<div class="slide-news__img mb-21">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-6.jpg" width="334" height="402" alt="Image">
 									</div>
@@ -464,11 +464,11 @@
 										<p class="slide-news__title txt-18 split-words set-span">Тут заголовок</p>
 										<p class="slide-news__subtitle txt-18 split-words set-span">Статті/Новини</p>
 									</div>
-									<a href="article.html" class="slide-news__link" aria-label="link to the blog"></a>
+									<a href="article.html" class="slide-news__link pos-a" aria-label="link to the blog"></a>
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<div class="slide-news__img mb-21">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-7.jpg" width="334" height="402" alt="Image">
 									</div>
@@ -477,11 +477,11 @@
 										<p class="slide-news__title txt-18 split-words set-span">Тут заголовок</p>
 										<p class="slide-news__subtitle txt-18 split-words set-span">Статті/Новини</p>
 									</div>
-									<a href="article.html" class="slide-news__link" aria-label="link to the blog"></a>
+									<a href="article.html" class="slide-news__link pos-a" aria-label="link to the blog"></a>
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<div class="slide-news__img mb-21">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-8.jpg" width="334" height="402" alt="Image">
 									</div>
@@ -490,11 +490,11 @@
 										<p class="slide-news__title txt-18 split-words set-span">Тут заголовок</p>
 										<p class="slide-news__subtitle txt-18 split-words set-span">Статті/Новини</p>
 									</div>
-									<a href="article.html" class="slide-news__link" aria-label="link to the blog"></a>
+									<a href="article.html" class="slide-news__link pos-a" aria-label="link to the blog"></a>
 								</div>
 							</li>
 							<li class="news__slide swiper-slide">
-								<div class="slide-news">
+								<div class="slide-news flex flex-clmn pos-r">
 									<div class="slide-news__img mb-21">
 										<img loading="lazy" class="ibg" src="@img/blog/blog-9.jpg" width="334" height="402" alt="Image">
 									</div>
@@ -503,7 +503,7 @@
 										<p class="slide-news__title txt-18 split-words set-span">Тут заголовок</p>
 										<p class="slide-news__subtitle txt-18 split-words set-span">Статті/Новини</p>
 									</div>
-									<a href="article.html" class="slide-news__link" aria-label="link to the blog"></a>
+									<a href="article.html" class="slide-news__link pos-a" aria-label="link to the blog"></a>
 								</div>
 							</li>
 						</ul>
@@ -512,10 +512,10 @@
 						<span class="btn-txt">всі статті</span>
 						<span class="btn-arrows"></span>
 					</a>
-					<div class="news__video mt-114-60">
+					<div class="news__video pos-r mt-114-60">
 						<div data-watch data-watch-threshold="0.9" data-watch-once class="news__cover">
 							<img loading="lazy" class="ibg" src="@img/blog/poster.jpg" width="1320" height="593" alt="Image">
-							<h3 class="news__video-title split-words set-span">SCIENCE &<br>CREATION</h3>
+							<h3 class="news__video-title ff-acc pos-a split-words set-span">SCIENCE &<br>CREATION</h3>
 						</div>
 						<video width="1320" height="593" muted playsinline>
 							<source src="files/video.mp4" type="video/mp4" />

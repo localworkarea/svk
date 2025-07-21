@@ -514,7 +514,37 @@ p {
   }
 }
 
+.pos-r {
+  position: relative;
+}
 
+.pos-a {
+  position: absolute;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-clmn {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.place-center {
+  place-items: center;
+}
 
 .bg-dark {
   background-color: var(--primary);
