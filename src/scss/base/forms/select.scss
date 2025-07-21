@@ -144,11 +144,11 @@
 		left: 0;
 		overflow: hidden;
 		background-color: #fff;
-		box-shadow: 0 4px 20px 0 rgb(17, 27, 81, 0.15);
 		// border-top: 0;
 		// border: 1px solid #d9d9d9;
 		// border-top: 0;
 		// padding: 10px 0px 5px 0px;
+		box-shadow: 0 4px 20px 0 rgb(17, 27, 81, 0.15);
 		padding-inline: toRem(4) toRem(1);
 		padding-block: toRem(12);
 		.select_type-1 & {
@@ -227,11 +227,13 @@
 	&--show-top {
 		.select__options {
 			top: auto;
-			bottom: calc(100% - toRem(1));
-			border: 1px solid #d9d9d9;
-			border-bottom: 0;
-			border-radius: 4px 4px 0 0;
-			padding: 5px 0px 10px 0px;
+			bottom: calc(100% - toRem(-4));
+			box-shadow: 0 4px 20px 0 rgb(17, 27, 81, 0.15);
+		padding-inline: toRem(4) toRem(1);
+		padding-block: toRem(12);
+			.select_type-1 & {
+			border-radius: toRem(24);
+		}
 		}
 	}
 
