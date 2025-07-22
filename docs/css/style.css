@@ -388,8 +388,10 @@ p {
 .news__cover,
 .news__cover::before,
 .product-advantages__bg,
+.product-advantages__bg::after,
 .product-advantages__bg::before,
-.product-hero__bg:before,
+.product-hero__bg::after,
+.product-hero__bg::before,
 .products::before,
 .progress__bg {
   position: absolute;
@@ -445,6 +447,8 @@ p {
 .menu__bg::after,
 .news-type-2 .slide-news__img::after,
 .news__cover::before,
+.product-advantages__bg::after,
+.product-hero__bg::after,
 .products::before,
 .team-cta__body::before,
 .trust__bg::before {
@@ -509,6 +513,15 @@ p {
 }
 .txt-center {
   text-align: center
+}
+.uppercase {
+  text-transform: uppercase
+}
+.line-h-a {
+  line-height: 1.2
+}
+.line-h-b {
+  line-height: 1.47
 }
 .flex {
   display: flex
@@ -1589,7 +1602,6 @@ body.cursor-hidden {
   font-size: .75rem;
   line-height: 1.1;
   letter-spacing: .06em;
-  text-transform: uppercase;
   color: #fff;
   opacity: .5;
   transition: opacity .45s ease
@@ -1603,9 +1615,12 @@ body.cursor-hidden {
   opacity: 1;
   transition-delay: 0s
 }
+.products__side-btn:after,
 .products__side-btn:before {
   content: "";
-  position: absolute;
+  position: absolute
+}
+.products__side-btn:before {
   top: 0;
   right: 0;
   width: .125rem;
@@ -1613,8 +1628,6 @@ body.cursor-hidden {
   background-color: var(--white)
 }
 .products__side-btn::after {
-  content: "";
-  position: absolute;
   pointer-events: none;
   top: 50%;
   left: calc(-100% - .8125rem);
@@ -1650,12 +1663,6 @@ body.cursor-hidden {
 }
 .slide-products__item {
   max-width: 37.6875rem
-}
-.slide-products__title {
-  line-height: 1.2
-}
-.slide-products__text {
-  line-height: 1.47
 }
 .thumbs-products__item p {
   position: absolute;
@@ -1736,9 +1743,6 @@ body.cursor-hidden {
   font-weight: 600;
   margin-top: -.625rem
 }
-.progress__footer {
-  line-height: 1.46
-}
 .catalog-slider__intro .block-intro__text {
   line-height: 1
 }
@@ -1806,7 +1810,6 @@ body.cursor-hidden {
   gap: 1.125rem
 }
 .catalog-slider__product {
-  text-transform: uppercase;
   line-height: 1.31
 }
 .ceo-quote__body::before,
@@ -1992,7 +1995,6 @@ body.cursor-hidden {
   color: var(--white)
 }
 .ceo-quote__title {
-  text-transform: uppercase;
   margin-bottom: .625rem
 }
 .ceo-quote__text {
@@ -2003,7 +2005,6 @@ body.cursor-hidden {
 }
 .seo-text__content {
   color: var(--gray-accent);
-  line-height: 1.47;
   font-weight: 400
 }
 .seo-text__content p {
@@ -2065,10 +2066,14 @@ body.cursor-hidden {
   transform: translateY(0)!important;
   transition-delay: calc(var(--index)*.05s)
 }
-.product-hero__bg:before {
+.product-hero__bg::after,
+.product-hero__bg::before {
   content: "";
   z-index: 2;
   pointer-events: none
+}
+.product-hero__bg:before {
+  background: linear-gradient(to bottom,rgba(58,191,240,0) 65%,rgba(58,191,240,.4) 100%),rgba(17,27,81,.5)
 }
 .product-hero__year {
   max-width: -webkit-max-content;
@@ -2080,7 +2085,6 @@ body.cursor-hidden {
   mask: linear-gradient(to top,transparent 35%,#000 70%,#000 90%,transparent 100%)
 }
 .product-hero__year-title {
-  text-transform: uppercase;
   z-index: 2
 }
 .product-hero__intro .block-intro__title {
@@ -2115,27 +2119,21 @@ body.cursor-hidden {
   overflow: hidden;
   z-index: -1
 }
+.product-advantages__bg::after,
 .product-advantages__bg::before {
-  content: "";
-  background: linear-gradient(to bottom,rgba(5,156,213,0) 0,rgba(5,156,213,.3) 100%),linear-gradient(to top,rgba(17,27,81,0) 0,rgba(17,27,81,.6) 84%),rgba(17,27,81,.7);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover
+  content: ""
+}
+.product-advantages__bg::before {
+  background: linear-gradient(to bottom,rgba(5,156,213,0) 0,rgba(5,156,213,.3) 100%),linear-gradient(to top,rgba(17,27,81,0) 0,rgba(17,27,81,.6) 84%),rgba(17,27,81,.7)
 }
 .product-advantages__head {
   color: var(--white)
 }
 .product-advantages__title {
-  line-height: 1;
-  text-transform: uppercase
+  line-height: 1
 }
 .product-advantages__list-2 {
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 1.2
-}
-.product-advantages__content {
-  line-height: 1.47
+  font-weight: 500
 }
 .product-advantages__content-txt {
   text-wrap: auto
@@ -2151,7 +2149,6 @@ body.cursor-hidden {
 }
 .product-advantages__item {
   line-height: 1.3;
-  text-transform: uppercase;
   background-color: var(--primary);
   -webkit-transform: translateY(50%);
   transform: translateY(50%);
@@ -2199,10 +2196,6 @@ body.cursor-hidden {
   padding: 1.25rem 1.5625rem;
   color: var(--white)
 }
-.resolve__title {
-  text-transform: uppercase;
-  line-height: 1.2
-}
 .resolve__title:not(:last-child) {
   margin-bottom: .5rem
 }
@@ -2219,9 +2212,7 @@ body.cursor-hidden {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
-  text-transform: uppercase;
-  line-height: 1.2
+  z-index: 2
 }
 .product-plus__item {
   color: var(--white);
@@ -2232,14 +2223,10 @@ body.cursor-hidden {
   width: 2rem
 }
 .product-plus__title {
-  text-transform: uppercase;
   line-height: 1.3
 }
 .product-plus__title:not(:last-child) {
   margin-bottom: .3125rem
-}
-.product-plus__txt {
-  line-height: 1.47
 }
 .product-plus__svk-body p:not(:last-child) {
   margin-bottom: 1.375rem
@@ -2306,12 +2293,8 @@ body.cursor-hidden {
   opacity: 1
 }
 .product-catalog__svk .t-shadow {
-  text-transform: uppercase;
   -webkit-mask: linear-gradient(to top,transparent 35%,#000 70%,#000 90%,transparent 100%);
   mask: linear-gradient(to top,transparent 35%,#000 70%,#000 90%,transparent 100%)
-}
-.product-catalog__svk-t {
-  text-transform: uppercase
 }
 .card-product-catalog {
   height: 100%
@@ -2364,7 +2347,6 @@ body.cursor-hidden {
 }
 .card-product-catalog__title {
   font-weight: 600;
-  text-transform: uppercase;
   line-height: 1.1;
   text-wrap: auto
 }
@@ -2372,7 +2354,6 @@ body.cursor-hidden {
   width: 100%;
   opacity: 0;
   transition: opacity .45s ease;
-  line-height: 1.47;
   -webkit-padding-before: .5rem;
   padding-block-start: .5rem;
   text-wrap: auto
@@ -2409,11 +2390,7 @@ body.cursor-hidden {
 }
 .boxes-product__title {
   line-height: 1.076;
-  letter-spacing: .06em;
-  text-transform: uppercase
-}
-.boxes-product__txt {
-  line-height: 1.47
+  letter-spacing: .06em
 }
 .product-downld__body::before {
   content: "";
@@ -2608,8 +2585,7 @@ body.cursor-hidden {
   margin-bottom: -3.125rem
 }
 .product-experience__prod-t {
-  margin-bottom: .5625rem;
-  text-transform: uppercase
+  margin-bottom: .5625rem
 }
 .about__year .t-shadow {
   display: inline-block;
@@ -2621,7 +2597,6 @@ body.cursor-hidden {
   gap: 1.25rem
 }
 .about__li-subtitle {
-  line-height: 1.46;
   font-weight: 500
 }
 .slide-chronology {
@@ -2684,8 +2659,6 @@ body.cursor-hidden {
   bottom: 0;
   left: 0;
   width: 100%;
-  text-transform: uppercase;
-  line-height: 1.2;
   letter-spacing: .1em
 }
 .slide-prospects {
@@ -2741,8 +2714,7 @@ body.cursor-hidden {
   z-index: 2
 }
 .item-catalog__footer {
-  flex: 1;
-  line-height: 1.2
+  flex: 1
 }
 .item-catalog__footer span {
   display: block
@@ -2929,9 +2901,6 @@ body.cursor-hidden {
 .card__img {
   z-index: 3
 }
-.card__title {
-  text-transform: uppercase
-}
 .loaded .card__title .word .word-span {
   -webkit-transform: translateY(0);
   transform: translateY(0);
@@ -3059,9 +3028,6 @@ body.cursor-hidden {
 }
 .item-blog__img img {
   aspect-ratio: 364/256
-}
-.item-blog__title {
-  line-height: 1.2
 }
 .item-blog__link {
   z-index: 5
@@ -3235,7 +3201,6 @@ body.cursor-hidden {
 .manager__position {
   font-weight: 600;
   color: rgba(17,27,81,.31);
-  line-height: 1.46;
   margin-bottom: 1rem
 }
 .manager__phone {
@@ -3281,9 +3246,7 @@ body.cursor-hidden {
   grid-row: 1/3
 }
 .catalog-aside__title {
-  color: var(--white);
-  text-transform: uppercase;
-  line-height: 1.2
+  color: var(--white)
 }
 .catalog-aside__btn {
   padding-inline: 1.875rem!important;
@@ -3300,7 +3263,6 @@ body.cursor-hidden {
   background: linear-gradient(180deg,rgba(204,204,204,.42) 0,rgba(204,204,204,0) 38%)
 }
 .form-aside__title {
-  text-transform: uppercase;
   line-height: 1.07
 }
 .form-aside__form .form-samples__button {
@@ -3309,9 +3271,6 @@ body.cursor-hidden {
 }
 .form-aside__form .form-samples__button::before {
   display: none
-}
-.breadcrumb__list {
-  line-height: 1.46
 }
 .breadcrumb__item a span::before {
   background-color: var(--primary)
@@ -3323,7 +3282,6 @@ body.cursor-hidden {
   position: relative
 }
 .contacts__info {
-  text-transform: uppercase;
   line-height: 1.15;
   color: var(--white)
 }
@@ -3360,10 +3318,6 @@ body.cursor-hidden {
   background-size: 200% auto;
   background-position: 70% 40%;
   background-image: url(../img/contacts/contacts-frame.svg)
-}
-.map-block__title {
-  text-transform: uppercase;
-  line-height: 1.2
 }
 .map-block__link {
   margin-top: .6875rem
@@ -3409,7 +3363,6 @@ body.cursor-hidden {
   gap: 3.125rem
 }
 .form-departments__title {
-  text-transform: uppercase;
   color: var(--white)
 }
 .not-found {
@@ -3423,9 +3376,6 @@ body.cursor-hidden {
 .not-found__none {
   -webkit-mask: linear-gradient(to top,transparent 25%,#000 80%,#000 90%,transparent 100%);
   mask: linear-gradient(to top,transparent 25%,#000 80%,#000 90%,transparent 100%)
-}
-.not-found__title {
-  text-transform: uppercase
 }
 .not-found__link {
   margin-inline: auto
@@ -3663,11 +3613,8 @@ body.cursor-hidden {
     aspect-ratio: 932/716;
     max-width: 58.25rem
   }
-  .product-hero__bg:before {
-    background: url(../img/products-line/hero-bg-pc.svg),linear-gradient(to bottom,rgba(58,191,240,0) 65%,rgba(58,191,240,.4) 100%),rgba(17,27,81,.5);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover
+  .product-hero__bg::after {
+    background-image: url(../img/products-line/hero-bg-pc.svg)
   }
   .product-hero__sectors-img::before {
     width: 80vw;
@@ -3683,24 +3630,15 @@ body.cursor-hidden {
     padding-block: 7.125rem;
     min-height: 25rem
   }
-  .type-1 .product-advantages__bg::before {
-    background: url(../img/products-line/bg-advantages-1.svg),linear-gradient(to bottom,rgba(5,156,213,0) 0,rgba(5,156,213,.3) 100%),linear-gradient(to top,rgba(17,27,81,0) 0,rgba(17,27,81,.6) 84%),rgba(17,27,81,.7);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover
+  .type-1 .product-advantages__bg::after {
+    background-image: url(../img/products-line/bg-advantages-1.svg)
   }
-  .type-2 .product-advantages__bg::before,
-  .type-4 .product-advantages__bg::before {
-    background: url(../img/products-line/bg-advantages-2.svg),linear-gradient(to bottom,rgba(5,156,213,0) 0,rgba(5,156,213,.3) 100%),linear-gradient(to top,rgba(17,27,81,0) 0,rgba(17,27,81,.6) 84%),rgba(17,27,81,.7);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover
+  .type-2 .product-advantages__bg::after,
+  .type-4 .product-advantages__bg::after {
+    background-image: url(../img/products-line/bg-advantages-2.svg)
   }
-  .type-3 .product-advantages__bg::before {
-    background: url(../img/products-line/bg-advantages-3.svg),linear-gradient(to bottom,rgba(5,156,213,0) 0,rgba(5,156,213,.3) 100%),linear-gradient(to top,rgba(17,27,81,0) 0,rgba(17,27,81,.6) 84%),rgba(17,27,81,.7);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover
+  .type-3 .product-advantages__bg::after {
+    background-image: url(../img/products-line/bg-advantages-3.svg)
   }
   .product-advantages__body {
     gap: 1.25rem
@@ -3807,8 +3745,8 @@ body.cursor-hidden {
     padding-inline: 4.875rem;
     padding-block: 1.375rem
   }
-  .catalog .product-hero__bg:before {
-    background: url(../img/catalog/bg-catalog.svg),linear-gradient(to bottom,rgba(58,191,240,0) 65%,rgba(58,191,240,.4) 100%),rgba(17,27,81,.5)
+  .catalog .product-hero__bg::after {
+    background-image: url(../img/catalog/bg-catalog.svg)
   }
   .catalog__list {
     gap: 3.8125rem 1.75rem
@@ -3823,11 +3761,8 @@ body.cursor-hidden {
   .card__bg img {
     aspect-ratio: 1320/318
   }
-  .card__bg:before {
-    background: url(../img/catalog/bg-card-pc.svg),linear-gradient(to bottom,rgba(58,191,240,0) 65%,rgba(58,191,240,.4) 100%),rgba(17,27,81,.5);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover
+  .card__bg.product-hero__bg:after {
+    background-image: url(../img/catalog/bg-card-pc.svg)
   }
   .card__img {
     grid-column: 1/2;
@@ -4406,30 +4341,13 @@ body.cursor-hidden {
   }
 }
 @media (min-width:62.06125em) {
-  .blog__body,
-  .boxes-product,
-  .catalog__body,
-  .catalog__filters,
-  .ceo-quote__body,
-  .contacts__head,
-  .product-balance__container,
-  .product-hero__intro,
-  .product-hero__sectors,
-  .product-needs .block-intro,
-  .product-needs__list,
-  .prospects__slider,
-  .seo-text__body,
-  .similar__slider,
-  .specification,
-  .tare__body,
-  .team-cta__body,
-  .trust__wrapper {
-    max-width: 71.875rem;
+  .samples__body {
+    max-width: 62.375rem;
     margin-inline: auto;
     width: 100%
   }
-  .samples__body {
-    max-width: 62.375rem;
+  .container-2 {
+    max-width: 71.875rem;
     margin-inline: auto;
     width: 100%
   }
@@ -5996,11 +5914,8 @@ body.cursor-hidden {
   .seo-text__btn {
     margin-top: .625rem
   }
-  .product-hero__bg:before {
-    background: url(../img/products-line/hero-bg-mb.svg),linear-gradient(to bottom,rgba(58,191,240,0) 65%,rgba(58,191,240,.4) 100%),rgba(17,27,81,.5);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover
+  .product-hero__bg::after {
+    background-image: url(../img/products-line/hero-bg-mb.svg)
   }
   .product-hero__bg img {
     aspect-ratio: 325/373
@@ -6034,7 +5949,7 @@ body.cursor-hidden {
     -webkit-padding-after: 5rem;
     padding-block-end: 5rem
   }
-  .product-advantages__bg::before {
+  .product-advantages__bg::after {
     background-image: url(../img/products-line/bg-advantages-mb.svg)
   }
   .product-advantages__head {
@@ -6287,11 +6202,8 @@ body.cursor-hidden {
   .card__bg img {
     aspect-ratio: 325/318
   }
-  .card__bg:before {
-    background: url(../img/catalog/bg-card-mb.svg),linear-gradient(to bottom,rgba(58,191,240,0) 65%,rgba(58,191,240,.4) 100%),rgba(17,27,81,.5);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover
+  .card__bg.product-hero__bg:after {
+    background-image: url(../img/catalog/bg-card-mb.svg)
   }
   .card__img {
     margin-top: -65%

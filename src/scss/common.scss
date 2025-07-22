@@ -526,6 +526,18 @@ p {
   text-align: center;
 }
 
+.uppercase {
+  text-transform: uppercase;;
+}
+
+.line-h-a {
+  line-height: 1.2;
+}
+
+.line-h-b {
+  line-height: 1.47;
+}
+
 .flex {
   display: flex;
 }
@@ -549,6 +561,14 @@ p {
 .bg-dark {
   background-color: var(--primary);
   color: var(--white);
+}
+
+.container-2 {
+  @media (min-width:$tablet) {
+    max-width: toRem(1150);
+    margin-inline: auto;
+    width: 100%;
+  }
 }
 
 // == BUTTONS ==================
@@ -653,13 +673,6 @@ p {
   &--light {
     background-color: var(--white);
     color: var(--primary);
-    // @media (any-hover: hover){
-    //   &:hover{
-    //     background-color: var(--primary);
-    //     color: var(--white);
-    //     border: 1px solid var(--white);
-    //   }
-    // }
   }
 
   // .btn--dark

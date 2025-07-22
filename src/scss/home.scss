@@ -161,7 +161,7 @@
     font-size: toRem(12);
     line-height: 1.1;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     color: #fff;
     opacity: 0.5;
     transition: opacity 0.45s ease;
@@ -182,9 +182,13 @@
       }
     }
 
+    &:after,
     &:before {
       content: "";
       position: absolute;
+    }
+
+    &:before {
       top: 0;
       right: 0;
       width: toRem(2);
@@ -193,8 +197,6 @@
     }
 
     &::after {
-      content: "";
-      position: absolute;
       pointer-events: none;
       top: 50%;
       left: calc(-100% - toRem(13));
@@ -283,12 +285,12 @@
 
   // .slide-products__title
   &__title {
-    line-height: 1.2;
+    // line-height: 1.2;
   }
 
   // .slide-products__text
   &__text {
-    line-height: 1.47;
+    // line-height: 1.47;
 
     @media (min-width: $mobileSmall) {
       max-width: 90%;
@@ -683,7 +685,7 @@
 
   // .progress__footer
   &__footer {
-    line-height: 1.46;
+    // line-height: 1.46;
 
     @media (min-width: $mobileSmall) {
       margin-top: toRem(14);
@@ -974,7 +976,7 @@
   // .catalog-slider__product
   &__product {
     // @extend %fontProst;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     line-height: 1.31;
   }
 
@@ -1021,7 +1023,7 @@
   // .team-cta__body
   &__body {
     // position: relative;
-    @extend %container1150;
+    // @extend %container1150;
     // display: grid;
 
     @extend %beforeTeam;
@@ -1517,7 +1519,7 @@
 
   // .ceo-quote__body
   &__body {
-    @extend %container1150;
+    // @extend %container1150;
     // position: relative;
     // display: grid;
     @include adaptiveValue("padding-inline", 105, 50, 0, 1440.98, 480.98);
@@ -1549,7 +1551,7 @@
 
   // .ceo-quote__title
   &__title {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     margin-bottom: toRem(10);
   }
 
@@ -1595,7 +1597,7 @@
   // .seo-text__body
   &__body {
     font-size: toRem(12);
-    @extend %container1150;
+    // @extend %container1150;
 
     &._showmore-active {}
   }
@@ -1603,7 +1605,7 @@
   // .seo-text__content
   &__content {
     color: var(--gray-accent);
-    line-height: 1.47;
+    // line-height: 1.47;
     font-weight: 400;
 
     p {
@@ -1739,35 +1741,28 @@
   // .product-hero__bg
   &__bg {
     // position: relative;
-
-    &:before {
+    &::after,
+    &::before {
       content: "";
       @extend %absoluteTopLeft;
       z-index: 2;
       pointer-events: none;
-
-      @media (min-width: $mobileSmall) {
-        background:
-          url("@img/products-line/hero-bg-pc.svg"),
+    }
+    &:before {
+      background:
           linear-gradient(to bottom,
             rgba(58, 191, 240, 0) 65%,
             rgba(58, 191, 240, 0.4) 100%),
           rgb(17, 27, 81, 0.5);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+    }
+    &::after {
+      @extend %imgCover;
+      @media (min-width: $mobileSmall) {
+        background-image: url("@img/products-line/hero-bg-pc.svg");
       }
 
       @media (max-width: $mobileSmall) {
-        background:
-          url("@img/products-line/hero-bg-mb.svg"),
-          linear-gradient(to bottom,
-            rgba(58, 191, 240, 0) 65%,
-            rgba(58, 191, 240, 0.4) 100%),
-          rgb(17, 27, 81, 0.5);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        background-image: url("@img/products-line/hero-bg-mb.svg");
       }
     }
 
@@ -1793,9 +1788,6 @@
     max-width: max-content;
     margin-inline: auto;
 
-    // .t-shadow {
-    //   @extend %fontProst;
-    // }
 
     &:has(.product-hero__year-title) {
       .t-shadow {
@@ -1826,7 +1818,7 @@
   // .product-hero__year-title
   &__year-title {
     // @extend %fontProst;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     z-index: 2;
 
     @media (min-width: toEm(1200.98)) {
@@ -1852,7 +1844,7 @@
 
   // .product-hero__intro
   &__intro {
-    @extend %container1150;
+    // @extend %container1150;
     // display: grid;
     @extend %gap37-20;
 
@@ -1908,7 +1900,7 @@
   &__sectors {
     // display: grid;
     @extend %gap53-40;
-    @extend %container1150;
+    // @extend %container1150;
 
     // .product-hero__sectors--rev
     &--rev {}
@@ -2008,9 +2000,13 @@
     @extend %absoluteTopLeft;
     z-index: -1;
 
+    &::after,
     &::before {
       content: "";
       @extend %absoluteTopLeft;
+    }
+
+    &::before {
       background:
         linear-gradient(to bottom,
           rgba(5, 156, 213, 0) 0%,
@@ -2019,55 +2015,23 @@
           rgba(17, 27, 81, 0) 0%,
           rgba(17, 27, 81, 0.6) 84%),
         rgb(17, 27, 81, 0.7);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+    }
+
+    &::after {
+      @extend %imgCover;
 
       @media (min-width: $mobileSmall) {
         .type-1 & {
-          background:
-            url("@img/products-line/bg-advantages-1.svg"),
-            linear-gradient(to bottom,
-              rgba(5, 156, 213, 0) 0%,
-              rgba(5, 156, 213, 0.3) 100%),
-            linear-gradient(to top,
-              rgba(17, 27, 81, 0) 0%,
-              rgba(17, 27, 81, 0.6) 84%),
-            rgb(17, 27, 81, 0.7);
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
+          background-image: url("@img/products-line/bg-advantages-1.svg");
         }
 
         .type-2 &,
         .type-4 & {
-          background:
-            url("@img/products-line/bg-advantages-2.svg"),
-            linear-gradient(to bottom,
-              rgba(5, 156, 213, 0) 0%,
-              rgba(5, 156, 213, 0.3) 100%),
-            linear-gradient(to top,
-              rgba(17, 27, 81, 0) 0%,
-              rgba(17, 27, 81, 0.6) 84%),
-            rgb(17, 27, 81, 0.7);
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
+          background-image: url("@img/products-line/bg-advantages-2.svg");
         }
 
         .type-3 & {
-          background:
-            url("@img/products-line/bg-advantages-3.svg"),
-            linear-gradient(to bottom,
-              rgba(5, 156, 213, 0) 0%,
-              rgba(5, 156, 213, 0.3) 100%),
-            linear-gradient(to top,
-              rgba(17, 27, 81, 0) 0%,
-              rgba(17, 27, 81, 0.6) 84%),
-            rgb(17, 27, 81, 0.7);
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
+          background-image:url("@img/products-line/bg-advantages-3.svg");
         }
       }
 
@@ -2120,14 +2084,14 @@
   // .product-advantages__title
   &__title {
     line-height: 1;
-    text-transform: uppercase;
+    // text-transform: uppercase;
   }
 
   // .product-advantages__list-2
   &__list-2 {
     font-weight: 500;
-    text-transform: uppercase;
-    line-height: 1.2;
+    // text-transform: uppercase;
+    // line-height: 1.2;
 
     @media (max-width: $mobileSmall) {
       max-width: 85%;
@@ -2139,7 +2103,7 @@
 
   // .product-advantages__content
   &__content {
-    line-height: 1.47;
+    // line-height: 1.47;
 
     @media (min-width: $mobileSmall) {
       color: var(--white);
@@ -2209,7 +2173,7 @@
     @extend %gap50-28;
     // @extend %fontProst;
     line-height: 1.3;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     background-color: var(--primary);
     @include adaptiveValue("padding-block", 32, 18, 0, 1440.98, 480.98);
     @include adaptiveValue("padding-inline", 40, 22, 0, 1440.98, 480.98);
@@ -2382,8 +2346,8 @@
   // .resolve__title
   &__title {
     // @extend %fontProst;
-    text-transform: uppercase;
-    line-height: 1.2;
+    // text-transform: uppercase;
+    // line-height: 1.2;
 
     &:not(:last-child) {
       margin-bottom: toRem(8);
@@ -2425,8 +2389,8 @@
     width: 100%;
     z-index: 2;
     // @extend %fontProst;
-    text-transform: uppercase;
-    line-height: 1.2;
+    // text-transform: uppercase;
+    // line-height: 1.2;
 
     @media (min-width:$mobileSmall) {
       padding-block: toRem(15);
@@ -2517,7 +2481,7 @@
 
   // .product-plus__title
   &__title {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     // @extend %fontProst;
     line-height: 1.3;
     @include adaptiveValue("font-size", 17, 16, 0, 1440.98, 480.98);
@@ -2529,7 +2493,7 @@
 
   // .product-plus__txt
   &__txt {
-    line-height: 1.47;
+    // line-height: 1.47;
   }
 
   // .product-plus__container-b
@@ -2735,9 +2699,7 @@
     // text-align: center;
 
     .t-shadow {
-      // @extend %fontProst;
-      text-transform: uppercase;
-      // @include adaptiveValue("font-size", 250, 100, 0, 1440.98, 480.98);
+      // text-transform: uppercase;
 
       mask: linear-gradient(to top,
           transparent 35%,
@@ -2757,7 +2719,7 @@
 
   // .product-catalog__svk-t
   &__svk-t {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     @include adaptiveValue("margin-block-start", -70, -15, 0, 1440.98, 480.98);
   }
 }
@@ -2897,7 +2859,7 @@
   // .card-product-catalog__title
   &__title {
     font-weight: 600;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     line-height: 1.1;
     text-wrap: auto;
   }
@@ -2907,7 +2869,7 @@
     width: 100%;
     opacity: 0;
     transition: opacity 0.45s ease;
-    line-height: 1.47;
+    // line-height: 1.47;
     padding-block-start: toRem(8);
     text-wrap: auto;
 
@@ -2924,7 +2886,7 @@
 }
 
 .boxes-product {
-  @extend %container1150;
+  // @extend %container1150;
 
   // .boxes-product__list
   &__list {
@@ -3000,7 +2962,7 @@
     // @extend %fontProst;
     line-height: 1.076;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
+    // text-transform: uppercase;
 
     @media (min-width: $mobileSmall) {
       font-size: toRem(20);
@@ -3015,7 +2977,7 @@
 
   // .boxes-product__txt
   &__txt {
-    line-height: 1.47;
+    // line-height: 1.47;
 
     @media (min-width: $mobileSmall) {
       font-size: toRem(10);
@@ -3229,16 +3191,16 @@
 
 // ======= SECTION ====================================================
 .product-needs {
-  .block-intro {
-    @extend %container1150;
-  }
+  // .block-intro {
+  //   // @extend %container1150;
+  // }
 
   // .product-needs__container
   &__container {}
 
   // .product-needs__list
   &__list {
-    @extend %container1150;
+    // @extend %container1150;
   }
 }
 
@@ -3358,7 +3320,7 @@
 
   // .product-balance__container
   &__container {
-    @extend %container1150;
+    // @extend %container1150;
   }
 
   // .product-balance__block
@@ -3465,7 +3427,7 @@
 
   // .trust__wrapper
   &__wrapper {
-    @extend %container1150;
+    // @extend %container1150;
   }
 
   // .trust__body
@@ -3715,7 +3677,7 @@
   // .product-experience__prod-t
   &__prod-t {
     margin-bottom: toRem(9);
-    text-transform: uppercase;
+    // text-transform: uppercase;
   }
 
   // .product-experience__prod-tx
@@ -3786,7 +3748,7 @@
   // .about__li-subtitle
 
   &__li-subtitle {
-    line-height: 1.46;
+    // line-height: 1.46;
     font-weight: 500;
     @include adaptiveValue("font-size", 16, 9, 0, 1440.98, 480.98);
   }
@@ -3979,7 +3941,7 @@
 
   // .tare__body    
   &__body {
-    @extend %container1150;
+    // @extend %container1150;
     @extend %cirlceBefore;
 
     // display: grid;
@@ -4051,8 +4013,8 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    text-transform: uppercase;
-    line-height: 1.2;
+    // text-transform: uppercase;
+    // line-height: 1.2;
     letter-spacing: 0.1em;
 
     @media (min-width:$mobileSmall) {
@@ -4077,7 +4039,7 @@
   // .prospects__slider
 
   &__slider {
-    @extend %container1150;
+    // @extend %container1150;
   }
 
   // .prospects__wrapper
@@ -4132,14 +4094,10 @@
     @media (max-width:$mobileSmall){
        display: none; 
     }
-    &:before {
+    &::after {
       @media (min-width: $mobileSmall) {
-        background:
-          url("@img/catalog/bg-catalog.svg"),
-          linear-gradient(to bottom,
-            rgba(58, 191, 240, 0) 65%,
-            rgba(58, 191, 240, 0.4) 100%),
-          rgb(17, 27, 81, 0.5);
+        background-image:
+          url("@img/catalog/bg-catalog.svg");
       }
     }
   }
@@ -4150,12 +4108,12 @@
   // .catalog__filters
 
   &__filters {
-    @extend %container1150;
+    // @extend %container1150;
   }
 
   // .catalog__body
   &__body {
-    @extend %container1150;
+    // @extend %container1150;
   }
 
   // .catalog__list
@@ -4259,7 +4217,7 @@
   // .item-catalog__footer
   &__footer {
     flex: 1;
-    line-height: 1.2;
+    // line-height: 1.2;
 
     span {
       display: block;
@@ -4694,31 +4652,18 @@
       }
     }
 
-    &:before {
+    &.product-hero__bg {
+          &:after {
+            @media (min-width: $mobileSmall) {
+              background-image:
+                url("@img/catalog/bg-card-pc.svg");
+            }
+            @media (max-width: $mobileSmall) {
+              background-image:
+                url("@img/catalog/bg-card-mb.svg");
+            }
+          }
 
-      @media (min-width: $mobileSmall) {
-        background:
-          url("@img/catalog/bg-card-pc.svg"),
-          linear-gradient(to bottom,
-            rgba(58, 191, 240, 0) 65%,
-            rgba(58, 191, 240, 0.4) 100%),
-          rgb(17, 27, 81, 0.5);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-      }
-
-      @media (max-width: $mobileSmall) {
-        background:
-          url("@img/catalog/bg-card-mb.svg"),
-          linear-gradient(to bottom,
-            rgba(58, 191, 240, 0) 65%,
-            rgba(58, 191, 240, 0.4) 100%),
-          rgb(17, 27, 81, 0.5);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-      }
     }
 
   }
@@ -4755,7 +4700,7 @@
 
   // .card__title
   &__title {
-    text-transform: uppercase;
+    // text-transform: uppercase;
 
     .word {
       .word-span {
@@ -4792,7 +4737,7 @@
 }
 
 .specification {
-  @extend %container1150;
+  // @extend %container1150;
 
   .block-intro__head {
     @media (min-width:$mobile) {
@@ -4902,7 +4847,7 @@
 
   // .similar__slider
   &__slider {
-    @extend %container1150;
+    // @extend %container1150;
   }
 
   // .similar__wrapper
@@ -5096,7 +5041,7 @@
 
   // .blog__body
   &__body {
-    @extend %container1150;
+    // @extend %container1150;
   }
 
   // .blog__list
@@ -5208,7 +5153,7 @@
 
   // .item-blog__title
   &__title {
-    line-height: 1.2;
+    // line-height: 1.2;
   }
 
   // .item-blog__subtext
@@ -5585,7 +5530,7 @@
   &__position {
     font-weight: 600;
     color: rgb(17, 27, 81, 0.31);
-    line-height: 1.46;
+    // line-height: 1.46;
     margin-bottom: toRem(16);
 
     @media (min-width:$mobileSmall) {
@@ -5721,8 +5666,8 @@
   // .catalog-aside__title
   &__title {
     color: var(--white);
-    text-transform: uppercase;
-    line-height: 1.2;
+    // text-transform: uppercase;
+    // line-height: 1.2;
 
     @media (min-width:$mobileSmall) {
       margin-bottom: toRem(9);
@@ -5768,7 +5713,7 @@
 
   // .form-aside__title
   &__title {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     line-height: 1.07;
   }
 
@@ -5803,7 +5748,7 @@
     // @extend %flexCenter;
     @include adaptiveValue("gap", 14, 11);
     @include adaptiveValue("font-size", 16, 10);
-    line-height: 1.46;
+    // line-height: 1.46;
 
     @media (min-width:$mobileSmall) {
       flex-wrap: wrap;
@@ -5860,7 +5805,7 @@
 
   // .contacts__head
   &__head {
-    @extend %container1150;
+    // @extend %container1150;
     // display: grid;
     @include adaptiveValue("gap", 90, 40, 0, 1440.98, 480.98);
 
@@ -5888,7 +5833,7 @@
   // .contacts__info
   &__info {
     // position: relative;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     line-height: 1.15;
     color: var(--white);
     @extend %pddLeft84;
@@ -6010,8 +5955,8 @@
 
   // .map-block__title
   &__title {
-    text-transform: uppercase;
-    line-height: 1.2;
+    // text-transform: uppercase;
+    // line-height: 1.2;
   }
 
   // .map-block__link
@@ -6201,7 +6146,7 @@
 
 		// .form-departments__title
 		&__title {
-      text-transform: uppercase;
+      // text-transform: uppercase;
       color: var(--white);
       br {
         @media (max-width:$tablet){
@@ -6248,7 +6193,7 @@
 
 		// .not-found__title
 		&__title {
-      text-transform: uppercase;
+      // text-transform: uppercase;
       @media (min-width:$mobileSmall){
           margin-bottom: toRem(23);
       }
